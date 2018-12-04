@@ -21,6 +21,16 @@ import { WorldComponent } from './worlds/world-list/world/world.component';
 import { WorldEditComponent } from './worlds/world-edit/world-edit.component';
 import { WorldDetailComponent } from './worlds/world-detail/world-detail.component';
 import { WorldDeleteComponent } from './worlds/world-delete/world-delete.component';
+import { UsersComponent } from './users/users.component';
+import { UserLoginComponent } from './users/authentication/user-login/user-login.component';
+import { UserRegisterComponent } from './users/authentication/user-register/user-register.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
+import { UserDeleteComponent } from './users/user-delete/user-delete.component';
+import { UserLogoutComponent } from './users/authentication/user-logout/user-logout.component';
+import { Http, Response, HttpModule } from '@angular/http';
+import { FormsModule} from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -45,13 +55,23 @@ import { WorldDeleteComponent } from './worlds/world-delete/world-delete.compone
     WorldEditComponent,
     WorldDetailComponent,
     WorldDeleteComponent,
-    SeasonDeleteComponent
+    SeasonDeleteComponent,
+    UsersComponent,
+    UserLoginComponent,
+    UserRegisterComponent,
+    UserListComponent,
+    UserDetailComponent,
+    UserDeleteComponent,
+    UserLogoutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [ AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
