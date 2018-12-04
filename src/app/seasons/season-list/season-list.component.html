@@ -1,2 +1,23 @@
-<p>List Page Works
-</p>
+
+<br/>
+<div class="container half-black">
+  <table class="table">
+  <thead>
+  <tr>
+    <th>Name of Season</th>
+    <th>description</th>
+    <th>Year of release</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let season of seasons">
+      <td>{{season.name}}</td>
+      <td>{{season.description}}</td>
+      <td>{{season.year}}</td>
+      
+    </tr>
+  </tbody>
+</table>
+</div>
+<br/>
