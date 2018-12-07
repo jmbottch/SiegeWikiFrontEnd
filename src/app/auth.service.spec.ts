@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SeasonService } from './season.service';
+import { AuthService } from './auth.service';
 
-describe('SeasonService', () => {
+describe('AuthService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SeasonService = TestBed.get(SeasonService);
+    const service: AuthService = TestBed.get(AuthService);
     expect(service).toBeTruthy();
   });
 });

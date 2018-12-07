@@ -1,4 +1,16 @@
-<div class=" container row">
-  <app-season-list></app-season-list>
+<div class="row mt-5">
+  <div class="col-md-4 mb-3" *ngFor="let season of seasons">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{season.name}}
+        </h5>
+        <p class="card-text">
+         Year {{season.year}}, Season: {{season.season}}
+        </p>
+        
+        <a href="#" class="btn btn-primary">Meer Informatie</a>
+      </div>
+    </div>
+  </div>
 </div>
-

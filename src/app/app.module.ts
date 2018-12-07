@@ -22,15 +22,19 @@ import { WorldEditComponent } from './worlds/world-edit/world-edit.component';
 import { WorldDetailComponent } from './worlds/world-detail/world-detail.component';
 import { WorldDeleteComponent } from './worlds/world-delete/world-delete.component';
 import { UsersComponent } from './users/users.component';
-import { UserLoginComponent } from './users/authentication/user-login/user-login.component';
-import { UserRegisterComponent } from './users/authentication/user-register/user-register.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UserDeleteComponent } from './users/user-delete/user-delete.component';
-import { UserLogoutComponent } from './users/authentication/user-logout/user-logout.component';
 import { Http, Response, HttpModule } from '@angular/http';
 import { FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule} from  '@angular/common/http';
+import { AuthService } from './auth.service';
+import { SiegeService } from './siege.service';
+
 
 
 @NgModule({
@@ -57,21 +61,22 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     WorldDeleteComponent,
     SeasonDeleteComponent,
     UsersComponent,
-    UserLoginComponent,
-    UserRegisterComponent,
     UserListComponent,
     UserDetailComponent,
-    UserDeleteComponent,
-    UserLogoutComponent
+    UserDeleteComponent,    
+    RegisterComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
-  providers: [ AppComponent],
+  providers: [ AppComponent, AuthService, SiegeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

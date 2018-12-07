@@ -1,3 +1,15 @@
-<div class=" container row">
-    <app-operator-list></app-operator-list>
+<div class="row mt-5">
+  <div class="col-md-4 mb-3" *ngFor="let operator of operators">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{operator.name}}
+        </h5>
+        <p class="card-text">
+          {{operator.side}}
+        </p>
+        <a href="#" class="btn btn-primary">Meer Informatie</a>
+      </div>
+    </div>
   </div>
+</div>

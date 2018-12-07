@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SiegeService } from '../siege.service';
 
 
 @Component({
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SeasonsComponent implements OnInit {
   
+  seasons = []
   
-
+  constructor (private _siegeService: SiegeService) {}
   ngOnInit() {
+    return this._siegeService.getSeasons()
+    .subscribe(
+      res => this.seasons = res,
+      err => console.log(err)
+    )
   }
 
 }

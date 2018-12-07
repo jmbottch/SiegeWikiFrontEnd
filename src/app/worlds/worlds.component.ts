@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SiegeService } from '../siege.service';
 
 @Component({
   selector: 'app-worlds',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorldsComponent implements OnInit {
 
-  constructor() { }
+  worlds = []
+  constructor(private _siegeService: SiegeService) { }
 
   ngOnInit() {
+
+    this._siegeService.getWorlds()
+    .subscribe(
+      res => this.worlds = res,
+      err => console.log
+    )
   }
 
 }
