@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { OperatorsService } from './operators.service';
+import { SiegeService } from './siege.service';
 
-describe('OperatorsService', () => {
+describe('SiegeService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: OperatorsService = TestBed.get(OperatorsService);
+    const service: SiegeService = TestBed.get(SiegeService);
     expect(service).toBeTruthy();
   });
 });

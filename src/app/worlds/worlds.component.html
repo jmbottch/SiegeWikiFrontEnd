@@ -1,3 +1,15 @@
-<div class=" container row">
-    <app-world-list></app-world-list>
+<div class="row mt-5">
+  <div class="col-md-4 mb-3" *ngFor="let world of worlds">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{world.name}}
+        </h5>
+        <p class="card-text">
+          {{world.season}}
+        </p>
+        <a href="#" class="btn btn-primary">Meer Informatie</a>
+      </div>
+    </div>
   </div>
+</div>

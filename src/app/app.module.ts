@@ -33,6 +33,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule} from  '@angular/common/http';
 import { AuthService } from './auth.service';
+import { SiegeService } from './siege.service';
 
 
 
@@ -75,7 +76,7 @@ import { AuthService } from './auth.service';
     NgbModule,
     HttpClientModule
   ],
-  providers: [ AppComponent, AuthService],
+  providers: [ AppComponent, AuthService, SiegeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

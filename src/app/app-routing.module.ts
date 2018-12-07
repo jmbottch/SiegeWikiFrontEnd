@@ -5,6 +5,8 @@ import { WorldsComponent } from './worlds/worlds.component';
 import { SeasonComponent } from './seasons/season-list/season/season.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { SeasonsComponent } from './seasons/seasons.component';
+import { OperatorsComponent } from './operators/operators.component';
 
 const routes: Routes = [
   {
@@ -14,15 +16,15 @@ const routes: Routes = [
   },
   {
     path:'operators',
-    component: OperatorComponent
+    component: OperatorsComponent
   },
   {
     path:'maps',
     component: WorldsComponent
   },
   {
-    path:'seasons',
-    component: SeasonComponent
+    path:'operations',
+    component: SeasonsComponent
   },
   {
     path:'login',
