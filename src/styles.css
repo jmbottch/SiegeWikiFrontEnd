@@ -4,6 +4,7 @@
     border-radius: 25 px;
 }
 body {
-    background-color: black;
+    background-image: url('background.png');
+    background-size: cover;
 }
 

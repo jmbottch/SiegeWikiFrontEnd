@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SiegeService } from '../../siege.service';
+import { World } from '../world.model';
 
 @Component({
   selector: 'app-world-detail',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorldDetailComponent implements OnInit {
 
-  constructor() { }
+  world = {}
+
+  constructor(private _siegeService: SiegeService) { }
 
   ngOnInit() {
+    return this._siegeService.getWorlds()
+    .subscribe(
+      res => this.world = res,
+      err => console.log(err)
+    )
   }
 
 }

@@ -7,16 +7,24 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SeasonsComponent } from './seasons/seasons.component';
 import { OperatorsComponent } from './operators/operators.component';
+import { AppComponent } from './app.component';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
+import { HomeComponent } from './home/home.component';
+import { SeasonDetailComponent } from './seasons/season-detail/season-detail.component';
+import { OperatorDetailComponent } from './operators/operator-detail/operator-detail.component';
+import { WorldDetailComponent } from './worlds/world-detail/world-detail.component';
 
 const routes: Routes = [
   {
     path:'',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    component: HomeComponent
   },
+  //LIST VIEW ROUTES
   {
     path:'operators',
-    component: OperatorsComponent
+    component: OperatorsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'maps',
@@ -26,6 +34,7 @@ const routes: Routes = [
     path:'operations',
     component: SeasonsComponent
   },
+  // AUTHENTICATION ROUTES
   {
     path:'login',
     component: LoginComponent
@@ -33,6 +42,21 @@ const routes: Routes = [
   {
     path:'register',
     component: RegisterComponent
+  },
+  //SEASON ROUTES
+  {
+    path:'operations/detail',
+    component: SeasonDetailComponent,
+  },
+  //WORLD ROUTES
+  {
+    path:'maps/detail',
+    component: WorldDetailComponent
+  },
+  //OPERATOR ROUTES
+  {
+    path:'operators/detail',
+    component: OperatorDetailComponent
   }
 ];
 

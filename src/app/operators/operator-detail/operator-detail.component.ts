@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SiegeService } from '../../siege.service';
 
 @Component({
   selector: 'app-operator-detail',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OperatorDetailComponent implements OnInit {
 
-  constructor() { }
+  operator = {}
+
+  constructor(private _siegeService: SiegeService) { }
 
   ngOnInit() {
+
+    return this._siegeService.getOperators()
+    .subscribe(
+      res => this.operator = res, 
+      err => console.log(err)
+    )
   }
 
 }
