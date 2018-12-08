@@ -35,6 +35,7 @@ import { AuthService } from './auth.service';
 import { SiegeService } from './siege.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { UserComponent } from './users/user-list/user/user.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     WorldDetailComponent,
     WorldDeleteComponent,
     SeasonDeleteComponent,
+    UserComponent,
     UsersComponent,
     UserListComponent,
     UserDetailComponent,
