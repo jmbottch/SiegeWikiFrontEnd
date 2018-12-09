@@ -8,3 +8,15 @@ body {
     background-size: cover;
 }
 
+.createbutton {
+    width: 100%;
+}
+
+.deletebutton {
+    width: 50%;  
+}
+
+.editbutton {
+    width: 50%;
+}
+
