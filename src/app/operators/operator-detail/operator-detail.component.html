@@ -1,5 +1,29 @@
-<div class="container jumbotron mt-5">
-  <h3 class="text-muted">
-    Operator Detail Works
-  </h3>
+<div *ngIf="operator">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                Detailed Information about {{operator.name | uppercase}}
+              </h5>
+              <hr/>
+              <p class="card-text">
+
+                <b>Name:</b> 
+                <br/>
+                {{operator.name}}
+                <br/>
+                <b>Description:</b> 
+                <br/>
+                {{operator.description}}
+                <br/>
+                <b>Side:</b>
+                <br/>
+                {{operator.side}}
+                <br/>
+                <b>season: </b>
+                <br/>
+                {{operator.season}}
+                <br/>
+              </p>
+              </div>
+    </div>
 </div>

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { OperatorComponent } from './operators/operator-list/operator/operator.component';
 import { WorldsComponent } from './worlds/worlds.component';
 import { SeasonComponent } from './seasons/season-list/season/season.component';
 import { LoginComponent } from './login/login.component';

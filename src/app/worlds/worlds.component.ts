@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SiegeService } from '../siege.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { World } from './world.model';
 
 @Component({
   selector: 'app-worlds',
@@ -9,6 +11,7 @@ import { SiegeService } from '../siege.service';
 export class WorldsComponent implements OnInit {
 
   worlds = []
+  selectedWorld : World;
   constructor(private _siegeService: SiegeService) { }
 
   ngOnInit() {
@@ -18,6 +21,10 @@ export class WorldsComponent implements OnInit {
       res => this.worlds = res,
       err => console.log
     )
+  }
+
+  onSelect(world: World): void {
+    this.selectedWorld = world;
   }
 
 }

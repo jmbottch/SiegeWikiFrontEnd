@@ -8,8 +8,9 @@
         <p class="card-text">
           {{operator.side}}
         </p>
-        <a routerLink="/operators/detail" class="btn btn-primary">Meer Informatie</a>
+        <a (click)="onSelect(operator)" class="btn btn-primary">Meer Informatie</a>
       </div>
     </div>
   </div>
 </div>
+<app-operator-detail [operator]="selectedOperator"></app-operator-detail>

@@ -1,5 +1,50 @@
-<div class="container jumbotron mt-5">
-  <h3 class="text-muted">
-    Worls Detail Works
-  </h3>
+<div *ngIf="world">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                Detailed Information about {{world.name | uppercase}}
+              </h5>
+              <hr/>
+              <p class="card-text">
+
+                <b>Name:</b> 
+                <br/>
+                {{world.name}}
+                <br/>
+                <b>Description:</b> 
+                <br/>
+                {{world.description}}
+                <br/>
+                <b>season: </b>
+                <br/>
+                {{world.season}}
+                <br/>
+                <b>Available in Ranked: </b>
+                <br/>
+                {{world.availableInRanked}}
+              </p>
+              </div>
+    </div>
 </div>
+
+  <!-- <h2>{{world.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{world.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="world.name" placeholder="name"/>
+    </label>
+  </div>
+
+</div>
+
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title">
+      {{world.name}}
+    </h5>
+    <p class="card-text">
+      {{world.season}}
+    </p>
+    <a class="btn btn-primary" (click)="onSelect(world)">Meer Informatie</a>
+  </div>
+</div> -->

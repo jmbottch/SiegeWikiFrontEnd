@@ -1,5 +1,36 @@
-<div class="container jumbotron mt-5">
-  <h3 class="text-muted">
-    Season Detail Works
-  </h3>
+<div *ngIf="season">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                Detailed Information about {{season.name | uppercase}}
+              </h5>
+              <hr/>
+              <p class="card-text">
+
+                <b>Name:</b> 
+                <br/>
+                {{season.name}}
+                <br/>
+                <b>Description:</b> 
+                <br/>
+                {{season.description}}
+                <br/>
+                <b>Year: </b>
+                <br/>
+                {{season.year}}
+                <br/>
+                <b>Season: </b>
+                <br/>
+                {{season.season}}
+                <br/>
+                <b>Operators:</b>
+                <br/>
+                --operators--
+                <br/>
+                <b>Maps: </b>
+                <br/>
+                --maps--
+              </p>
+              </div>
+    </div>
 </div>

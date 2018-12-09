@@ -9,8 +9,9 @@
          Year {{season.year}}, Season: {{season.season}}
         </p>
         
-        <a routerLink="/operations/detail" class="btn btn-primary">Meer Informatie</a>
+        <a (click)="onSelect(season)" class="btn btn-primary">Meer Informatie</a>
       </div>
     </div>
   </div>
 </div>
+<app-season-detail [season]="selectedSeason"></app-season-detail>

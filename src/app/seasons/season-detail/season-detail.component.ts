@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SiegeService } from '../../siege.service';
+import { Season } from '../season.model';
 
 @Component({
   selector: 'app-season-detail',
@@ -8,17 +9,11 @@ import { SiegeService } from '../../siege.service';
 })
 export class SeasonDetailComponent implements OnInit {
 
-  season = {}
+  @Input() season: Season;
 
   constructor(private _siegeService: SiegeService) { }
 
   ngOnInit() {
-  
-    return this._siegeService.getSeasons()
-    .subscribe(
-      res => this.season = res,
-      err => console.log(err)
-    )
   }
 
 }

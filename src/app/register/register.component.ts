@@ -11,7 +11,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class RegisterComponent implements OnInit {
 
-  registerUserData = {}
+  registerUserData = {
+    name:String,
+    password: String
+  }
 
   constructor(private _auth: AuthService,
     private _router: Router) { }

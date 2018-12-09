@@ -9,7 +9,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  loginUserData = {}
+  loginUserData = {
+    name:String,
+    password:String
+  }
   constructor(private _auth: AuthService,
     private _router: Router) { }
 
