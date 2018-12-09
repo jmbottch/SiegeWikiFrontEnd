@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SiegeService } from '../siege.service';
+import { Season } from './season.model';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { SiegeService } from '../siege.service';
 export class SeasonsComponent implements OnInit {
   
   seasons = []
+  selectedSeason: Season;
   
   constructor (private _siegeService: SiegeService) {}
   ngOnInit() {
@@ -18,6 +20,10 @@ export class SeasonsComponent implements OnInit {
       res => this.seasons = res,
       err => console.log(err)
     )
+  }
+
+  onSelect(season:Season) : void {
+    this.selectedSeason = season;
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SiegeService } from '../siege.service';
+import { Character } from './operator.model';
 
 @Component({
   selector: 'app-operators',
@@ -8,7 +9,8 @@ import { SiegeService } from '../siege.service';
 })
 export class OperatorsComponent implements OnInit {
 
-  operators = [];
+  operators = []
+  selectedOperator: Character;
 
   constructor(private _siegeService: SiegeService) { }
 
@@ -18,6 +20,10 @@ export class OperatorsComponent implements OnInit {
       res => this.operators = res,
       err => console.log(err)
     )
+  }
+
+  onSelect(operator:Character) : void {
+    this.selectedOperator = operator
   }
 
 }

@@ -1,5 +1,11 @@
+<div class="card mt-5">
+    <div class="card-body">
+        <a class="btn btn-success createbutton">Niewe Map aanmaken</a>
+    </div>
+  </div>
+
 <div class="row mt-5">
-  <div class="col-md-4 mb-3" *ngFor="let world of worlds">
+  <div class="col-md-4 mb-3" *ngFor="let world of worlds" [class.selected] = "world === selectedWorld">
     <div class="card text-center">
       <div class="card-body">
         <h5 class="card-title">
@@ -8,8 +14,10 @@
         <p class="card-text">
           {{world.season}}
         </p>
-        <a href="#" class="btn btn-primary">Meer Informatie</a>
+        <a class="btn btn-primary" (click)="onSelect(world)">Meer Informatie</a>
       </div>
     </div>
   </div>
 </div>
+
+<app-world-detail [world]="selectedWorld"></app-world-detail>

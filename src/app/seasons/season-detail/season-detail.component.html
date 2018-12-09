@@ -1,3 +1,40 @@
-<p>
-  season-detail works!
-</p>
+<div *ngIf="season">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                Detailed Information about {{season.name | uppercase}}
+              </h5>
+              <hr/>
+              <p class="card-text">
+
+                <b>Name:</b> 
+                <br/>
+                {{season.name}}
+                <br/>
+                <b>Description:</b> 
+                <br/>
+                {{season.description}}
+                <br/>
+                <b>Year: </b>
+                <br/>
+                {{season.year}}
+                <br/>
+                <b>Season: </b>
+                <br/>
+                {{season.season}}
+                <br/>
+                <b>Operators:</b>
+                <br/>
+                --operators--
+                <br/>
+                <b>Maps: </b>
+                <br/>
+                --maps--
+              </p>
+              </div>
+              <div>
+                    <a class="btn btn-warning editbutton">Edit</a> 
+                    <a class="btn btn-danger deletebutton">Delete</a> 
+            </div>   
+    </div>
+</div>

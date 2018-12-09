@@ -1,3 +1,9 @@
+<div class="card mt-5">
+    <div class="card-body">
+        <a class="btn btn-success createbutton">Niewe Operation aanmaken</a>
+    </div>
+  </div>
+
 <div class="row mt-5">
   <div class="col-md-4 mb-3" *ngFor="let season of seasons">
     <div class="card text-center">
@@ -9,8 +15,9 @@
          Year {{season.year}}, Season: {{season.season}}
         </p>
         
-        <a href="#" class="btn btn-primary">Meer Informatie</a>
+        <a (click)="onSelect(season)" class="btn btn-primary">Meer Informatie</a>
       </div>
     </div>
   </div>
 </div>
+<app-season-detail [season]="selectedSeason"></app-season-detail>

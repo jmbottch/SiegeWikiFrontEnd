@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SiegeService } from '../../siege.service';
+import { Character } from '../operator.model';
 
 @Component({
   selector: 'app-operator-detail',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OperatorDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() operator: Character
+
+  constructor(private _siegeService: SiegeService) { }
 
   ngOnInit() {
   }

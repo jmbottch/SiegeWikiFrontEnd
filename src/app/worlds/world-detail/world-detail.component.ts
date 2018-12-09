@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SiegeService } from '../../siege.service';
+import { World } from '../world.model';
 
 @Component({
   selector: 'app-world-detail',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorldDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() world : World
+
+  constructor(private _siegeService: SiegeService) { }
 
   ngOnInit() {
   }

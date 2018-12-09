@@ -1,3 +1,34 @@
-<p>
-  world-detail works!
-</p>
+<div *ngIf="world">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                Detailed Information about {{world.name | uppercase}}
+              </h5>
+              <hr/>
+              <p class="card-text">
+
+                <b>Name:</b> 
+                <br/>
+                {{world.name}}
+                <br/>
+                <b>Description:</b> 
+                <br/>
+                {{world.description}}
+                <br/>
+                <b>season: </b>
+                <br/>
+                {{world.season}}
+                <br/>
+                <b>Available in Ranked: </b>
+                <br/>
+                {{world.availableInRanked}}
+              </p>
+              </div>
+              <div>
+                  <a class="btn btn-warning editbutton">Edit</a> 
+                  <a class="btn btn-danger deletebutton">Delete</a> 
+          </div>   
+    </div>
+</div>
+
+  
