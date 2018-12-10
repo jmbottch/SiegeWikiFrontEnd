@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Season } from '../season.model';
 import { SiegeService } from '../../siege.service';
-import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-season-create',
@@ -11,27 +11,29 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
 export class SeasonCreateComponent implements OnInit {
 
   title = 'Create Season';
-  seasonCreateForm = new FormGroup ({
-
-    name : new FormControl(''),
-    description : new FormControl(''),
-    year: new FormControl(''),
-    season: new FormControl('')
-
-  });
+  
+  seasonCreate = {
+    name:String,
+    description: String,
+    year: Number,
+    sesason: Number
+  }
   
 
-  constructor(private _siegeService:SiegeService, private fb: FormBuilder)  {
+  constructor(private _siegeService:SiegeService)  { }
 
-    this.createForm();
-   }
+  
 
-   createForm() {
-     this.seasonCreateForm = this.fb.group(this.seasonCreateForm);
-   }
-
-   addSeason(name, description, year, season) {
-     this._siegeService.addSeason(name, description, year, season);
+   addSeason() {
+     this._siegeService.addSeason(this.seasonCreate)
+      .subscribe(
+        res => {
+          console.log(res) 
+        },
+        err => {
+          console.log(err)
+        }
+      )
    }
 
   ngOnInit() {

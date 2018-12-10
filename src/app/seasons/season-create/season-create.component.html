@@ -4,33 +4,59 @@
     <hr/>
   </div>
   <div class="card-body">
-    <form [formGroup] = "seasonCreateForm" (ngSubmit)="addSeason()">
-      <div class="form-group">
-        <label class="col-md-4">
-          Operation Name:
-        </label>
-        <input type="text" class="form-control" formControlName="name" />
-      </div>
-      <div class="form-group">
-        <label class="col-md-4">
-          Description:
-        </label>
-        <input type="text" class="form-control" formControlName="description" />
-      </div>
-      <div class="form-group">
-        <label class="col-md-4">
-          Year:
-        </label>
-        <input type="text" class="form-control" formControlName="year" />
-      </div>
-      <div class="form-group">
-        <label class="col-md-4">
-          Season:
-        </label>
-        <input type="text" class="form-control" name="season" />
-      </div>
-
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+      <form class="form">
+        <div class="form-group">
+          <label for="name1">Operation name:</label>
+          <input type="text" [(ngModel)]="seasonCreate.name" name="name" class="form-control rounded-0" required>
+        </div>
+        <div class="form-group">
+          <label>Description: </label>
+          <input type="text" [(ngModel)]="seasonCreate.description" name="description" class="form-control rounded-0"  required>
+        </div>
+        <div class="form-group">
+            <label>Year: </label>
+            <input type="text" [(ngModel)]="seasonCreate.year" name="year" class="form-control rounded-0"  required>
+          </div>
+          <div class="form-group">
+              <label>Season: </label>
+              <input type="text" [(ngModel)]="seasonCreate.season" name="year" class="form-control rounded-0"  required>
+            </div>
+        <button type="button" (click)="addSeason()" class="btn btn-primary float-right">Add Season</button>
+      </form>
+    </div>
+  
 </div>
+
+
+
+
+  <!-- <div class="card-body">
+      <form [formGroup] = "seasonCreate" (ngSubmit)="addSeason()">
+        <div class="form-group">
+          <label class="col-md-4">
+            Operation Name:
+          </label>
+          <input type="text" class="form-control" name="name" />
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">
+            Description:
+          </label>
+          <input type="text" class="form-control" name="description" />
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">
+            Year:
+          </label>
+          <input type="text" class="form-control" name="year" />
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">
+            Season:
+          </label>
+          <input type="text" class="form-control" name="season" />
+        </div>
+  
+        <button type="submit">Submit</button>
+      </form>
+    </div> -->

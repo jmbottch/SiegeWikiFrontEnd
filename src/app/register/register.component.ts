@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
       },
       err => {
         if(err instanceof HttpErrorResponse) {
-          if (err.status === 500){
+          if (err.status === 401){
             this._router.navigate(['/login'])
           }
 

@@ -22,29 +22,22 @@ private _seasonUrl = "http://siegewiki.herokuapp.com/api/season";
 
   constructor(private http: HttpClient) { }
 
+  //WORLDS API CALLS
   getWorlds() {
     return this.http.get<any>(this._worldsUrl)
   }
 
+  //OPERATORS API CALLS
   getOperators() {
     return this.http.get<any>(this._operatorsUrl)
   }
 
-  //SEASON API CALLS
+  //SEASONS API CALLS
   getSeasons() {
     return this.http.get<any>(this._seasonsUrl)
   }
 
-  addSeason(name, description, year, season) {
-    const uri = 'http://siegewiki.herokuapp.com/api/season';
-    const obj = {
-      name: name,
-      description: description,
-      year: year,
-      season: season
-    };
-    this.http.post(uri, obj)
-    .subscribe(res => console.log('Done'));
-
+  addSeason(season) {
+    return this.http.post<any>(this._seasonUrl, season)
   }
 }

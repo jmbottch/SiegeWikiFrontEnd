@@ -33,6 +33,7 @@ import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { UserComponent } from './users/user-list/user/user.component';
 import { SeasonCreateComponent } from './seasons/season-create/season-create.component';
+import { WorldCreateComponent } from './worlds/world-create/world-create.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { SeasonCreateComponent } from './seasons/season-create/season-create.com
     LoginComponent,
     HomeComponent,
     SeasonCreateComponent,
+    WorldCreateComponent,
    
   ],  
   imports: [
