@@ -1,0 +1,36 @@
+<div class="card mt-5">
+  <div class="card-heading text-center">
+    Create New Operation
+    <hr/>
+  </div>
+  <div class="card-body">
+    <form [formGroup] = "seasonCreateForm" (ngSubmit)="addSeason()">
+      <div class="form-group">
+        <label class="col-md-4">
+          Operation Name:
+        </label>
+        <input type="text" class="form-control" formControlName="name" />
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">
+          Description:
+        </label>
+        <input type="text" class="form-control" formControlName="description" />
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">
+          Year:
+        </label>
+        <input type="text" class="form-control" formControlName="year" />
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">
+          Season:
+        </label>
+        <input type="text" class="form-control" name="season" />
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>

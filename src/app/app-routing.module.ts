@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { SeasonDetailComponent } from './seasons/season-detail/season-detail.component';
 import { OperatorDetailComponent } from './operators/operator-detail/operator-detail.component';
 import { WorldDetailComponent } from './worlds/world-detail/world-detail.component';
+import { SeasonCreateComponent } from './seasons/season-create/season-create.component';
 
 const routes: Routes = [
   {
@@ -44,8 +45,8 @@ const routes: Routes = [
   },
   //SEASON ROUTES
   {
-    path:'operations/detail',
-    component: SeasonDetailComponent,
+    path:'operations/create',
+    component: SeasonCreateComponent,
   },
   //WORLD ROUTES
   {

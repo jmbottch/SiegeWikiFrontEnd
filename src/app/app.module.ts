@@ -21,7 +21,7 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UserDeleteComponent } from './users/user-delete/user-delete.component';
 import { Http, Response, HttpModule } from '@angular/http';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, FormGroup, FormBuilder, Validators, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -32,6 +32,7 @@ import { SiegeService } from './siege.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { UserComponent } from './users/user-list/user/user.component';
+import { SeasonCreateComponent } from './seasons/season-create/season-create.component';
 
 
 @NgModule({
@@ -59,15 +60,20 @@ import { UserComponent } from './users/user-list/user/user.component';
     UserDeleteComponent,    
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    SeasonCreateComponent,
+   
   ],  
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    
+
   ],
   providers: [ AppComponent, AuthService, AuthGuard, SiegeService,
   {
