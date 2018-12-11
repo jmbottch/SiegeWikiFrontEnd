@@ -25,8 +25,8 @@
               </p>
               </div>
               <div>
-                  <a class="btn btn-warning editbutton">Edit</a> 
-                  <a class="btn btn-danger deletebutton">Delete</a> 
+                  <a *ngIf="_authService.loggedIn()" routerLink="/maps/edit"class="btn btn-warning editbutton">Edit</a> 
+                  <a *ngIf="_authService.loggedIn()" (click)="deleteWorld()" class="btn btn-danger deletebutton">Delete</a> 
           </div>   
     </div>
 </div>

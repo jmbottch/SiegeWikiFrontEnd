@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SiegeService } from '../siege.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { World } from './world.model';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-worlds',
@@ -12,7 +13,7 @@ export class WorldsComponent implements OnInit {
 
   worlds = []
   selectedWorld : World;
-  constructor(private _siegeService: SiegeService) { }
+  constructor(private _siegeService: SiegeService, private _authService : AuthService) { }
 
   ngOnInit() {
 

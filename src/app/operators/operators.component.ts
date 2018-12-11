@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SiegeService } from '../siege.service';
 import { Character } from './operator.model';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-operators',
@@ -12,7 +13,7 @@ export class OperatorsComponent implements OnInit {
   operators = []
   selectedOperator: Character;
 
-  constructor(private _siegeService: SiegeService) { }
+  constructor(private _siegeService: SiegeService, private _authService: AuthService) { }
 
   ngOnInit() {
     return this._siegeService.getOperators()

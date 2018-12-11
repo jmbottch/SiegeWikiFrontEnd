@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SiegeService } from '../siege.service';
 import { Season } from './season.model';
+import { AuthService } from '../auth.service';
+
 
 
 @Component({
@@ -11,14 +13,14 @@ import { Season } from './season.model';
 export class SeasonsComponent implements OnInit {
   
   seasons = []
-  selectedSeason: Season;
+  public selectedSeason: Season;
   
-  constructor (private _siegeService: SiegeService) {}
+  constructor (private _siegeService: SiegeService, private _authService : AuthService) {}
   ngOnInit() {
-    return this._siegeService.getSeasons()
+    this._siegeService.getSeasons()
     .subscribe(
       res => this.seasons = res,
-      err => console.log(err)
+      err => console.log
     )
   }
 

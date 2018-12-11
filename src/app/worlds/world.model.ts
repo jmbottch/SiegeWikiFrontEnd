@@ -1,3 +1,3 @@
 export class World {
-    constructor(public id: number, public name:string, public description: string, public availableInRanked: boolean) {}
+    constructor(public id: Number, public name:String, public description: String, public availableInRanked: Boolean) {}
 }

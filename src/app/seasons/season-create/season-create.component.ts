@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Season } from '../season.model';
 import { SiegeService } from '../../siege.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { World } from 'src/app/worlds/world.model';
 
 @Component({
   selector: 'app-season-create',
@@ -11,32 +12,32 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class SeasonCreateComponent implements OnInit {
 
   title = 'Create Season';
+
   
   seasonCreate = {
     name:String,
     description: String,
     year: Number,
-    sesason: Number
+    season: Number
+    
   }
   
 
   constructor(private _siegeService:SiegeService)  { }
 
-  
-
-   addSeason() {
-     this._siegeService.addSeason(this.seasonCreate)
-      .subscribe(
-        res => {
-          console.log(res) 
-        },
-        err => {
-          console.log(err)
-        }
-      )
-   }
-
   ngOnInit() {
+  }
+
+  addSeason() {
+    this._siegeService.addSeason(this.seasonCreate)
+     .subscribe(
+       res => {
+         console.log(res) 
+       },
+       err => {
+         console.log(err)
+       }
+     )
   }
 
 }

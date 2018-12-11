@@ -6,7 +6,7 @@
   <div class="card-body">
       <form class="form">
         <div class="form-group">
-          <label for="name1">Operation name:</label>
+          <label for="name2">Operation name:</label>
           <input type="text" [(ngModel)]="seasonCreate.name" name="name" class="form-control rounded-0" required>
         </div>
         <div class="form-group">
@@ -15,11 +15,11 @@
         </div>
         <div class="form-group">
             <label>Year: </label>
-            <input type="text" [(ngModel)]="seasonCreate.year" name="year" class="form-control rounded-0"  required>
+            <input type="number" [(ngModel)]="seasonCreate.year" name="year" class="form-control rounded-0"  required>
           </div>
           <div class="form-group">
               <label>Season: </label>
-              <input type="text" [(ngModel)]="seasonCreate.season" name="year" class="form-control rounded-0"  required>
+              <input type="number" [(ngModel)]="seasonCreate.season" name="season" class="form-control rounded-0"  required>
             </div>
         <button type="button" (click)="addSeason()" class="btn btn-primary float-right">Add Season</button>
       </form>

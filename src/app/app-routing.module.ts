@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WorldsComponent } from './worlds/worlds.component';
-import { SeasonComponent } from './seasons/season-list/season/season.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SeasonsComponent } from './seasons/seasons.component';
@@ -14,6 +13,15 @@ import { SeasonDetailComponent } from './seasons/season-detail/season-detail.com
 import { OperatorDetailComponent } from './operators/operator-detail/operator-detail.component';
 import { WorldDetailComponent } from './worlds/world-detail/world-detail.component';
 import { SeasonCreateComponent } from './seasons/season-create/season-create.component';
+import { WorldCreateComponent } from './worlds/world-create/world-create.component';
+import { OperatorCreateComponent } from './operators/operator-create/operator-create.component';
+import { OperatorDeleteComponent } from './operators/operator-delete/operator-delete.component';
+import { SeasonDeleteComponent } from './seasons/season-delete/season-delete.component';
+import { WorldDeleteComponent } from './worlds/world-delete/world-delete.component';
+import { SeasonEditComponent } from './seasons/season-edit/season-edit.component';
+import { UserDeleteComponent } from './user-delete/user-delete.component';
+import { OperatorEditComponent } from './operators/operator-edit/operator-edit.component';
+import { WorldEditComponent } from './worlds/world-edit/world-edit.component';
 
 const routes: Routes = [
   {
@@ -23,8 +31,7 @@ const routes: Routes = [
   //LIST VIEW ROUTES
   {
     path:'operators',
-    component: OperatorsComponent,
-    canActivate: [AuthGuard]
+    component: OperatorsComponent
   },
   {
     path:'maps',
@@ -43,20 +50,47 @@ const routes: Routes = [
     path:'register',
     component: RegisterComponent
   },
+  {
+    path:'deleteUser',
+    component: UserDeleteComponent
+  },
   //SEASON ROUTES
   {
     path:'operations/create',
     component: SeasonCreateComponent,
   },
+  {
+    path:'operations/delete',
+    component:SeasonDeleteComponent
+  },
+  {
+    path: 'operations/edit',
+    component: SeasonEditComponent
+  },
   //WORLD ROUTES
   {
-    path:'maps/detail',
-    component: WorldDetailComponent
+    path:'maps/create',
+    component: WorldCreateComponent
+  },
+  {
+    path:'maps/delete',
+    component: WorldDeleteComponent
+  },
+  {
+    path:'maps/edit',
+    component: WorldEditComponent
   },
   //OPERATOR ROUTES
   {
-    path:'operators/detail',
-    component: OperatorDetailComponent
+    path:'operators/create',
+    component: OperatorCreateComponent
+  },
+  { path: 'operators/delete',
+    component: OperatorDeleteComponent
+  },
+  {
+    path: 'operators/edit',
+    component: OperatorEditComponent
   }
 ];
 

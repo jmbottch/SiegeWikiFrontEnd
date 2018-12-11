@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { World } from '../world.model';
 import { SiegeService } from '../../siege.service';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
-import { Season } from 'src/app/seasons/season.model';
+import { World } from '../world.model';
 
 @Component({
   selector: 'app-world-create',
@@ -11,16 +10,28 @@ import { Season } from 'src/app/seasons/season.model';
 })
 export class WorldCreateComponent implements OnInit {
 
-  worldCreateFrom = new FormGroup ({
-
-    name: new FormControl(''),
-    description: new FormControl(''),
+  worldCreateForm = {
     
-  })
+    name: String,
+    description: String,
+    availableInRanked: Boolean
+  }
 
-  constructor() { }
+  constructor(private _siegeService : SiegeService) { }
 
   ngOnInit() {
+  }
+
+  addWorld() {
+    this._siegeService.addWorld(this.worldCreateForm)
+     .subscribe(
+       res => {
+         console.log(res) 
+       },
+       err => {
+         console.log(err)
+       }
+     )
   }
 
 }

@@ -1,3 +1,36 @@
-<p>
-  operator-edit works!
-</p>
+<div class="card mt-5">
+    <div class="card-heading text-center">
+      Edit Operator
+      <hr />
+    </div>
+    <div class="card-body">
+      <form class="form">
+        <div class="form-group">
+          <label for="name">Operator name:</label>
+          <input type="text" [(ngModel)]="operator.name" name="name" class="form-control rounded-0" required>
+        </div>
+        <div class="form-group">
+          <label>Description: </label>
+          <input type="text" [(ngModel)]="operator.description" name="description" class="form-control rounded-0"
+            required>
+        </div>
+        <div class="form-group">
+            <label>Side: </label>
+              <select id="OperatorSelector" [(ngModel)]="operator.side" name="side" style="width: 100%;" class="dropdownoperator" >
+                  <option >Attacker</option>
+                  <option >Defender</option>
+                  </select>
+          </div>
+        <div class="form-group">
+          <label>Operation: </label>
+            <select id="OperationSelector" [(ngModel)]="operator.season" name="season" style="width: 100%;" class="dropdownoperator" >
+                <option *ngFor="let season of seasons" value="{{season.name}}" >{{season.name}}</option>
+                </select>
+        </div>
+  
+       
+        <button type="button" (click)="addSeason()" class="btn btn-primary float-right">Add Season</button>
+      </form>
+    </div>
+  
+  </div>

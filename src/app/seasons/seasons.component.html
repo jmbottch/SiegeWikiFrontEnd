@@ -1,7 +1,8 @@
-<div class="card mt-5">
+<div class="card mt-5" *ngIf="_authService.loggedIn()">
     <div class="card-body">
-        <a routerlink="/operations/create" class="btn btn-success createbutton">Niewe Operation aanmaken</a>
-    </div>
+        <a routerLink="/operations/create" class="btn btn-success createbutton">Niewe Operation aanmaken</a>
+        
+      </div>
   </div>
 
 <div class="row mt-5">

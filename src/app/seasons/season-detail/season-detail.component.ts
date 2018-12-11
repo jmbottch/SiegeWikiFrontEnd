@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SiegeService } from '../../siege.service';
 import { Season } from '../season.model';
+import { AuthService } from '../../auth.service';
+import { Character } from 'src/app/operators/operator.model';
+import { World } from 'src/app/worlds/world.model';
 
 @Component({
   selector: 'app-season-detail',
@@ -9,11 +12,29 @@ import { Season } from '../season.model';
 })
 export class SeasonDetailComponent implements OnInit {
 
-  @Input() season: Season;
+  @Input () season : {
+    name: String,
+    description: String,
+    year: Number,
+    season: Number,
+    operator: Character,
+    world: World
 
-  constructor(private _siegeService: SiegeService) { }
+  };
+
+  constructor(private _siegeService: SiegeService, private _authService : AuthService) { }
 
   ngOnInit() {
   }
+  deleteSeason() {
+    console.log(this.season.name)
+    this._siegeService.deleteSeason(this.season.name, this.season.description, this.season.year, this.season.season, this.season.operator, this.season.world)
+    .subscribe (
+      res => console.log(res),
+      err => console.log (err)
+      
+    )
+  }
+    
+    }
 
-}

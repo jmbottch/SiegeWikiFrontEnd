@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { World } from '../world.model';
+import { Season } from '../../seasons/season.model';
+import { SiegeService } from '../../siege.service';
 
 @Component({
   selector: 'app-world-edit',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorldEditComponent implements OnInit {
 
-  constructor() { }
+  seasons = []
+  @Input() world : World
+  
+  
+  worldEditForm = {
+
+    name: String,
+    description: String,
+    season: Season,
+    availableInRanked: Boolean
+    
+  }
+
+  constructor(private _siegeService: SiegeService) { }
 
   ngOnInit() {
+    return this._siegeService.getSeasons()
+    .subscribe(
+      res => this.seasons = res,
+      err => console.log(err)
+    )
   }
 
 }
