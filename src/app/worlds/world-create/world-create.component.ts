@@ -20,7 +20,7 @@ export class WorldCreateComponent implements OnInit {
 
   constructor(private _siegeService : SiegeService, private _router: Router) { }
 
-  ngOnInit() {
+  ngOnInit() : void {
   }
 
   addWorld() {
@@ -35,5 +35,6 @@ export class WorldCreateComponent implements OnInit {
        }
      )
   }
+  
 
 }

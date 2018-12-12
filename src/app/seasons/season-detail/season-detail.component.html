@@ -24,15 +24,14 @@
                 <b>Season: </b>
                 <br/>
                 {{season.season}}
-                <br/>
-                <b>Operators:</b>
-                <br/>
-                --operators--
-                <br/>
-                <b>Maps: </b>
-                <br/>
-                --maps--
+                <br/>                
               </p>
+              <div *ngIf="operator">
+                    {{operator.name}}
+              </div>
+              <div *ngIf="world">
+                    {{world.name}}
+              </div>
               </div>
               <div>
                     <a *ngIf="_authService.loggedIn()" (click)="onSelect(season)"class="btn btn-warning editbutton">Edit</a> 

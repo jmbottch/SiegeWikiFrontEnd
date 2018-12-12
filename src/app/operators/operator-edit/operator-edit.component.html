@@ -8,31 +8,22 @@
       <form class="form">
         <div class="form-group">
           <label for="name">Operator name:</label>
-          <input type="text" [(ngModel)]="newOperatorName" name="name" class="form-control rounded-0" required>
+          <input type="text" [(ngModel)]="newOperatorName" name="newName" class="form-control rounded-0" required>
         </div>
         <div class="form-group">
           <label>Description: </label>
-          <input type="text" [(ngModel)]="newOperatorDesc" name="description" class="form-control rounded-0"
-            required>
+          <input type="text" [(ngModel)]="newOperatorDesc" name="description" class="form-control rounded-0" required>
         </div>
         <div class="form-group">
-            <label>Side: </label>
-              <select id="OperatorSelector" [(ngModel)]="newOperatorSide" name="side" style="width: 100%;" class="dropdownoperator" >
-                  <option >Attacker</option>
-                  <option >Defender</option>
-                  </select>
-          </div>
-        <!-- <div class="form-group">
-          <label>Operation: </label>
-            <select id="OperationSelector" [(ngModel)]="operator.season" name="season" style="width: 100%;" class="dropdownoperator" >
-                <option *ngFor="let season of seasons" value="{{season.name}}" >{{season.name}}</option>
-                </select>
-        </div> -->
-  
-       
-        <button type="button" (click)="editOperator()" class="btn btn-primary float-right">Add Season</button>
+          <label>Side: </label>
+          <select id="OperatorSelector" [(ngModel)]="newOperatorSide" name="side" style="width: 100%;" class="dropdownoperator">
+            <option>Attacker</option>
+            <option>Defender</option>
+          </select>
+        </div>
+        <button type="button" (click)="editOperator()" class="btn btn-primary float-right">Confirm</button>
       </form>
     </div>
-  
+
   </div>
 </div>

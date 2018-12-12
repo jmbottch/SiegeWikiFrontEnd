@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Season } from './seasons/season.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
+import { environment } from '../environments/environment'
 
 
 @Injectable({
@@ -15,10 +16,10 @@ export class SiegeService {
 
   seasonsChanged = new Subject<Season[]>();
   //ListURLs
-  private _worldsUrl = "https://siegewiki.herokuapp.com/api/worlds/";
-  private _operatorsUrl = "https://siegewiki.herokuapp.com/api/operators/";
-  private _seasonsUrl = "https://siegewiki.herokuapp.com/api/seasons/";
-  private _userUrl = "https://siegewiki.herokuapp.com/api/users/"
+  private _worldsUrl = environment.serverUrl + "/api/worlds/";
+  private _operatorsUrl = environment.serverUrl + "/api/operators/";
+  private _seasonsUrl = environment.serverUrl + "/api/seasons/";
+  private _userUrl = environment.serverUrl + "/api/users/"
 
   //Detail URLs
   // private _worldUrl = "http://siegewiki.herokuapp.com/api/world";

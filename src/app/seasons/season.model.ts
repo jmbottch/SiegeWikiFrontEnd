@@ -7,5 +7,5 @@ export class Season {
 }
 
 export class popuSeason {
-    constructor(public name:String, public description:String, public yaer:Number, public season:Number, public world:World, public operator: Character){}
+    constructor(public _id?:String, public name?:String, public description?:String, public year?:Number, public season?:Number, public world?: World, public operator?: Character){}
 }
