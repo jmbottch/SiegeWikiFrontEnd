@@ -15,10 +15,10 @@ export class SiegeService {
 
   seasonsChanged = new Subject<Season[]>();
   //ListURLs
-  private _worldsUrl = "http://siegewiki.herokuapp.com/api/worlds/";
-  private _operatorsUrl = "http://siegewiki.herokuapp.com/api/operators/";
-  private _seasonsUrl = "http://siegewiki.herokuapp.com/api/seasons/";
-  private _userUrl = "http://siegewiki.herokuapp.com/api/users/"
+  private _worldsUrl = "https://siegewiki.herokuapp.com/api/worlds/";
+  private _operatorsUrl = "https//siegewiki.herokuapp.com/api/operators/";
+  private _seasonsUrl = "https://siegewiki.herokuapp.com/api/seasons/";
+  private _userUrl = "https://siegewiki.herokuapp.com/api/users/"
 
   //Detail URLs
   // private _worldUrl = "http://siegewiki.herokuapp.com/api/world";
