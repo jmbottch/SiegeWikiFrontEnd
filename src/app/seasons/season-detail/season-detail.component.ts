@@ -4,6 +4,8 @@ import { Season } from '../season.model';
 import { AuthService } from '../../auth.service';
 import { Character } from 'src/app/operators/operator.model';
 import { World } from 'src/app/worlds/world.model';
+import { SeasonsComponent } from '../seasons.component';
+import { OperatorsComponent } from 'src/app/operators/operators.component';
 
 @Component({
   selector: 'app-season-detail',
@@ -12,25 +14,29 @@ import { World } from 'src/app/worlds/world.model';
 })
 export class SeasonDetailComponent implements OnInit {
 
-  @Input () season : {
-    name: String,
-    description: String,
-    year: Number,
-    season: Number,
-    operator: Character,
-    world: World
+  @Input() season: Season 
+  selectedSeason: Season
+  popSeason: Season
 
-  };
-
-  constructor(private _siegeService: SiegeService, private _authService : AuthService) { }
+  constructor(private _siegeService: SiegeService, private _authService : AuthService, private _seasonsComp: SeasonsComponent, private _operatorComp: OperatorsComponent) { }
 
   ngOnInit() {
   }
+
+  onSelect(season:Season) : void {
+    this.selectedSeason = season;
+  }
+  onPopulate(season:Season) : void {
+    this.popSeason = season;
+  }
   deleteSeason() {
     console.log(this.season.name)
-    this._siegeService.deleteSeason(this.season.name, this.season.description, this.season.year, this.season.season, this.season.operator, this.season.world)
+    this._siegeService.deleteSeason(this.season.name)
     .subscribe (
-      res => console.log(res),
+      res => {
+        this._operatorComp.refreshOperators();
+        console.log(res)
+      },
       err => console.log (err)
       
     )

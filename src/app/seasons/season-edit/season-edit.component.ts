@@ -3,6 +3,8 @@ import { Season } from '../season.model';
 import { Character } from '../../operators/operator.model';
 import { SiegeService } from '../../siege.service';
 import { World } from 'src/app/worlds/world.model';
+import { AuthService } from 'src/app/auth.service';
+import { OperatorsComponent } from 'src/app/operators/operators.component';
 
 @Component({
   selector: 'app-season-edit',
@@ -17,20 +19,27 @@ export class SeasonEditComponent implements OnInit {
   worlds = [];
   @Input() world: World;
   
+  seasonEdit;
+  seasonNewName = '';
+  seasonNewDesc = '';
+  seasonNewYear = 0;
+  seasonNewSeason = 0;
 
-  seasonEditForm = {
-      name: String,
-      description: String,
-      year: Number,
-      season: Number,
-      operator: Character,
-      world: World
+
+
+  // seasonEditForm = {
+  //     name: String,
+  //     description: String,
+  //     year: Number,
+  //     season: Number,
+  //     operator: Character,
+  //     world: World
       
       
     
-  }
+  // }
 
-  constructor(private _siegeService: SiegeService) { }
+  constructor(private _siegeService: SiegeService, private _authService : AuthService, private _operatorComp: OperatorsComponent) { }
 
   ngOnInit() {
     return this._siegeService.getOperators()
@@ -46,5 +55,17 @@ export class SeasonEditComponent implements OnInit {
 
     
   }
+
+  editSeason() {
+    if (this._authService.loggedIn) {
+    this.seasonEdit = new Season(this.season.name, this.seasonNewName, this.seasonNewDesc, this.seasonNewYear, this.seasonNewSeason)
+    this._siegeService.editSeason (this.seasonEdit)
+    .subscribe(
+      res => {
+        this._operatorComp.refreshOperators();
+        console.log(res)},
+      err => console.log(err)
+    )}
+    }
 
 }

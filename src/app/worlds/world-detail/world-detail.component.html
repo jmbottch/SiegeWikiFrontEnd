@@ -1,3 +1,4 @@
+<app-world-edit [world]="selectedWorld"></app-world-edit>
 <div *ngIf="world">
     <div class="card">
         <div class="card-body">
@@ -25,10 +26,9 @@
               </p>
               </div>
               <div>
-                  <a *ngIf="_authService.loggedIn()" routerLink="/maps/edit"class="btn btn-warning editbutton">Edit</a> 
+                  <a *ngIf="_authService.loggedIn()" (click)="onSelect(world)" class="btn btn-warning editbutton">Edit</a> 
                   <a *ngIf="_authService.loggedIn()" (click)="deleteWorld()" class="btn btn-danger deletebutton">Delete</a> 
           </div>   
     </div>
 </div>
 
-  

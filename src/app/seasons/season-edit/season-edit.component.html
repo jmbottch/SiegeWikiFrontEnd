@@ -1,44 +1,34 @@
-<div class="card mt-5">
-  <div class="card-heading text-center">
-    Create New Operation
-    <hr />
-  </div>
-  <div class="card-body">
-    <form class="form">
-      <div class="form-group">
-        <label for="name">Operation name:</label>
-        <input type="text" [(ngModel)]="seasonEditForm.name" name="name" class="form-control rounded-0" required>
-      </div>
-      <div class="form-group">
-        <label>Description: </label>
-        <input type="text" [(ngModel)]="seasonEditForm.description" name="description" class="form-control rounded-0"
-          required>
-      </div>
-      <div class="form-group">
-        <label>Year: </label>
-        <input type="number" [(ngModel)]="seasonEditForm.year" name="year" class="form-control rounded-0" required>
-      </div>
-      <div class="form-group">
-        <label>Season: </label>
-        <input type="number" [(ngModel)]="seasonEditForm.season" name="season" class="form-control rounded-0"
-          required>
-      </div>
-      <div class="form-group">
-        <label>Operator: </label>
-          <select id="OperatorSelector" [(ngModel)]="seasonEditForm.operator" name="operator" style="width: 100%;" class="dropdownoperator" >
-              <option *ngFor="let operator of operators" value="{{operator.name}}" >{{operator.name}}</option>
-              </select>
-      </div>
-      <div class="form-group">
-          <label>Map:  </label>
-            <select id="WorldSelector" [(ngModel)]="seasonEditForm.world" name="world" style="width: 100%;" class="dropdownoperator" >
-                <option *ngFor="let world of worlds" value="{{world.name}}" >{{world.name}}</option>
-                </select>
+<app-season-populate [season]="selectedSeason"></app-season-populate>
+<div *ngIf="season">
+    <div class="card mt-5 mb-5">
+        <div class="card-heading text-center">
+          Edit {{season.name}}
+          <hr />
         </div>
-
-     
-      <button type="button" (click)="addSeason()" class="btn btn-primary float-right">Add Season</button>
-    </form>
-  </div>
-
+        <div class="card-body">
+          <form class="form">
+            <div class="form-group">
+              <label for="name">Operation name:</label>
+              <input type="text" [(ngModel)]="seasonNewName" name="name" class="form-control rounded-0" required>
+            </div>
+            <div class="form-group">
+              <label>Description: </label>
+              <input type="text" [(ngModel)]="seasonNewDesc" name="description" class="form-control rounded-0"
+                required>
+            </div>
+            <div class="form-group">
+              <label>Year: </label>
+              <input type="number" [(ngModel)]="seasonNewYear" name="year" class="form-control rounded-0" required>
+            </div>
+            <div class="form-group">
+              <label>Season: </label>
+              <input type="number" [(ngModel)]="seasonNewSeason" name="season" class="form-control rounded-0"
+                required>
+            </div>    
+           
+            <button type="button" (click)="editSeason()" class="btn btn-primary float-right">Add Season</button>
+          </form>
+        </div>
+      
+      </div>
 </div>

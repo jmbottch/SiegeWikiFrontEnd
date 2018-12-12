@@ -29,6 +29,8 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { SeasonCreateComponent } from './seasons/season-create/season-create.component';
 import { WorldCreateComponent } from './worlds/world-create/world-create.component';
 import { OperatorCreateComponent } from './operators/operator-create/operator-create.component';
+import { SeasonPopulateComponent } from './seasons/season-populate/season-populate.component';
+
 
 
 
@@ -55,6 +57,8 @@ import { OperatorCreateComponent } from './operators/operator-create/operator-cr
     SeasonCreateComponent,
     WorldCreateComponent,
     OperatorCreateComponent,
+    SeasonPopulateComponent,
+    
    
   ],  
   imports: [
@@ -68,7 +72,7 @@ import { OperatorCreateComponent } from './operators/operator-create/operator-cr
     
 
   ],
-  providers: [ AppComponent, AuthService, AuthGuard, SiegeService,
+  providers: [ AppComponent, AuthService, AuthGuard, SiegeService, OperatorsComponent,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

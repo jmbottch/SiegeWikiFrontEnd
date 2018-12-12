@@ -37,12 +37,21 @@ export class SiegeService {
   addWorld(world) {
     return this.http.post<any>(this._worldsUrl, world)
   }
-  deleteWorld(name) {
-    console.log(name);
-    this.http.delete<any>(this._worldsUrl, name)
-    
-    
+
+  editWorld(world: {}) {
+    console.log('ewaja' + world)
+    return this.http.put<any>(this._worldsUrl, world);
   }
+  
+  deleteWorld(name: any) {
+    const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'name': name
+        })
+      };
+    return this.http.delete<any>(this._worldsUrl, httpOptions );
+    }
 
   //OPERATORS API CALLS
   getOperators() {
@@ -51,12 +60,21 @@ export class SiegeService {
   addOperator(operator) {
     return this.http.post<any>(this._operatorsUrl, operator)
   }
-  deleteOperator(name) {
-    console.log(name);
-    this.http.delete<any>(this._operatorsUrl, name)
-    
-    
+
+  editOperator(operator: {}) {
+    console.log('ewaja' + operator)
+    return this.http.put<any>(this._operatorsUrl, operator);
   }
+
+  deleteOperator(name: any) {
+    const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'name': name
+        })
+      };
+    return this.http.delete<any>(this._operatorsUrl, httpOptions );
+    }
 
   //SEASONS API CALLS
   getSeasons() {
@@ -67,20 +85,27 @@ export class SiegeService {
     return this.http.post<any>(this._seasonsUrl, season)
   }
 
-  deleteSeason(name, desc, year, seas, oper, world) {
-    const httpOptions = {
-      headers: new HttpHeaders ({
-        'Content-Type':  'application/json',
-        'name': name,
-        'description': desc,
-        'year' : year,
-        'season' : seas,
-        'operator' : oper,
-        'world' : world
-      })
-    }
-    return this.http.delete<any>(this._userUrl, httpOptions );
+  editSeason(season: {}) {
+    console.log('ewaja' + season)
+    return this.http.put<any>(this._seasonsUrl, season);
   }
+
+  populateSeason(season: any) {
+    console.log(season)
+    return this.http.put<any>(this._seasonsUrl + 'populate/', season);
+}
+
+  deleteSeason(name: any) {
+    console.log(name)
+    const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'name': name
+        })
+      };
+    return this.http.delete<any>(this._seasonsUrl, httpOptions );
+    }
+
 
   //USER DELETE
   deleteUser(name, pass) {

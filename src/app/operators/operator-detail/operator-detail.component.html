@@ -1,3 +1,4 @@
+<app-operator-edit [operator]="selectedOperator"></app-operator-edit>
 <div *ngIf="operator">
     <div class="card">
         <div class="card-body">
@@ -25,7 +26,7 @@
                 <br/>
               </p>
         </div> <div>
-                <a *ngIf="_authService.loggedIn()" routerLink="/operators/edit"class="btn btn-warning editbutton">Edit</a> 
+                <a *ngIf="_authService.loggedIn()" (click)="onSelect(operator)" class="btn btn-warning editbutton">Edit</a> 
                 <a *ngIf="_authService.loggedIn()" (click)="deleteOperator()" class="btn btn-danger deletebutton">Delete</a> 
         </div>            
         

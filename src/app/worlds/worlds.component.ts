@@ -28,4 +28,12 @@ export class WorldsComponent implements OnInit {
     this.selectedWorld = world;
   }
 
+  refreshWorlds() {
+    return this._siegeService.getWorlds()
+    .subscribe(
+      res => this.worlds = res,
+      err => console.log(err)
+    )
+  }
+
 }

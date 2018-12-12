@@ -27,4 +27,11 @@ export class OperatorsComponent implements OnInit {
     this.selectedOperator = operator
   }
 
+  refreshOperators() {
+    return this._siegeService.getOperators()
+    .subscribe(
+      res => this.operators = res,
+      err => console.log(err)
+    )
+  }
 }

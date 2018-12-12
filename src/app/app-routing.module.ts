@@ -22,6 +22,7 @@ import { SeasonEditComponent } from './seasons/season-edit/season-edit.component
 import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { OperatorEditComponent } from './operators/operator-edit/operator-edit.component';
 import { WorldEditComponent } from './worlds/world-edit/world-edit.component';
+import { SeasonPopulateComponent } from './seasons/season-populate/season-populate.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,10 @@ const routes: Routes = [
   {
     path: 'operations/edit',
     component: SeasonEditComponent
+  },
+  {
+    path: 'operations/populate',
+    component: SeasonPopulateComponent
   },
   //WORLD ROUTES
   {
