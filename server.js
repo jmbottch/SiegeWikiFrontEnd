@@ -13,5 +13,6 @@ app.get('*', function(req,res) {
   res.sendFile(path.join(__dirname + '/dist/FrontEndApp/Index.html'));
 });
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+const server = http.createServer(app);
+server.listen(port, () => console.log('running fam'));
 
