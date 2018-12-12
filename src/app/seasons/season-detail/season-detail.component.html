@@ -35,9 +35,9 @@
               </p>
               </div>
               <div>
-                    <a *ngIf="_authService.loggedIn()" (click)="onSelect(season)"class="btn btn-warning btn-season">Edit</a> 
-                    <a *ngIf="_authService.loggedIn()" (click)="onPopulate(season)"class="btn btn-success btn-season">Populate</a> 
-                    <a *ngIf="_authService.loggedIn()" (click)="deleteSeason()"class="btn btn-danger btn-season">Delete</a>
+                    <a *ngIf="_authService.loggedIn()" (click)="onSelect(season)"class="btn btn-warning editbutton">Edit</a> 
+                   
+                    <a *ngIf="_authService.loggedIn()" (click)="deleteSeason()"class="btn btn-danger editbutton">Delete</a>
 
             </div>   
     </div>
