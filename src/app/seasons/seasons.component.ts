@@ -28,4 +28,12 @@ export class SeasonsComponent implements OnInit {
     this.selectedSeason = season;
   }
 
+  refreshSeasons() {
+    return this._siegeService.getSeasons()
+    .subscribe(
+      res => this.seasons = res,
+      err => console.log(err)
+    )
+  }
+
 }

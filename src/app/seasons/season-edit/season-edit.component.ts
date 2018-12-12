@@ -4,7 +4,7 @@ import { Character } from '../../operators/operator.model';
 import { SiegeService } from '../../siege.service';
 import { World } from 'src/app/worlds/world.model';
 import { AuthService } from 'src/app/auth.service';
-import { OperatorsComponent } from 'src/app/operators/operators.component';
+import { SeasonsComponent } from '../seasons.component';
 
 @Component({
   selector: 'app-season-edit',
@@ -39,7 +39,7 @@ export class SeasonEditComponent implements OnInit {
     
   // }
 
-  constructor(private _siegeService: SiegeService, private _authService : AuthService, private _operatorComp: OperatorsComponent) { }
+  constructor(private _siegeService: SiegeService, private _authService : AuthService, private _seasonComp: SeasonsComponent) { }
 
   ngOnInit() {
     return this._siegeService.getOperators()
@@ -62,7 +62,7 @@ export class SeasonEditComponent implements OnInit {
     this._siegeService.editSeason (this.seasonEdit)
     .subscribe(
       res => {
-        this._operatorComp.refreshOperators();
+        this._seasonComp.refreshSeasons();
         console.log(res)},
       err => console.log(err)
     )}

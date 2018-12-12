@@ -18,7 +18,7 @@ export class SeasonDetailComponent implements OnInit {
   selectedSeason: Season
   popSeason: Season
 
-  constructor(private _siegeService: SiegeService, private _authService : AuthService, private _seasonsComp: SeasonsComponent, private _operatorComp: OperatorsComponent) { }
+  constructor(private _siegeService: SiegeService, private _authService : AuthService, private _seasonsComp: SeasonsComponent, private _seasonComp: SeasonsComponent) { }
 
   ngOnInit() {
   }
@@ -34,7 +34,7 @@ export class SeasonDetailComponent implements OnInit {
     this._siegeService.deleteSeason(this.season.name)
     .subscribe (
       res => {
-        this._operatorComp.refreshOperators();
+        this._seasonComp.refreshSeasons();
         console.log(res)
       },
       err => console.log (err)
