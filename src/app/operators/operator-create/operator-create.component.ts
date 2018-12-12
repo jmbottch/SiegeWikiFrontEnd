@@ -28,6 +28,7 @@ export class OperatorCreateComponent implements OnInit {
     this._siegeService.addOperator(this.operatorCreateForm)
     .subscribe(
       res => {
+        this._router.navigate(['/operators'])
         console.log(res)
       },
       err => {
