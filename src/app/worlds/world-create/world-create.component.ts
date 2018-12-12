@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SiegeService } from '../../siege.service';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { World } from '../world.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-world-create',
@@ -17,7 +18,7 @@ export class WorldCreateComponent implements OnInit {
     availableInRanked: Boolean
   }
 
-  constructor(private _siegeService : SiegeService) { }
+  constructor(private _siegeService : SiegeService, private _router: Router) { }
 
   ngOnInit() {
   }
@@ -26,6 +27,7 @@ export class WorldCreateComponent implements OnInit {
     this._siegeService.addWorld(this.worldCreateForm)
      .subscribe(
        res => {
+         this._router.navigate(['/maps'])
          console.log(res) 
        },
        err => {
