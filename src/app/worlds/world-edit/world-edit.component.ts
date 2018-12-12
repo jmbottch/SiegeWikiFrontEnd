@@ -17,7 +17,7 @@ export class WorldEditComponent implements OnInit {
   @Input() world : World
   
   worldEdit;
-  newWorldName = '';
+  newName = '';
   newWorldDesc = '';
   newWorldRanked = false;
   
@@ -35,7 +35,7 @@ export class WorldEditComponent implements OnInit {
 
   editWorld() {
     if (this._authService.loggedIn) {
-    this.worldEdit = new World(this.world.name, this.newWorldName, this.newWorldDesc, this.newWorldRanked)
+    this.worldEdit = new World(this.world.name, this.newName, this.newWorldDesc, this.newWorldRanked)
     this._siegeService.editWorld(this.worldEdit)
     .subscribe(
       res => {
