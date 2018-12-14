@@ -28,6 +28,18 @@
 
 </div>
 
+<div>
+    <div class="card mt-5" *ngIf="this.showResultBox">
+      <div *ngFor="let displayresult of displayresults">
+          <div class="card-body">
+              <h4>{{this.displayresult.result}}</h4>
+              <p>{{this.displayresult.message}}</p>
+            </div>
+      </div> 
+      
+      </div>
+</div>
+
 
 
 

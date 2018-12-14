@@ -35,4 +35,6 @@ export class WorldDetailComponent implements OnInit {
       
     }
 
+    
+
 }

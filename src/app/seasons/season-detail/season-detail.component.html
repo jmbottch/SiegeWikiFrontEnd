@@ -1,43 +1,73 @@
 <app-season-edit [season]="selectedSeason"></app-season-edit>
 
+
+
 <div *ngIf="season">
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">
                 Detailed Information about {{season.name | uppercase}}
-              </h5>
-              <hr/>
-              <p class="card-text">
+            </h5>
+            <hr />
+            <p class="card-text">
 
-                <b>Name:</b> 
-                <br/>
+                <b>Name:</b>
+                <br />
                 {{season.name}}
-                <br/>
-                <b>Description:</b> 
-                <br/>
+                <br />
+                <b>Description:</b>
+                <br />
                 {{season.description}}
-                <br/>
+                <br />
                 <b>Year: </b>
-                <br/>
+                <br />
                 {{season.year}}
-                <br/>
+                <br />
                 <b>Season: </b>
-                <br/>
+                <br />
                 {{season.season}}
-                <br/>                
-              </p>
-              <div *ngIf="operator">
-                    {{operator.name}}
-              </div>
-              <div *ngIf="world">
-                    {{world.name}}
-              </div>
-              </div>
-              <div>
-                    <a *ngIf="_authService.loggedIn()" (click)="onSelect(season)"class="btn btn-warning editbutton">Edit</a> 
-                   
-                    <a *ngIf="_authService.loggedIn()" (click)="deleteSeason()"class="btn btn-danger editbutton">Delete</a>
+                <br />
+            </p>
 
-            </div>   
+            <!-- <div *ngIf="world">
+                {{world.name}}
+            </div> -->
+        </div>
+        <div>
+            <a *ngIf="season.operator" (click)="onSelectOperator(season)" class="btn btn-primary">Operator</a>
+        </div>
+        <div>
+            <a *ngIf="_authService.loggedIn()" (click)="onSelect(season)" class="btn btn-warning editbutton">Edit</a>
+
+            <a *ngIf="_authService.loggedIn()" (click)="deleteSeason()" class="btn btn-danger editbutton">Delete</a>
+
+        </div>
     </div>
 </div>
+
+<div *ngIf="this.display" class="mt-5">
+        <div *ngFor="let operator of operators">
+            <div class="card" *ngIf="seasonHas(operator)">
+    
+                <div class="card-title">
+                    <h5>
+                        {{operator.name}}
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <b>
+                        Description:
+                    </b>
+                    {{operator.description}}
+                    <br />
+                    <b>
+                        Side
+                    </b>
+                    {{operator.side}}
+    
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
