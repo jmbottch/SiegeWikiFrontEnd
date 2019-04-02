@@ -1,35 +1,39 @@
 <app-operator-edit [operator]="selectedOperator"></app-operator-edit>
 <div *ngIf="operator">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">
-                Detailed Information about {{operator.name | uppercase}}
-              </h5>
-              <hr/>
-              <p class="card-text">
-
-                <b>Name:</b> 
-                <br/>
-                {{operator.name}}
-                <br/>
-                <b>Description:</b> 
-                <br/>
-                {{operator.description}}
-                <br/>
-                <b>Side:</b>
-                <br/>
-                {{operator.side}}
-                <br/>
-                <b>season: </b>
-                <br/>
-                {{operator.season}}
-                <br/>
-              </p>
-        </div> <div>
-                <a *ngIf="_authService.loggedIn()" (click)="onSelect(operator)" class="btn btn-warning editbutton">Edit</a> 
-                <a *ngIf="_authService.loggedIn()" (click)="deleteOperator()" class="btn btn-danger deletebutton">Delete</a> 
-        </div>            
-        
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">
+        Detailed Information about {{operator.name | uppercase}}
+      </h5>
     </div>
+    <div class="card-body">
+      <p class="card-text">
 
+        <b>Name:</b>
+        <br />
+        {{operator.name}}
+        <br />
+        <b>Description:</b>
+        <br />
+        {{operator.description}}
+        <br />
+        <b>Side:</b>
+        <br />
+        {{operator.side}}
+        <br />
+        <b>season: </b>
+        <br />
+        {{operator.season}}
+        <br />
+      </p>
+    </div>
+    <div class="card-footer text-center">
+        <button *ngIf="_authService.loggedIn()" (click)="onSelect(operator)" type="button"
+        class="btn btn-warning btn-season float-left">Edit</button>
+      <button [routerLink]="['/operator', operator._id]" routerLinkActive="active" type="button"
+        class="btn btn-primary btn-season">View</button>
+      <button *ngIf="_authService.loggedIn()" (click)="deleteOperator()" type="button"
+        class="btn btn-danger btn-season float-right">Delete</button>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,33 @@
+<div *ngIf="this.operatorById">
+    <div class="card mt-2">
+        <div class="card-header">
+          <h5 class="card-title">
+            Detailed information about {{this.operatorById.name | uppercase}}
+          </h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+    
+                <b>Name:</b>
+                <br />
+                {{this.operatorById.name}}
+                <br />
+                <b>Description:</b>
+                <br />
+                {{this.operatorById.description}}
+                <br />
+                <b>Season: </b>
+                <br />
+                {{this.operatorById.season}}
+                <br />
+                <b>Available in ranked: </b>
+                <br />
+                {{this.operatorById.availableInRanked}}
+                <br />
+            </p>
+        </div>
+        <div class="card-footer text-center">
+          <small>This component was made for Richardson Maturity level 2</small>
+        </div>
+      </div>
+      </div>
