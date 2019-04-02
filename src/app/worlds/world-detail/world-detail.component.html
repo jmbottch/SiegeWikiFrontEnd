@@ -28,12 +28,10 @@
               </div>
               <div class="card-footer text-center">
                   
-                  <button *ngIf="_authService.loggedIn()" (click)="onSelect(world)" type="button"
-                  class="btn btn-warning float-left btn-season">Edit</button>
+                  
                   <button [routerLink]="['/map', world._id]" routerLinkActive="active" type="button"
                   class="btn btn-primary btn-season">View</button>
-                 <button *ngIf="_authService.loggedIn()" (click)="deleteWorld()" type="button"
-                  class="btn btn-danger float-right btn-season">Delete</button>
+                 
               </div>  
     </div>
 </div>

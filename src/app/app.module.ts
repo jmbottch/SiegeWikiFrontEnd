@@ -79,7 +79,7 @@ import { OperatorWithIdComponent } from './operators/operator-with-id/operator-w
     
 
   ],
-  providers: [ AppComponent, AuthService, AuthGuard, SiegeService, OperatorsComponent, SeasonsComponent,
+  providers: [ AppComponent, AuthService, AuthGuard, SiegeService, OperatorsComponent, SeasonsComponent, WorldsComponent,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

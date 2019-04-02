@@ -27,7 +27,12 @@
         </p>
     </div>
     <div class="card-footer text-center">
-      <small>This component was made for Richardson Maturity level 2</small>
+        <button *ngIf="_authService.loggedIn()" [routerLink]="['/map/edit', this.worldById._id]" type="button"
+        class="btn btn-warning float-left btn-season">Edit</button>
+        <button *ngIf="_authService.loggedIn()" (click)="deleteWorld()" type="button"
+        class="btn btn-danger float-right btn-season">Delete</button>
     </div>
   </div>
   </div>
+
+ 

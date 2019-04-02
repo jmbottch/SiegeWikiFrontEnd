@@ -89,7 +89,7 @@ const routes: Routes = [
     component: WorldDeleteComponent
   },
   {
-    path:'maps/edit',
+    path:'map/edit/:id',
     component: WorldEditComponent
   },
   {
@@ -105,7 +105,7 @@ const routes: Routes = [
     component: OperatorDeleteComponent
   },
   {
-    path: 'operators/edit',
+    path: 'operators/edit/:id',
     component: OperatorEditComponent
   },
   {

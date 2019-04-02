@@ -46,7 +46,7 @@ export class SiegeService {
 
   editWorld(world: {}) {
     console.log('ewaja' + world)
-    return this.http.put<any>(this._worldsUrl, world);
+    return this.http.put<any>(this._worldUrl, world);
   }
   
   deleteWorld(name: any) {
