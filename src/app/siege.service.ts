@@ -22,9 +22,9 @@ export class SiegeService {
   private _userUrl = environment.serverUrl + "/api/users/"
 
   //Detail URLs
-  private _worldUrl = "http://siegewiki.herokuapp.com/api/world/";
-  private _operatorUrl = "http://siegewiki.herokuapp.com/api/operator/";
-  private _seasonUrl = "http://siegewiki.herokuapp.com/api/season/";
+  private _worldUrl = "https://siegewiki.herokuapp.com/api/world/";
+  private _operatorUrl = "https://siegewiki.herokuapp.com/api/operator/";
+  private _seasonUrl = "https://siegewiki.herokuapp.com/api/season/";
 
 
 
