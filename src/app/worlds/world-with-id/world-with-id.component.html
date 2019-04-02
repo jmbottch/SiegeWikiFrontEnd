@@ -1,0 +1,33 @@
+<div *ngIf="this.worldById">
+  <div class="card mt-2">
+    <div class="card-header">
+      <h5 class="card-title">
+        Detailed information about {{this.worldById.name | uppercase}}
+      </h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+
+            <b>Name:</b>
+            <br />
+            {{this.worldById.name}}
+            <br />
+            <b>Description:</b>
+            <br />
+            {{this.worldById.description}}
+            <br />
+            <b>Season: </b>
+            <br />
+            {{this.worldById.season}}
+            <br />
+            <b>Available in ranked: </b>
+            <br />
+            {{this.worldById.availableInRanked}}
+            <br />
+        </p>
+    </div>
+    <div class="card-footer text-center">
+      <small>This component was made for Richardson Maturity level 2</small>
+    </div>
+  </div>
+  </div>

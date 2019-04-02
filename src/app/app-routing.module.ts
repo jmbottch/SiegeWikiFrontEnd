@@ -23,6 +23,9 @@ import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { OperatorEditComponent } from './operators/operator-edit/operator-edit.component';
 import { WorldEditComponent } from './worlds/world-edit/world-edit.component';
 import { SeasonPopulateComponent } from './seasons/season-populate/season-populate.component';
+import { SeasonWidthIdComponent } from './seasons/season-with-id/season-width-id/season-width-id.component';
+import { WorldWithIdComponent } from './worlds/world-with-id/world-with-id.component';
+import { OperatorWithIdComponent } from './operators/operator-with-id/operator-with-id.component';
 
 const routes: Routes = [
   {
@@ -72,6 +75,10 @@ const routes: Routes = [
     path: 'operations/populate',
     component: SeasonPopulateComponent
   },
+  {
+    path: 'season/:id',
+    component: SeasonWidthIdComponent
+  },
   //WORLD ROUTES
   {
     path:'maps/create',
@@ -85,6 +92,10 @@ const routes: Routes = [
     path:'maps/edit',
     component: WorldEditComponent
   },
+  {
+    path: 'map/:id',
+    component: WorldWithIdComponent
+  },
   //OPERATOR ROUTES
   {
     path:'operators/create',
@@ -96,7 +107,11 @@ const routes: Routes = [
   {
     path: 'operators/edit',
     component: OperatorEditComponent
-  }
+  },
+  {
+    path: 'operator/:id',
+    component: OperatorWithIdComponent
+  },
 ];
 
 @NgModule({

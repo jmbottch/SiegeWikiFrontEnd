@@ -4,6 +4,8 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
 import { World } from '../world.model';
 import { Router } from '@angular/router';
 
+import { AuthService } from 'src/app/auth.service';
+
 @Component({
   selector: 'app-world-create',
   templateUrl: './world-create.component.html',
@@ -18,9 +20,10 @@ export class WorldCreateComponent implements OnInit {
     availableInRanked: Boolean
   }
 
-  constructor(private _siegeService : SiegeService, private _router: Router) { }
+  constructor(private _siegeService : SiegeService, private _router: Router, private _auth: AuthService) { }
 
-  ngOnInit() : void {
+  ngOnInit() {
+    this._auth.loggedIn();
   }
 
   addWorld() {

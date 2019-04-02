@@ -1,11 +1,12 @@
 <app-world-edit [world]="selectedWorld"></app-world-edit>
 <div *ngIf="world">
     <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">
-                Detailed Information about {{world.name | uppercase}}
-              </h5>
-              <hr/>
+      <div class="card-header">
+          <h5 class="card-title">
+              Detailed Information about {{world.name | uppercase}}
+            </h5>
+      </div>
+        <div class="card-body">           
               <p class="card-text">
 
                 <b>Name:</b> 
@@ -25,10 +26,15 @@
                 {{world.availableInRanked}}
               </p>
               </div>
-              <div>
-                  <a *ngIf="_authService.loggedIn()" (click)="onSelect(world)" class="btn btn-warning editbutton">Edit</a> 
-                  <a *ngIf="_authService.loggedIn()" (click)="deleteWorld()" class="btn btn-danger deletebutton">Delete</a> 
-          </div>   
+              <div class="card-footer text-center">
+                  
+                  <button *ngIf="_authService.loggedIn()" (click)="onSelect(world)" type="button"
+                  class="btn btn-warning float-left btn-season">Edit</button>
+                  <button [routerLink]="['/map', world._id]" routerLinkActive="active" type="button"
+                  class="btn btn-primary btn-season">View</button>
+                 <button *ngIf="_authService.loggedIn()" (click)="deleteWorld()" type="button"
+                  class="btn btn-danger float-right btn-season">Delete</button>
+              </div>  
     </div>
 </div>
 

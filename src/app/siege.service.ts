@@ -22,9 +22,9 @@ export class SiegeService {
   private _userUrl = environment.serverUrl + "/api/users/"
 
   //Detail URLs
-  // private _worldUrl = "http://siegewiki.herokuapp.com/api/world";
-  // private _operatorUrl = "http://siegewiki.herokuapp.com/api/operator";
-  // private _seasonUrl = "http://siegewiki.herokuapp.com/api/season";
+  private _worldUrl = "http://siegewiki.herokuapp.com/api/world/";
+  private _operatorUrl = "http://siegewiki.herokuapp.com/api/operator/";
+  private _seasonUrl = "http://siegewiki.herokuapp.com/api/season/";
 
 
 
@@ -34,6 +34,11 @@ export class SiegeService {
   getWorlds() {
     return this.http.get<any>(this._worldsUrl)
   }
+
+  getWorldById( _id:any) {
+    console.log(this._worldUrl + '' + _id)
+    return this.http.get<any>(this._worldUrl + '' + _id)
+    }
 
   addWorld(world) {
     return this.http.post<any>(this._worldsUrl, world)
@@ -58,6 +63,9 @@ export class SiegeService {
   getOperators() {
     return this.http.get<any>(this._operatorsUrl)
   }
+  getOperatorById(_id: any) {
+    return this.http.get<any>(this._operatorUrl + '' + _id);
+}
   addOperator(operator) {
     return this.http.post<any>(this._operatorsUrl, operator)
   }
@@ -80,6 +88,10 @@ export class SiegeService {
   //SEASONS API CALLS
   getSeasons() {
     return this.http.get<any>(this._seasonsUrl)
+  }
+
+  getSeasonById(_id: any) {
+    return this.http.get<any>(this._seasonUrl + '' + _id)
   }
 
   addSeason(season) {

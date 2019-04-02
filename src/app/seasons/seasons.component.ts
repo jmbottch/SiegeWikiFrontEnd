@@ -13,7 +13,7 @@ import { AuthService } from '../auth.service';
 export class SeasonsComponent implements OnInit {
   
   seasons = []
-  public selectedSeason: Season;
+  selectedSeason: Season;
   
   constructor (private _siegeService: SiegeService, private _authService : AuthService) {}
   ngOnInit() {

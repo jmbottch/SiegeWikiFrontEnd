@@ -30,6 +30,9 @@ import { SeasonCreateComponent } from './seasons/season-create/season-create.com
 import { WorldCreateComponent } from './worlds/world-create/world-create.component';
 import { OperatorCreateComponent } from './operators/operator-create/operator-create.component';
 import { SeasonPopulateComponent } from './seasons/season-populate/season-populate.component';
+import { SeasonWidthIdComponent } from './seasons/season-with-id/season-width-id/season-width-id.component';
+import { WorldWithIdComponent } from './worlds/world-with-id/world-with-id.component';
+import { OperatorWithIdComponent } from './operators/operator-with-id/operator-with-id.component';
 
 
 
@@ -59,6 +62,9 @@ import { SeasonPopulateComponent } from './seasons/season-populate/season-popula
     WorldCreateComponent,
     OperatorCreateComponent,
     SeasonPopulateComponent,
+    SeasonWidthIdComponent,
+    WorldWithIdComponent,
+    OperatorWithIdComponent,
     
    
   ],  
@@ -73,7 +79,7 @@ import { SeasonPopulateComponent } from './seasons/season-populate/season-popula
     
 
   ],
-  providers: [ AppComponent, AuthService, AuthGuard, SiegeService, OperatorsComponent,
+  providers: [ AppComponent, AuthService, AuthGuard, SiegeService, OperatorsComponent, SeasonsComponent,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
