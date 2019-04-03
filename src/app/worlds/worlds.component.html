@@ -12,10 +12,9 @@
         <h5 class="card-title">
           {{world.name}}
         </h5>
-        <p class="card-text">
-          {{world.season}}
-        </p>
-        <a class="btn btn-primary" (click)="onSelect(world)">Meer Informatie</a>
+       
+        <button [routerLink]="['/map', world._id]" routerLinkActive="active" type="button"
+                  class="btn btn-primary btn-season">View</button>
       </div>
     </div>
   </div>

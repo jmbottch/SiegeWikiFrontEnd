@@ -93,6 +93,10 @@ const routes: Routes = [
     component: WorldEditComponent
   },
   {
+    path:'map/delete/:id',
+    component: WorldDeleteComponent
+  },
+  {
     path: 'map/:id',
     component: WorldWithIdComponent
   },

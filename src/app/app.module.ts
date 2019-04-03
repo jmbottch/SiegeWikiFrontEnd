@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, forwardRef } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SeasonsComponent } from './seasons/seasons.component';
@@ -16,7 +16,7 @@ import { WorldDetailComponent } from './worlds/world-detail/world-detail.compone
 import { WorldDeleteComponent } from './worlds/world-delete/world-delete.component';;
 import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { Http, Response, HttpModule } from '@angular/http';
-import { FormsModule, FormGroup, FormBuilder, Validators, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, FormGroup, FormBuilder, Validators, ReactiveFormsModule, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -33,6 +33,9 @@ import { SeasonPopulateComponent } from './seasons/season-populate/season-popula
 import { SeasonWidthIdComponent } from './seasons/season-with-id/season-width-id/season-width-id.component';
 import { WorldWithIdComponent } from './worlds/world-with-id/world-with-id.component';
 import { OperatorWithIdComponent } from './operators/operator-with-id/operator-with-id.component';
+import { MatFormFieldModule, MatInputModule, MatCheckboxModule, MatButtonModule, MatSelectModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -76,6 +79,15 @@ import { OperatorWithIdComponent } from './operators/operator-with-id/operator-w
     HttpModule,
     NgbModule,
     HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatSelectModule,
+    BrowserAnimationsModule
+    
+    
+    
     
 
   ],
@@ -84,6 +96,11 @@ import { OperatorWithIdComponent } from './operators/operator-with-id/operator-w
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
+  },
+  {
+    provide: NG_VALUE_ACCESSOR,
+    multi: true,
+    useExisting: forwardRef(() => WorldEditComponent)
   }],
   bootstrap: [AppComponent]
 })

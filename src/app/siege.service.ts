@@ -41,22 +41,17 @@ export class SiegeService {
     }
 
   addWorld(world) {
-    return this.http.post<any>(this._worldsUrl, world)
+    return this.http.post<any>(this._worldUrl, world)
   }
 
-  editWorld(world: {}) {
-    console.log('ewaja' + world)
-    return this.http.put<any>(this._worldUrl, world);
+  editWorld(_id: any, world: {}) {
+    console.log(world)
+    return this.http.put<any>(this._worldUrl + '' + _id, world);
   }
   
-  deleteWorld(name: any) {
-    const httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-          'name': name
-        })
-      };
-    return this.http.delete<any>(this._worldsUrl, httpOptions );
+  deleteWorld(_id: any) {
+    console.log(_id)
+    return this.http.delete<any>(this._worldUrl + '' + _id );
     }
 
   //OPERATORS API CALLS

@@ -1,4 +1,4 @@
-<div *ngIf="worldById">
+<!-- <div *ngIf="worldById">
   <div class="card mt-5 mb-5">
     <div class="card-heading text-center">
       Edit {{worldById.name}}
@@ -15,12 +15,12 @@
             <input type="text" [(ngModel)]="newWorldDesc" name="description" class="form-control rounded-0"  required>
           </div>
   
-          <!-- <div class="form-group">
+      QUOTE OUT    <div class="form-group">
               <label>Season: </label>
                 <select id="OperationSelector" [(ngModel)]=" " name="season" style="width: 100%;" class="dropdownoperator" >
                     <option *ngFor="let season of seasons" value="{{season.name}}" >{{season.name}}</option>
                     </select>
-            </div> -->
+         TILL HERE   
   
           <div class="form-group">
               <label>availableInRanked: </label>
@@ -32,4 +32,53 @@
       </div>
     
   </div>
+</div> -->
+
+<!-- <div *ngIf="worldById"class="card mt-2"> -->
+  <div *ngIf="worldById" class="card mt-2">
+  <div class="card-header">
+    <h2 class="card-title">
+      Edit {{worldById.name}}
+    </h2>
+    <div class="card-body">
+      <form [formGroup]="worldEdit">
+        <div class="row">
+          <div class="col-md-6 text-center">
+              <mat-form-field appearance="fill">
+              
+                  <input matInput placeholder="Naam van Map" formControlName="name">
+                  <mat-error *ngIf="name.invalid">{{validateName()}}</mat-error>
+                </mat-form-field>
+            <mat-label>Beschikbaar in ranked</mat-label> <br />
+            <mat-checkbox class="mt-4" formControlName="availableInRanked">
+           
+            </mat-checkbox>
+          </div>
+          <div class="col-md-6">
+              <label>Beschrijving</label>
+              <br />
+              <mat-form-field appearance="fill">
+                  <input matInput placeholder="Beschrijving van de map" formControlName="description">
+                  <mat-error *ngIf="name.invalid">{{validateName()}}</mat-error>
+                </mat-form-field>
+                <br/>
+
+                <label>Season</label>
+                <br/>
+                <mat-form-field>
+                  <mat-select [(value)]="season" formControlName="season">
+                    <div class="position-inline">
+                        <mat-option>--Kies een season--</mat-option>
+                        <mat-option *ngFor="let season of seasons" value="{{season._id}}">{{season.name}}</mat-option>
+                    </div>                    
+                  </mat-select>
+                </mat-form-field>
+            </div>
+        </div> 
+
+        <button (click)="editWorld()" type="button" class="btn btn-primary float-right mb-2 mr-2">Bevestig</button>
+      </form>
+    </div>
+  </div>
+
 </div>
