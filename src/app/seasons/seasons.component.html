@@ -1,6 +1,6 @@
 <div class="card mt-5" *ngIf="_authService.loggedIn()">
     <div class="card-body">
-        <a routerLink="/operations/create" class="btn btn-success editbutton">Niewe Operation aanmaken</a>
+        <a routerLink="/season/create" class="btn btn-success editbutton">Niewe Operation aanmaken</a>
         <a routerLink="/operations/populate" class="btn btn-primary editbutton">Populate bestaande Operation</a>
         
       </div>
@@ -16,7 +16,8 @@
         <p class="card-text">
          Year {{season.year}}, Season: {{season.season}}
         </p>
-        <a (click)="onSelect(season)" class="btn btn-primary">Meer Informatie</a>
+        <button [routerLink]="['/season', season._id]" routerLinkActive="active" type="button"
+        class="btn btn-primary btn-season">View</button>
       </div>
     </div>
   </div>

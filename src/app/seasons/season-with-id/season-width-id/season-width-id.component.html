@@ -33,7 +33,10 @@
            
         </div>
         <div class="card-footer text-center">
-            <small>This component was made for Richardson maturity level 2</small>
+            <button [routerLink]="['/season/edit', seasonById._id]" routerLinkActive="active" type="button"
+            class="btn btn-warning float-left btn-season">Edit</button>
+            <button [routerLink]="['/season/delete', seasonById._id]" routerLinkActive="active" type="button"
+        class="btn btn-danger float-right  btn-season">Delete</button>
         </div>
     </div>
 </div>

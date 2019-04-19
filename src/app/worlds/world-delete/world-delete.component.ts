@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { World } from '../world.model';
 import { SiegeService } from 'src/app/siege.service';
 import { WorldsComponent } from '../worlds.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-world-delete',
@@ -15,7 +15,7 @@ export class WorldDeleteComponent implements OnInit {
   worldToDelete: World;
   private sub: any;
   
-  constructor(private _siegeService: SiegeService, private _worldsComp: WorldsComponent, private route: ActivatedRoute) { }
+  constructor(private _siegeService: SiegeService, private _worldsComp: WorldsComponent, private route: ActivatedRoute, private _router: Router) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -38,6 +38,7 @@ export class WorldDeleteComponent implements OnInit {
     .subscribe(
       res => {
         this._worldsComp.refreshWorlds();
+        this._router.navigate(['/maps']);
         console.log(res)
       },
       err => console.log(err)

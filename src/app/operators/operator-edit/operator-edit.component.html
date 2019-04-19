@@ -1,7 +1,38 @@
-<div *ngIf="operator">
+<div *ngIf="operatorById">
+  <div class="card mt-5 mb-5">
+    <div class="card-header text-center">
+      <h1>Edit {{operatorById.name}}</h1>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="operatorData">
+        <mat-form-field appearance="outline" style="width:100%">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Operator Name" formControlName="name" style="height:60px;">
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width:100%">
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Operator Description" formControlName="description" style="height:200px;"
+            class="mt-4"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width:100%;">
+          <select matNativeControl placeholder="Side" formControlName="side" style="height:60px;">
+            <option disabled >Select a side</option>
+            <option value="Attacker">Attacker</option>
+            <option value="Defender">Defender</option>
+          </select>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary float-left">Cancel</button>
+      <button (click)="editOperator()" class="btn btn-success float-right">Save</button>
+    </div>
+  </div>
+</div>
+<!-- <div *ngIf="operatorById">
   <div class="card mt-5 mb-5">
     <div class="card-heading text-center">
-      Edit {{operator.name}}
+      Edit {{operatorById.name}}
       <hr />
     </div>
     <div class="card-body">
@@ -16,9 +47,9 @@
         </div>
         <div class="form-group">
           <label>Side: </label>
-          <select id="OperatorSelector" [(ngModel)]="newOperatorSide" name="side" style="width: 100%;" class="dropdownoperator">
-            <option>Attacker</option>
-            <option>Defender</option>
+          <select id="OperatorSelector" name="side" [(ngModel)]="newOperatorSide" style="width: 100%;" class="dropdownoperator">
+            <option value="Attacker">Attacker</option>
+            <option value="Defender">Defender</option>
           </select>
         </div>
         <button type="button" (click)="editOperator()" class="btn btn-primary float-right">Confirm</button>
@@ -26,4 +57,4 @@
     </div>
 
   </div>
-</div>
+</div> -->

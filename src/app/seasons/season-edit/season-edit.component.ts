@@ -5,6 +5,7 @@ import { SiegeService } from '../../siege.service';
 import { World } from 'src/app/worlds/world.model';
 import { AuthService } from 'src/app/auth.service';
 import { SeasonsComponent } from '../seasons.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-season-edit',
@@ -15,6 +16,8 @@ export class SeasonEditComponent implements OnInit {
   
   operators = [];
   @Input() season: Season;
+  seasonById : Season;
+  private sub : any;
 
   worlds = [];
   @Input() world: World;
@@ -39,9 +42,20 @@ export class SeasonEditComponent implements OnInit {
     
   // }
 
-  constructor(private _siegeService: SiegeService, private _authService : AuthService, private _seasonComp: SeasonsComponent) { }
+  constructor(private _router: Router, private route: ActivatedRoute, private _siegeService: SiegeService, private _authService : AuthService, private _seasonComp: SeasonsComponent) { }
 
   ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this._siegeService.getSeasonById(params.id)
+      .subscribe(
+        res => {
+          this.seasonById = res
+          //console.log(this.worldById)
+        },
+        err => {
+          console.log(err)
+        }
+      )
     return this._siegeService.getOperators()
     .subscribe(
       res => this.operators = res,
@@ -51,20 +65,26 @@ export class SeasonEditComponent implements OnInit {
     .subscribe(
       res => this.worlds = res,
       err => console.log(err)
-    )
-
-    
+    )  
+    })
+     
   }
 
   editSeason() {
     if (this._authService.loggedIn) {
-    this.seasonEdit = new Season(this.season.name, this.seasonNewName, this.seasonNewDesc, this.seasonNewYear, this.seasonNewSeason)
-    this._siegeService.editSeason (this.seasonEdit)
+    this.seasonEdit = new Season(this.seasonById._id, this.seasonNewName, this.seasonNewDesc, this.seasonNewYear, this.seasonNewSeason)
+    this._siegeService.editSeason (this.seasonById._id, this.seasonEdit)
     .subscribe(
       res => {
         this._seasonComp.refreshSeasons();
-        console.log(res)},
-      err => console.log(err)
+        console.log(res)
+        this._router.navigate(['/operations'])
+      },
+      err => {
+        
+        console.log(err)
+      
+      }
     )}
     }
 

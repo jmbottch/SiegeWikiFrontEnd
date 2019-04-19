@@ -4,6 +4,9 @@ import { Season } from '../../seasons/season.model';
 import { SiegeService } from '../../siege.service';
 import { AuthService } from 'src/app/auth.service';
 import { OperatorsComponent } from '../operators.component';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { error } from 'util';
 
 @Component({
   selector: 'app-operator-edit',
@@ -12,13 +15,19 @@ import { OperatorsComponent } from '../operators.component';
 })
 export class OperatorEditComponent implements OnInit {
 
-  seasons = [];
+  
 
   @Input() operator: Character;
-  operatorEdit;
-  newOperatorName = '';
-  newOperatorDesc = '';
-  newOperatorSide = '';
+
+  operatorById: Character;
+  private sub: any;
+  operatorData: FormGroup;
+  seasons = [];
+
+  // operatorEdit;
+  // newOperatorName = '';
+  // newOperatorDesc = '';
+  // newOperatorSide = '';
 
 
   // operator = {
@@ -27,29 +36,52 @@ export class OperatorEditComponent implements OnInit {
   //   description: String,
   //   side: String,
   //   operator: Character
-    
+
   // }
 
-  constructor(private _siegeService: SiegeService, private _authService : AuthService, private _operatorComp : OperatorsComponent) { }
+  constructor(
+    private _siegeService: SiegeService, 
+    private _authService: AuthService, 
+    private _operatorComp: OperatorsComponent, 
+    private _router: Router,
+    private route: ActivatedRoute,
+    private fb: FormBuilder
+    ) { }
 
   ngOnInit() {
-    return this._siegeService.getSeasons()
-    .subscribe(
-      res => this.seasons = res,
-      err => console.log(err)
-    )
+    this.sub = this.route.params.subscribe(params => {
+      this._siegeService.getOperatorById(params.id)
+      .subscribe(
+        res => {
+          this.operatorById = res
+          console.log(res)
+        },
+        err => {
+          console.log(err)
+        }
+      )
+     return this.operatorData = this.fb.group({
+      name:[''],
+      description:[''],
+      side:['']
+     })
+    })
   }
 
   editOperator() {
     if (this._authService.loggedIn) {
-    this.operatorEdit = new Character(this.operator.name, this.newOperatorName, this.newOperatorDesc, this.newOperatorSide)
-    this._siegeService.editOperator(this.operatorEdit)
-    .subscribe(
-      res => {
-        this._operatorComp.refreshOperators();
-        console.log(res)},
-      err => console.log(err)
-    )}
+      console.log(this.operatorData.value)
+      this._siegeService.editOperator(this.operatorById._id, this.operatorData.value)
+      .subscribe(
+        res => {
+          console.log(res)
+          this._router.navigate(['/operators'])
+        },
+        err => {
+          console.log(err)
+        }
+      )
     }
+  }
 
 }

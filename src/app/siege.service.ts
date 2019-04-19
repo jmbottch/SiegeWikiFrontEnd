@@ -62,22 +62,16 @@ export class SiegeService {
     return this.http.get<any>(this._operatorUrl + '' + _id);
 }
   addOperator(operator) {
-    return this.http.post<any>(this._operatorsUrl, operator)
+    return this.http.post<any>(this._operatorUrl, operator)
   }
 
-  editOperator(operator: {}) {
+  editOperator(_id: any, operator: {}) {
     console.log('ewaja' + operator)
-    return this.http.put<any>(this._operatorsUrl, operator);
+    return this.http.put<any>(this._operatorUrl + '' + _id, operator);
   }
 
-  deleteOperator(name: any) {
-    const httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-          'name': name
-        })
-      };
-    return this.http.delete<any>(this._operatorsUrl, httpOptions );
+  deleteOperator(_id: any) {
+    return this.http.delete<any>(this._operatorUrl + '' + _id);
     }
 
   //SEASONS API CALLS
@@ -90,12 +84,12 @@ export class SiegeService {
   }
 
   addSeason(season) {
-    return this.http.post<any>(this._seasonsUrl, season)
+    return this.http.post<any>(this._seasonUrl, season)
   }
 
-  editSeason(season: {}) {
+  editSeason(_id: any, season: {}) {
     console.log('ewaja' + season)
-    return this.http.put<any>(this._seasonsUrl, season);
+    return this.http.put<any>(this._seasonUrl + '' + _id, season);
   }
 
   populateSeason(season: any) {
@@ -103,15 +97,8 @@ export class SiegeService {
     return this.http.put<any>(this._seasonsUrl + 'populate/', season);
 }
 
-  deleteSeason(name: any) {
-    console.log(name)
-    const httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-          'name': name
-        })
-      };
-    return this.http.delete<any>(this._seasonsUrl, httpOptions );
+  deleteSeason(_id: any) {
+    return this.http.delete<any>(this._seasonUrl + '' + _id );
     }
 
 

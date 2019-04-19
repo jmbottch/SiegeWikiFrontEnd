@@ -60,16 +60,16 @@ const routes: Routes = [
   },
   //SEASON ROUTES
   {
-    path:'operations/create',
+    path:'season/create',
     component: SeasonCreateComponent,
   },
   {
-    path:'operations/delete',
-    component:SeasonDeleteComponent
+    path: 'season/edit/:id',
+    component: SeasonEditComponent
   },
   {
-    path: 'operations/edit',
-    component: SeasonEditComponent
+    path:'season/delete/:id',
+    component:SeasonDeleteComponent
   },
   {
     path: 'operations/populate',
@@ -85,10 +85,6 @@ const routes: Routes = [
     component: WorldCreateComponent
   },
   {
-    path:'maps/delete',
-    component: WorldDeleteComponent
-  },
-  {
     path:'map/edit/:id',
     component: WorldEditComponent
   },
@@ -102,14 +98,14 @@ const routes: Routes = [
   },
   //OPERATOR ROUTES
   {
-    path:'operators/create',
+    path:'operator/create',
     component: OperatorCreateComponent
   },
-  { path: 'operators/delete',
+  { path: 'operator/delete/:id',
     component: OperatorDeleteComponent
   },
   {
-    path: 'operators/edit/:id',
+    path: 'operator/edit/:id',
     component: OperatorEditComponent
   },
   {

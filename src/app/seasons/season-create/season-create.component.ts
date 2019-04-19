@@ -23,70 +23,25 @@ export class SeasonCreateComponent implements OnInit {
     season: Number
 
   }
-  displayresult? = {};
-  displayresults = [];
-
-
-
-  showResultBox;
-
 
   constructor(private _siegeService: SiegeService, private _router: Router) { }
 
   ngOnInit() {
-    this.showResultBox = false;
+
   }
 
   addSeason() {
+    console.log(this.seasonCreate)
     this._siegeService.addSeason(this.seasonCreate)
       .subscribe(
         res => {
           this._router.navigate(['/operations'])
           console.log(res)
-          this.displayresult = {
-            result: "success",
-            message: "Season was created succesfully"
-          };
-          this.showResult();
+          
         },
         err => {
-          console.log(err);
-          this.displayresults = [
-
-          this.displayresult = {
-
-              result: "Failed",
-              message:
-                JSON.stringify(err.error.err.errors.name.message)
-
-
-          },
-
-        //   this.displayresult = {
-
-        //     result: "Failed",
-        //     message:
-        //       JSON.stringify(err.error.err.errors.description.message)
-
-
-        // }
-
-          ];
-
-
-
-            
-          this.showResult();
+          console.log(err)
         }
       )
   }
-
-  showResult() {
-    this.showResultBox = true;
-    setTimeout(() => {
-      this.showResultBox = false;
-    }, 5000);
-  }
-
-
 }

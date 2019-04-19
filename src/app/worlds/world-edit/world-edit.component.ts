@@ -71,8 +71,9 @@ export class WorldEditComponent implements OnInit {
     this._siegeService.editWorld(this.worldById._id, this.worldEdit.value)
     .subscribe(
       res => {
+        this._router.navigate(['/maps'])
         console.log(res)
-        this._router.navigate(['/worlds/'])
+        
       },
       err => console.log(err)
     )
