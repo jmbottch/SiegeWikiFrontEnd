@@ -52,12 +52,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _operators_operator_edit_operator_edit_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./operators/operator-edit/operator-edit.component */ "./src/app/operators/operator-edit/operator-edit.component.ts");
 /* harmony import */ var _worlds_world_edit_world_edit_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./worlds/world-edit/world-edit.component */ "./src/app/worlds/world-edit/world-edit.component.ts");
 /* harmony import */ var _seasons_season_populate_season_populate_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./seasons/season-populate/season-populate.component */ "./src/app/seasons/season-populate/season-populate.component.ts");
+/* harmony import */ var _seasons_season_with_id_season_width_id_season_width_id_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./seasons/season-with-id/season-width-id/season-width-id.component */ "./src/app/seasons/season-with-id/season-width-id/season-width-id.component.ts");
+/* harmony import */ var _worlds_world_with_id_world_with_id_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./worlds/world-with-id/world-with-id.component */ "./src/app/worlds/world-with-id/world-with-id.component.ts");
+/* harmony import */ var _operators_operator_with_id_operator_with_id_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./operators/operator-with-id/operator-with-id.component */ "./src/app/operators/operator-with-id/operator-with-id.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -125,6 +131,10 @@ var routes = [
         path: 'operations/populate',
         component: _seasons_season_populate_season_populate_component__WEBPACK_IMPORTED_MODULE_18__["SeasonPopulateComponent"]
     },
+    {
+        path: 'season/:id',
+        component: _seasons_season_with_id_season_width_id_season_width_id_component__WEBPACK_IMPORTED_MODULE_19__["SeasonWidthIdComponent"]
+    },
     //WORLD ROUTES
     {
         path: 'maps/create',
@@ -135,8 +145,16 @@ var routes = [
         component: _worlds_world_delete_world_delete_component__WEBPACK_IMPORTED_MODULE_13__["WorldDeleteComponent"]
     },
     {
-        path: 'maps/edit',
+        path: 'map/edit/:id',
         component: _worlds_world_edit_world_edit_component__WEBPACK_IMPORTED_MODULE_17__["WorldEditComponent"]
+    },
+    {
+        path: 'map/delete/:id',
+        component: _worlds_world_delete_world_delete_component__WEBPACK_IMPORTED_MODULE_13__["WorldDeleteComponent"]
+    },
+    {
+        path: 'map/:id',
+        component: _worlds_world_with_id_world_with_id_component__WEBPACK_IMPORTED_MODULE_20__["WorldWithIdComponent"]
     },
     //OPERATOR ROUTES
     {
@@ -147,9 +165,13 @@ var routes = [
         component: _operators_operator_delete_operator_delete_component__WEBPACK_IMPORTED_MODULE_11__["OperatorDeleteComponent"]
     },
     {
-        path: 'operators/edit',
+        path: 'operators/edit/:id',
         component: _operators_operator_edit_operator_edit_component__WEBPACK_IMPORTED_MODULE_16__["OperatorEditComponent"]
-    }
+    },
+    {
+        path: 'operator/:id',
+        component: _operators_operator_with_id_operator_with_id_component__WEBPACK_IMPORTED_MODULE_21__["OperatorWithIdComponent"]
+    },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -274,6 +296,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _worlds_world_create_world_create_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./worlds/world-create/world-create.component */ "./src/app/worlds/world-create/world-create.component.ts");
 /* harmony import */ var _operators_operator_create_operator_create_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./operators/operator-create/operator-create.component */ "./src/app/operators/operator-create/operator-create.component.ts");
 /* harmony import */ var _seasons_season_populate_season_populate_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./seasons/season-populate/season-populate.component */ "./src/app/seasons/season-populate/season-populate.component.ts");
+/* harmony import */ var _seasons_season_with_id_season_width_id_season_width_id_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./seasons/season-with-id/season-width-id/season-width-id.component */ "./src/app/seasons/season-with-id/season-width-id/season-width-id.component.ts");
+/* harmony import */ var _worlds_world_with_id_world_with_id_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./worlds/world-with-id/world-with-id.component */ "./src/app/worlds/world-with-id/world-with-id.component.ts");
+/* harmony import */ var _operators_operator_with_id_operator_with_id_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./operators/operator-with-id/operator-with-id.component */ "./src/app/operators/operator-with-id/operator-with-id.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -297,6 +324,11 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 ;
+
+
+
+
+
 
 
 
@@ -341,6 +373,9 @@ var AppModule = /** @class */ (function () {
                 _worlds_world_create_world_create_component__WEBPACK_IMPORTED_MODULE_29__["WorldCreateComponent"],
                 _operators_operator_create_operator_create_component__WEBPACK_IMPORTED_MODULE_30__["OperatorCreateComponent"],
                 _seasons_season_populate_season_populate_component__WEBPACK_IMPORTED_MODULE_31__["SeasonPopulateComponent"],
+                _seasons_season_with_id_season_width_id_season_width_id_component__WEBPACK_IMPORTED_MODULE_32__["SeasonWidthIdComponent"],
+                _worlds_world_with_id_world_with_id_component__WEBPACK_IMPORTED_MODULE_33__["WorldWithIdComponent"],
+                _operators_operator_with_id_operator_with_id_component__WEBPACK_IMPORTED_MODULE_34__["OperatorWithIdComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -350,12 +385,23 @@ var AppModule = /** @class */ (function () {
                 _angular_http__WEBPACK_IMPORTED_MODULE_17__["HttpModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_19__["NgbModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_23__["HttpClientModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_35__["MatFormFieldModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_35__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_35__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_35__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_35__["MatSelectModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_36__["BrowserAnimationsModule"]
             ],
-            providers: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _auth_service__WEBPACK_IMPORTED_MODULE_24__["AuthService"], _auth_guard__WEBPACK_IMPORTED_MODULE_26__["AuthGuard"], _siege_service__WEBPACK_IMPORTED_MODULE_25__["SiegeService"], _operators_operators_component__WEBPACK_IMPORTED_MODULE_8__["OperatorsComponent"],
+            providers: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _auth_service__WEBPACK_IMPORTED_MODULE_24__["AuthService"], _auth_guard__WEBPACK_IMPORTED_MODULE_26__["AuthGuard"], _siege_service__WEBPACK_IMPORTED_MODULE_25__["SiegeService"], _operators_operators_component__WEBPACK_IMPORTED_MODULE_8__["OperatorsComponent"], _seasons_seasons_component__WEBPACK_IMPORTED_MODULE_4__["SeasonsComponent"], _worlds_worlds_component__WEBPACK_IMPORTED_MODULE_12__["WorldsComponent"],
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_23__["HTTP_INTERCEPTORS"],
                     useClass: _token_interceptor_service__WEBPACK_IMPORTED_MODULE_27__["TokenInterceptorService"],
                     multi: true
+                },
+                {
+                    provide: _angular_forms__WEBPACK_IMPORTED_MODULE_18__["NG_VALUE_ACCESSOR"],
+                    multi: true,
+                    useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(function () { return _worlds_world_edit_world_edit_component__WEBPACK_IMPORTED_MODULE_13__["WorldEditComponent"]; })
                 }],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
@@ -566,7 +612,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-5\">\n  <div class=\"row\">\n    <div class=\"col-md-6 mx-auto\">\n      <span class=\"anchor\" id=\"formLogin\"></span>\n\n      <!-- form card login -->\n      <div class=\"card rounded-0\">\n        <div class=\"card-header\">\n          <h3 class=\"mb-0\">Login</h3>\n        </div>\n        <div class=\"card-body\">\n          <form class=\"form\">\n            <div class=\"form-group\">\n              <label for=\"name1\">name</label>\n              <input type=\"text\" class=\"form-control rounded-0\" [(ngModel)]=\"loginUserData.name\" name=\"name\" required>\n            </div>\n            <div class=\"form-group\">\n              <label>Password</label>\n              <input type=\"password\" class=\"form-control rounded-0\" [(ngModel)]=\"loginUserData.password\" name=\"password\" required>\n            </div>\n            <button type=\"button\" (click)=\"loginUser()\" class=\"btn btn-success float-right\">Login</button>\n          </form>\n        </div>\n        <!--/card-block-->\n      </div>\n      <!-- /form card login -->\n\n    </div>\n\n\n  </div>\n</div>"
+module.exports = "<div class=\"py-5\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6 mx-auto\">\r\n      <span class=\"anchor\" id=\"formLogin\"></span>\r\n\r\n      <!-- form card login -->\r\n      <div class=\"card rounded-0\">\r\n        <div class=\"card-header\">\r\n          <h3 class=\"mb-0\">Login</h3>\r\n        </div>\r\n        <div class=\"card-body\">\r\n          <form class=\"form\">\r\n            <div class=\"form-group\">\r\n              <label for=\"name1\">name</label>\r\n              <input type=\"text\" class=\"form-control rounded-0\" [(ngModel)]=\"loginUserData.name\" name=\"name\" required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label>Password</label>\r\n              <input type=\"password\" class=\"form-control rounded-0\" [(ngModel)]=\"loginUserData.password\" name=\"password\" required>\r\n            </div>\r\n            <button type=\"button\" (click)=\"loginUser()\" class=\"btn btn-success float-right\">Login</button>\r\n          </form>\r\n        </div>\r\n        <!--/card-block-->\r\n      </div>\r\n      <!-- /form card login -->\r\n\r\n    </div>\r\n\r\n\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -656,7 +702,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card mt-5\">\n    <div class=\"card-heading text-center\">\n      Create New Operator\n      <hr/>\n    </div>\n    <div class=\"card-body\">\n        <form class=\"form\">\n          <div class=\"form-group\">\n            <label for=\"name3\">Operator name:</label>\n            <input type=\"text\" [(ngModel)]=\"operatorCreateForm.name\" name=\"operatorName\" class=\"form-control rounded-0\" required>\n          </div>\n          <div class=\"form-group\">\n            <label>Description: </label>\n            <input type=\"text\" [(ngModel)]=\"operatorCreateForm.description\" name=\"operatorDescription\" class=\"form-control rounded-0\"  required>\n          </div>\n          <div class=\"form-group\">\n            <label>Side: </label>\n              <select id=\"OperatorSelector\" [(ngModel)]=\"operatorCreateForm.side\" name=\"side\" style=\"width: 100%;\" class=\"dropdownoperator\" >\n                  <option >Attacker</option>\n                  <option >Defender</option>\n                  </select>\n          </div>\n            \n          <button type=\"button\" (click)=\"addOperator()\" class=\"btn btn-primary float-right\">Confirm</button>\n        </form>\n      </div>\n    \n  </div>"
+module.exports = "<div class=\"card mt-5\">\r\n    <div class=\"card-heading text-center\">\r\n      Create New Operator\r\n      <hr/>\r\n    </div>\r\n    <div class=\"card-body\">\r\n        <form class=\"form\">\r\n          <div class=\"form-group\">\r\n            <label for=\"name3\">Operator name:</label>\r\n            <input type=\"text\" [(ngModel)]=\"operatorCreateForm.name\" name=\"operatorName\" class=\"form-control rounded-0\" required>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label>Description: </label>\r\n            <input type=\"text\" [(ngModel)]=\"operatorCreateForm.description\" name=\"operatorDescription\" class=\"form-control rounded-0\"  required>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label>Side: </label>\r\n              <select id=\"OperatorSelector\" [(ngModel)]=\"operatorCreateForm.side\" name=\"side\" style=\"width: 100%;\" class=\"dropdownoperator\" >\r\n                  <option >Attacker</option>\r\n                  <option >Defender</option>\r\n                  </select>\r\n          </div>\r\n            \r\n          <button type=\"button\" (click)=\"addOperator()\" class=\"btn btn-primary float-right\">Confirm</button>\r\n        </form>\r\n      </div>\r\n    \r\n  </div>"
 
 /***/ }),
 
@@ -746,7 +792,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card mt-5\">\n  \n  <div class=\"card-body text-center\">\n     <h3>Weet je zeker dat je deze operator wilt verwijderen?</h3>\n     <br/>\n     <button type=\"button\"\t(click)=\"deleteOperator()\" class=\"btn btn-danger createbutton\">Verwijder Operator</button>\n    </div>\n  \n</div>"
+module.exports = "<div class=\"card mt-5\">\r\n  \r\n  <div class=\"card-body text-center\">\r\n     <h3>Weet je zeker dat je deze operator wilt verwijderen?</h3>\r\n     <br/>\r\n     <button type=\"button\"\t(click)=\"deleteOperator()\" class=\"btn btn-danger createbutton\">Verwijder Operator</button>\r\n    </div>\r\n  \r\n</div>"
 
 /***/ }),
 
@@ -809,7 +855,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-operator-edit [operator]=\"selectedOperator\"></app-operator-edit>\n<div *ngIf=\"operator\">\n    <div class=\"card\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">\n                Detailed Information about {{operator.name | uppercase}}\n              </h5>\n              <hr/>\n              <p class=\"card-text\">\n\n                <b>Name:</b> \n                <br/>\n                {{operator.name}}\n                <br/>\n                <b>Description:</b> \n                <br/>\n                {{operator.description}}\n                <br/>\n                <b>Side:</b>\n                <br/>\n                {{operator.side}}\n                <br/>\n                <b>season: </b>\n                <br/>\n                {{operator.season}}\n                <br/>\n              </p>\n        </div> <div>\n                <a *ngIf=\"_authService.loggedIn()\" (click)=\"onSelect(operator)\" class=\"btn btn-warning editbutton\">Edit</a> \n                <a *ngIf=\"_authService.loggedIn()\" (click)=\"deleteOperator()\" class=\"btn btn-danger deletebutton\">Delete</a> \n        </div>            \n        \n    </div>\n\n</div>"
+module.exports = "<app-operator-edit [operator]=\"selectedOperator\"></app-operator-edit>\r\n<div *ngIf=\"operator\">\r\n  <div class=\"card\">\r\n    <div class=\"card-header\">\r\n      <h5 class=\"card-title\">\r\n        Detailed Information about {{operator.name | uppercase}}\r\n      </h5>\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <p class=\"card-text\">\r\n\r\n        <b>Name:</b>\r\n        <br />\r\n        {{operator.name}}\r\n        <br />\r\n        <b>Description:</b>\r\n        <br />\r\n        {{operator.description}}\r\n        <br />\r\n        <b>Side:</b>\r\n        <br />\r\n        {{operator.side}}\r\n        <br />\r\n        <b>season: </b>\r\n        <br />\r\n        {{operator.season}}\r\n        <br />\r\n      </p>\r\n    </div>\r\n    <div class=\"card-footer text-center\">\r\n        <button *ngIf=\"_authService.loggedIn()\" (click)=\"onSelect(operator)\" type=\"button\"\r\n        class=\"btn btn-warning btn-season float-left\">Edit</button>\r\n      <button [routerLink]=\"['/operator', operator._id]\" routerLinkActive=\"active\" type=\"button\"\r\n        class=\"btn btn-primary btn-season\">View</button>\r\n      <button *ngIf=\"_authService.loggedIn()\" (click)=\"deleteOperator()\" type=\"button\"\r\n        class=\"btn btn-danger btn-season float-right\">Delete</button>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -898,7 +944,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"operator\">\n  <div class=\"card mt-5 mb-5\">\n    <div class=\"card-heading text-center\">\n      Edit {{operator.name}}\n      <hr />\n    </div>\n    <div class=\"card-body\">\n      <form class=\"form\">\n        <div class=\"form-group\">\n          <label for=\"name\">Operator name:</label>\n          <input type=\"text\" [(ngModel)]=\"newOperatorName\" name=\"newName\" class=\"form-control rounded-0\" required>\n        </div>\n        <div class=\"form-group\">\n          <label>Description: </label>\n          <input type=\"text\" [(ngModel)]=\"newOperatorDesc\" name=\"description\" class=\"form-control rounded-0\" required>\n        </div>\n        <div class=\"form-group\">\n          <label>Side: </label>\n          <select id=\"OperatorSelector\" [(ngModel)]=\"newOperatorSide\" name=\"side\" style=\"width: 100%;\" class=\"dropdownoperator\">\n            <option>Attacker</option>\n            <option>Defender</option>\n          </select>\n        </div>\n        <button type=\"button\" (click)=\"editOperator()\" class=\"btn btn-primary float-right\">Confirm</button>\n      </form>\n    </div>\n\n  </div>\n</div>"
+module.exports = "<div *ngIf=\"operator\">\r\n  <div class=\"card mt-5 mb-5\">\r\n    <div class=\"card-heading text-center\">\r\n      Edit {{operator.name}}\r\n      <hr />\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <form class=\"form\">\r\n        <div class=\"form-group\">\r\n          <label for=\"name\">Operator name:</label>\r\n          <input type=\"text\" [(ngModel)]=\"newOperatorName\" name=\"newName\" class=\"form-control rounded-0\" required>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label>Description: </label>\r\n          <input type=\"text\" [(ngModel)]=\"newOperatorDesc\" name=\"description\" class=\"form-control rounded-0\" required>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label>Side: </label>\r\n          <select id=\"OperatorSelector\" [(ngModel)]=\"newOperatorSide\" name=\"side\" style=\"width: 100%;\" class=\"dropdownoperator\">\r\n            <option>Attacker</option>\r\n            <option>Defender</option>\r\n          </select>\r\n        </div>\r\n        <button type=\"button\" (click)=\"editOperator()\" class=\"btn btn-primary float-right\">Confirm</button>\r\n      </form>\r\n    </div>\r\n\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -976,6 +1022,91 @@ var OperatorEditComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_siege_service__WEBPACK_IMPORTED_MODULE_2__["SiegeService"], src_app_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"], _operators_component__WEBPACK_IMPORTED_MODULE_4__["OperatorsComponent"]])
     ], OperatorEditComponent);
     return OperatorEditComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/operators/operator-with-id/operator-with-id.component.css":
+/*!***************************************************************************!*\
+  !*** ./src/app/operators/operator-with-id/operator-with-id.component.css ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL29wZXJhdG9ycy9vcGVyYXRvci13aXRoLWlkL29wZXJhdG9yLXdpdGgtaWQuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/operators/operator-with-id/operator-with-id.component.html":
+/*!****************************************************************************!*\
+  !*** ./src/app/operators/operator-with-id/operator-with-id.component.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"this.operatorById\">\r\n    <div class=\"card mt-2\">\r\n        <div class=\"card-header\">\r\n          <h5 class=\"card-title\">\r\n            Detailed information about {{this.operatorById.name | uppercase}}\r\n          </h5>\r\n        </div>\r\n        <div class=\"card-body\">\r\n            <p class=\"card-text\">\r\n    \r\n                <b>Name:</b>\r\n                <br />\r\n                {{this.operatorById.name}}\r\n                <br />\r\n                <b>Description:</b>\r\n                <br />\r\n                {{this.operatorById.description}}\r\n                <br />\r\n                <b>Season: </b>\r\n                <br />\r\n                {{this.operatorById.season}}\r\n                <br />\r\n                <b>Available in ranked: </b>\r\n                <br />\r\n                {{this.operatorById.availableInRanked}}\r\n                <br />\r\n            </p>\r\n        </div>\r\n        <div class=\"card-footer text-center\">\r\n          <small>This component was made for Richardson Maturity level 2</small>\r\n        </div>\r\n      </div>\r\n      </div>"
+
+/***/ }),
+
+/***/ "./src/app/operators/operator-with-id/operator-with-id.component.ts":
+/*!**************************************************************************!*\
+  !*** ./src/app/operators/operator-with-id/operator-with-id.component.ts ***!
+  \**************************************************************************/
+/*! exports provided: OperatorWithIdComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OperatorWithIdComponent", function() { return OperatorWithIdComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_siege_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/siege.service */ "./src/app/siege.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var OperatorWithIdComponent = /** @class */ (function () {
+    function OperatorWithIdComponent(route, _siegeService) {
+        this.route = route;
+        this._siegeService = _siegeService;
+    }
+    OperatorWithIdComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.sub = this.route.params.subscribe(function (params) {
+            console.log(params['id']);
+            return _this._siegeService.getOperatorById(params.id)
+                .subscribe(function (res) {
+                _this.operatorById = res;
+                console.log('res: ' + res);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], OperatorWithIdComponent.prototype, "operator", void 0);
+    OperatorWithIdComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-operator-with-id',
+            template: __webpack_require__(/*! ./operator-with-id.component.html */ "./src/app/operators/operator-with-id/operator-with-id.component.html"),
+            styles: [__webpack_require__(/*! ./operator-with-id.component.css */ "./src/app/operators/operator-with-id/operator-with-id.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            src_app_siege_service__WEBPACK_IMPORTED_MODULE_2__["SiegeService"]])
+    ], OperatorWithIdComponent);
+    return OperatorWithIdComponent;
 }());
 
 
@@ -1106,7 +1237,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-5\">\n  <div class=\"row\">\n    <div class=\"col-md-6 mx-auto\">\n      <span class=\"anchor\" id=\"formLogin\"></span>\n\n      <!-- form card login -->\n      <div class=\"card rounded-0\">\n        <div class=\"card-header\">\n          <h3 class=\"mb-0\">Register</h3>\n        </div>\n        <div class=\"card-body\">\n          <form class=\"form\">\n            <div class=\"form-group\">\n              <label for=\"name1\">Name</label>\n              <input type=\"text\" [(ngModel)]=\"registerUserData.name\" name=\"name\" class=\"form-control rounded-0\" required>\n            </div>\n            <div class=\"form-group\">\n              <label>Password</label>\n              <input type=\"password\" [(ngModel)]=\"registerUserData.password\" name=\"password\" class=\"form-control rounded-0\"  required>\n            </div>\n            <button type=\"button\" (click)=\"registerUser()\" class=\"btn btn-primary float-right\">Register</button>\n          </form>\n        </div>\n        <!--/card-block-->\n      </div>\n      <!-- /form card login -->\n\n    </div>"
+module.exports = "<div class=\"py-5\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6 mx-auto\">\r\n      <span class=\"anchor\" id=\"formLogin\"></span>\r\n\r\n      <!-- form card login -->\r\n      <div class=\"card rounded-0\">\r\n        <div class=\"card-header\">\r\n          <h3 class=\"mb-0\">Register</h3>\r\n        </div>\r\n        <div class=\"card-body\">\r\n          <form class=\"form\">\r\n            <div class=\"form-group\">\r\n              <label for=\"name1\">Name</label>\r\n              <input type=\"text\" [(ngModel)]=\"registerUserData.name\" name=\"name\" class=\"form-control rounded-0\" required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label>Password</label>\r\n              <input type=\"password\" [(ngModel)]=\"registerUserData.password\" name=\"password\" class=\"form-control rounded-0\"  required>\r\n            </div>\r\n            <button type=\"button\" (click)=\"registerUser()\" class=\"btn btn-primary float-right\">Register</button>\r\n          </form>\r\n        </div>\r\n        <!--/card-block-->\r\n      </div>\r\n      <!-- /form card login -->\r\n\r\n    </div>"
 
 /***/ }),
 
@@ -1196,7 +1327,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card mt-5\">\n  <div class=\"card-heading text-center\">\n    Create New Operation\n    <hr />\n  </div>\n  <div class=\"card-body\">\n    <form class=\"form\">\n      <div class=\"form-group\">\n        <label for=\"name2\">Operation name:</label>\n        <input type=\"text\" [(ngModel)]=\"seasonCreate.name\" name=\"name\" class=\"form-control rounded-0\" required>\n      </div>\n      <div class=\"form-group\">\n        <label>Description: </label>\n        <input type=\"text\" [(ngModel)]=\"seasonCreate.description\" name=\"description\" class=\"form-control rounded-0\"\n          required>\n      </div>\n      <div class=\"form-group\">\n        <label>Year: </label>\n        <input type=\"number\" [(ngModel)]=\"seasonCreate.year\" name=\"year\" class=\"form-control rounded-0\" required>\n      </div>\n      <div class=\"form-group\">\n        <label>Season: </label>\n        <input type=\"number\" [(ngModel)]=\"seasonCreate.season\" name=\"season\" class=\"form-control rounded-0\" required>\n      </div>\n      <button type=\"button\" (click)=\"addSeason()\" class=\"btn btn-primary float-right\">Confirm</button>\n    </form>\n  </div>\n\n</div>\n\n\n\n\n<!-- <div class=\"card-body\">\n      <form [formGroup] = \"seasonCreate\" (ngSubmit)=\"addSeason()\">\n        <div class=\"form-group\">\n          <label class=\"col-md-4\">\n            Operation Name:\n          </label>\n          <input type=\"text\" class=\"form-control\" name=\"name\" />\n        </div>\n        <div class=\"form-group\">\n          <label class=\"col-md-4\">\n            Description:\n          </label>\n          <input type=\"text\" class=\"form-control\" name=\"description\" />\n        </div>\n        <div class=\"form-group\">\n          <label class=\"col-md-4\">\n            Year:\n          </label>\n          <input type=\"text\" class=\"form-control\" name=\"year\" />\n        </div>\n        <div class=\"form-group\">\n          <label class=\"col-md-4\">\n            Season:\n          </label>\n          <input type=\"text\" class=\"form-control\" name=\"season\" />\n        </div>\n  \n        <button type=\"submit\">Submit</button>\n      </form>\n    </div> -->"
+module.exports = "<div class=\"card mt-5\">\r\n  <div class=\"card-heading text-center\">\r\n    Create New Operation\r\n    <hr />\r\n  </div>\r\n  <div class=\"card-body\">\r\n    <form class=\"form\">\r\n      <div class=\"form-group\">\r\n        <label for=\"name2\">Operation name:</label>\r\n        <input type=\"text\" [(ngModel)]=\"seasonCreate.name\" name=\"name\" class=\"form-control rounded-0\" required>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Description: </label>\r\n        <input type=\"text\" [(ngModel)]=\"seasonCreate.description\" name=\"description\" class=\"form-control rounded-0\"\r\n          required>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Year: </label>\r\n        <input type=\"number\" [(ngModel)]=\"seasonCreate.year\" name=\"year\" class=\"form-control rounded-0\" required>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Season: </label>\r\n        <input type=\"number\" [(ngModel)]=\"seasonCreate.season\" name=\"season\" class=\"form-control rounded-0\" required>\r\n      </div>\r\n      <button type=\"button\" (click)=\"addSeason()\" class=\"btn btn-primary float-right\">Confirm</button>\r\n    </form>\r\n  </div>\r\n\r\n</div>\r\n\r\n<div>\r\n    <div class=\"card mt-5\" *ngIf=\"this.showResultBox\">\r\n      <div *ngFor=\"let displayresult of displayresults\">\r\n          <div class=\"card-body\">\r\n              <h4>{{this.displayresult.result}}</h4>\r\n              <p>{{this.displayresult.message}}</p>\r\n            </div>\r\n      </div> \r\n      \r\n      </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n<!-- <div class=\"card-body\">\r\n      <form [formGroup] = \"seasonCreate\" (ngSubmit)=\"addSeason()\">\r\n        <div class=\"form-group\">\r\n          <label class=\"col-md-4\">\r\n            Operation Name:\r\n          </label>\r\n          <input type=\"text\" class=\"form-control\" name=\"name\" />\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label class=\"col-md-4\">\r\n            Description:\r\n          </label>\r\n          <input type=\"text\" class=\"form-control\" name=\"description\" />\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label class=\"col-md-4\">\r\n            Year:\r\n          </label>\r\n          <input type=\"text\" class=\"form-control\" name=\"year\" />\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label class=\"col-md-4\">\r\n            Season:\r\n          </label>\r\n          <input type=\"text\" class=\"form-control\" name=\"season\" />\r\n        </div>\r\n  \r\n        <button type=\"submit\">Submit</button>\r\n      </form>\r\n    </div> -->"
 
 /***/ }),
 
@@ -1236,8 +1367,11 @@ var SeasonCreateComponent = /** @class */ (function () {
             year: Number,
             season: Number
         };
+        this.displayresult = {};
+        this.displayresults = [];
     }
     SeasonCreateComponent.prototype.ngOnInit = function () {
+        this.showResultBox = false;
     };
     SeasonCreateComponent.prototype.addSeason = function () {
         var _this = this;
@@ -1245,9 +1379,28 @@ var SeasonCreateComponent = /** @class */ (function () {
             .subscribe(function (res) {
             _this._router.navigate(['/operations']);
             console.log(res);
+            _this.displayresult = {
+                result: "success",
+                message: "Season was created succesfully"
+            };
+            _this.showResult();
         }, function (err) {
             console.log(err);
+            _this.displayresults = [
+                _this.displayresult = {
+                    result: "Failed",
+                    message: JSON.stringify(err.error.err.errors.name.message)
+                },
+            ];
+            _this.showResult();
         });
+    };
+    SeasonCreateComponent.prototype.showResult = function () {
+        var _this = this;
+        this.showResultBox = true;
+        setTimeout(function () {
+            _this.showResultBox = false;
+        }, 5000);
     };
     SeasonCreateComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1282,7 +1435,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card mt-5\">\n  \n  <div class=\"card-body text-center\">\n     <h3>Weet je zeker dat je deze operation wilt verwijderen?</h3>\n     <br/>\n     <button type=\"button\"\t(click)=\"deleteSeason()\" class=\"btn btn-danger createbutton\">Verwijder Operation</button>\n    </div>\n  \n</div>"
+module.exports = "<div class=\"card mt-5\">\r\n  \r\n  <div class=\"card-body text-center\">\r\n     <h3>Weet je zeker dat je deze operation wilt verwijderen?</h3>\r\n     <br/>\r\n     <button type=\"button\"\t(click)=\"deleteSeason()\" class=\"btn btn-danger createbutton\">Verwijder Operation</button>\r\n    </div>\r\n  \r\n</div>"
 
 /***/ }),
 
@@ -1348,7 +1501,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-season-edit [season]=\"selectedSeason\"></app-season-edit>\n\n<div *ngIf=\"season\">\n    <div class=\"card\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">\n                Detailed Information about {{season.name | uppercase}}\n              </h5>\n              <hr/>\n              <p class=\"card-text\">\n\n                <b>Name:</b> \n                <br/>\n                {{season.name}}\n                <br/>\n                <b>Description:</b> \n                <br/>\n                {{season.description}}\n                <br/>\n                <b>Year: </b>\n                <br/>\n                {{season.year}}\n                <br/>\n                <b>Season: </b>\n                <br/>\n                {{season.season}}\n                <br/>                \n              </p>\n              <div *ngIf=\"operator\">\n                    {{operator.name}}\n              </div>\n              <div *ngIf=\"world\">\n                    {{world.name}}\n              </div>\n              </div>\n              <div>\n                    <a *ngIf=\"_authService.loggedIn()\" (click)=\"onSelect(season)\"class=\"btn btn-warning editbutton\">Edit</a> \n                   \n                    <a *ngIf=\"_authService.loggedIn()\" (click)=\"deleteSeason()\"class=\"btn btn-danger editbutton\">Delete</a>\n\n            </div>   \n    </div>\n</div>"
+module.exports = "<div *ngIf=\"this.showResultBox\">\r\n  <div class=\"content login-page form login-form\">\r\n    <h4>{{this.displayresult.result}}</h4>\r\n    <p>{{this.displayresult.message}}</p>\r\n  </div>\r\n</div>\r\n\r\n<app-season-edit [season]=\"selectedSeason\"></app-season-edit>\r\n<br>\r\n<div *ngIf=\"season\">\r\n  <div class=\"card\">\r\n    <div class=\"card-header\">\r\n      <h5 class=\"card-title\">\r\n        {{season.name}} season information\r\n      </h5>\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <p>\r\n        <br>\r\n        <b>Name:</b>\r\n        <br />\r\n        {{season.name}}\r\n        <br />\r\n        <b>Description:</b>\r\n        <br />\r\n        {{season.description}}\r\n        <br />\r\n        <b>Year:</b>\r\n        <br />\r\n        {{ season.year }}\r\n        <br />\r\n      </p>\r\n    </div>\r\n    <div class=\"card-footer text-center\">\r\n        <button *ngIf=\"_authService.loggedIn()\" (click)=\"onSelect(season)\" type=\"button\"\r\n        class=\"btn btn-warning btn-season float-left\">Edit</button>\r\n      <button [routerLink]=\"['/season', season._id]\" routerLinkActive=\"active\" type=\"button\"\r\n        class=\"btn btn-primary btn-season\">View</button>\r\n      <button *ngIf=\"_authService.loggedIn()\" (click)=\"deleteSeason()\" type=\"button\"\r\n        class=\"btn btn-danger btn-season float-right\">Delete</button>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1367,6 +1520,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _season_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../season.model */ "./src/app/seasons/season.model.ts");
 /* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../auth.service */ "./src/app/auth.service.ts");
 /* harmony import */ var _seasons_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../seasons.component */ "./src/app/seasons/seasons.component.ts");
+/* harmony import */ var src_app_auth_guard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/auth.guard */ "./src/app/auth.guard.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1381,20 +1535,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SeasonDetailComponent = /** @class */ (function () {
-    function SeasonDetailComponent(_siegeService, _authService, _seasonsComp, _seasonComp) {
+    function SeasonDetailComponent(_siegeService, _authGuard, _authService, _seasonsComp, _seasonComp) {
         this._siegeService = _siegeService;
         this._authService = _authService;
         this._seasonsComp = _seasonsComp;
         this._seasonComp = _seasonComp;
+        this.worlds = [];
+        this.operators = [];
     }
     SeasonDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.display = false;
+        this.displayS = false;
+        return this._siegeService.getOperators()
+            .subscribe(function (res) { return _this.operators = res; }, function (err) { return console.log(err); }),
+            this._siegeService.getWorlds()
+                .subscribe(function (res) { return _this.worlds = res; }, function (err) { return console.log(err); });
     };
     SeasonDetailComponent.prototype.onSelect = function (season) {
         this.selectedSeason = season;
-    };
-    SeasonDetailComponent.prototype.onPopulate = function (season) {
-        this.popSeason = season;
+        this.popuSeason = season;
     };
     SeasonDetailComponent.prototype.deleteSeason = function () {
         var _this = this;
@@ -1404,6 +1566,19 @@ var SeasonDetailComponent = /** @class */ (function () {
             _this._seasonComp.refreshSeasons();
             console.log(res);
         }, function (err) { return console.log(err); });
+    };
+    SeasonDetailComponent.prototype.onSelectOperator = function (season) {
+        this.display = true;
+        this.season = this.season;
+        this.opOfSeasonName = this.season.operator;
+    };
+    SeasonDetailComponent.prototype.seasonHas = function (operator) {
+        if (operator.name === null || undefined)
+            return false;
+        if (operator._id == this.opOfSeasonName)
+            return true;
+        else
+            return false;
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -1415,7 +1590,7 @@ var SeasonDetailComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./season-detail.component.html */ "./src/app/seasons/season-detail/season-detail.component.html"),
             styles: [__webpack_require__(/*! ./season-detail.component.css */ "./src/app/seasons/season-detail/season-detail.component.css")]
         }),
-        __metadata("design:paramtypes", [_siege_service__WEBPACK_IMPORTED_MODULE_1__["SiegeService"], _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"], _seasons_component__WEBPACK_IMPORTED_MODULE_4__["SeasonsComponent"], _seasons_component__WEBPACK_IMPORTED_MODULE_4__["SeasonsComponent"]])
+        __metadata("design:paramtypes", [_siege_service__WEBPACK_IMPORTED_MODULE_1__["SiegeService"], src_app_auth_guard__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"], _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"], _seasons_component__WEBPACK_IMPORTED_MODULE_4__["SeasonsComponent"], _seasons_component__WEBPACK_IMPORTED_MODULE_4__["SeasonsComponent"]])
     ], SeasonDetailComponent);
     return SeasonDetailComponent;
 }());
@@ -1442,7 +1617,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div *ngIf=\"season\">\n    <div class=\"card mt-5 mb-5\">\n        <div class=\"card-heading text-center\">\n          Edit {{season.name}}\n          <hr />\n        </div>\n        <div class=\"card-body\">\n          <form class=\"form\">\n            <div class=\"form-group\">\n              <label for=\"name\">Operation name:</label>\n              <input type=\"text\" [(ngModel)]=\"seasonNewName\" name=\"name\" class=\"form-control rounded-0\" required>\n            </div>\n            <div class=\"form-group\">\n              <label>Description: </label>\n              <input type=\"text\" [(ngModel)]=\"seasonNewDesc\" name=\"description\" class=\"form-control rounded-0\"\n                required>\n            </div>\n            <div class=\"form-group\">\n              <label>Year: </label>\n              <input type=\"number\" [(ngModel)]=\"seasonNewYear\" name=\"year\" class=\"form-control rounded-0\" required>\n            </div>\n            <div class=\"form-group\">\n              <label>Season: </label>\n              <input type=\"number\" [(ngModel)]=\"seasonNewSeason\" name=\"season\" class=\"form-control rounded-0\"\n                required>\n            </div>    \n           \n            <button type=\"button\" (click)=\"editSeason()\" class=\"btn btn-primary float-right\">Confirm</button>\n          </form>\n        </div>\n      \n      </div>\n</div>"
+module.exports = "\r\n<div *ngIf=\"season\">\r\n    <div class=\"card mt-5 mb-5\">\r\n        <div class=\"card-heading text-center\">\r\n          Edit {{season.name}}\r\n          <hr />\r\n        </div>\r\n        <div class=\"card-body\">\r\n          <form class=\"form\">\r\n            <div class=\"form-group\">\r\n              <label for=\"name\">Operation name:</label>\r\n              <input type=\"text\" [(ngModel)]=\"seasonNewName\" name=\"name\" class=\"form-control rounded-0\" required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label>Description: </label>\r\n              <input type=\"text\" [(ngModel)]=\"seasonNewDesc\" name=\"description\" class=\"form-control rounded-0\"\r\n                required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label>Year: </label>\r\n              <input type=\"number\" [(ngModel)]=\"seasonNewYear\" name=\"year\" class=\"form-control rounded-0\" required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label>Season: </label>\r\n              <input type=\"number\" [(ngModel)]=\"seasonNewSeason\" name=\"season\" class=\"form-control rounded-0\"\r\n                required>\r\n            </div>    \r\n           \r\n            <button type=\"button\" (click)=\"editSeason()\" class=\"btn btn-primary float-right\">Confirm</button>\r\n          </form>\r\n        </div>\r\n      \r\n      </div>\r\n</div>"
 
 /***/ }),
 
@@ -1556,7 +1731,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card mt-5\">\n    <h5 class=\"card-title\">Populate season: </h5>\n    <hr />\n    <div class=\"form-group\">\n      <label>Season: </label>\n      <select id=\"SeasonSelector\" [(ngModel)]=\"seasonCreateData.name\" name=\"name\" style=\"width: 100%;\"\n        class=\"dropdownoperator\">\n        <option *ngFor=\"let season of seasons\" value=\"{{season._id}}\">{{season.name}}</option>\n      </select>\n    </div>\n    <div class=\"form-group\">\n      <label>Operator: </label>\n      <select id=\"OperatorSelector\" [(ngModel)]=\"seasonCreateData.operatorName\" name=\"operatorName\" style=\"width: 100%;\"\n        class=\"dropdownoperator\">\n        <option *ngFor=\"let operator of operators\" value=\"{{operator._id}}\">{{operator.name}}</option>\n      </select>\n    </div>\n    <div class=\"form-group\">\n      <label>Map: </label>\n      <select id=\"WorldSelector\" [(ngModel)]=\"seasonCreateData.siegeMapName\" name=\"siegeMapName\" style=\"width: 100%;\"\n        class=\"dropdownoperator\">\n        <option *ngFor=\"let map of maps\" value=\"{{map._id}}\">{{map.name}}</option>\n      </select>\n    </div>\n    <a (click)=\"populateSeason()\" class=\"btn btn-warning  mt-2 mr-2\">Confirm</a>\n    <a routerLink='/seasons' routerLinkActive=\"active\" class=\"btn btn-primary\">Cancel</a>\n  </div>>"
+module.exports = "<div class=\"card mt-5\">\r\n    <h5 class=\"card-title\">Populate season: </h5>\r\n    <hr />\r\n    <div class=\"form-group\">\r\n      <label>Season: </label>\r\n      <select id=\"SeasonSelector\" [(ngModel)]=\"seasonCreateData.name\" name=\"name\" style=\"width: 100%;\"\r\n        class=\"dropdownoperator\">\r\n        <option *ngFor=\"let season of seasons\" value=\"{{season._id}}\">{{season.name}}</option>\r\n      </select>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Operator: </label>\r\n      <select id=\"OperatorSelector\" [(ngModel)]=\"seasonCreateData.operatorName\" name=\"operatorName\" style=\"width: 100%;\"\r\n        class=\"dropdownoperator\">\r\n        <option *ngFor=\"let operator of operators\" value=\"{{operator._id}}\">{{operator.name}}</option>\r\n      </select>\r\n    </div>\r\n    <div class=\"form-group\">\r\n      <label>Map: </label>\r\n      <select id=\"WorldSelector\" [(ngModel)]=\"seasonCreateData.siegeMapName\" name=\"siegeMapName\" style=\"width: 100%;\"\r\n        class=\"dropdownoperator\">\r\n        <option *ngFor=\"let map of maps\" value=\"{{map._id}}\">{{map.name}}</option>\r\n      </select>\r\n    </div>\r\n    <a (click)=\"populateSeason()\" class=\"btn btn-warning  mt-2 mr-2\">Confirm</a>\r\n    <a routerLink='/seasons' routerLinkActive=\"active\" class=\"btn btn-primary\">Cancel</a>\r\n  </div>>"
 
 /***/ }),
 
@@ -1638,30 +1813,105 @@ var SeasonPopulateComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/seasons/season-with-id/season-width-id/season-width-id.component.css":
+/*!**************************************************************************************!*\
+  !*** ./src/app/seasons/season-with-id/season-width-id/season-width-id.component.css ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NlYXNvbnMvc2Vhc29uLXdpdGgtaWQvc2Vhc29uLXdpZHRoLWlkL3NlYXNvbi13aWR0aC1pZC5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/seasons/season-with-id/season-width-id/season-width-id.component.html":
+/*!***************************************************************************************!*\
+  !*** ./src/app/seasons/season-with-id/season-width-id/season-width-id.component.html ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!-- <app-season-edit [season]=\"selectedSeason\"></app-season-edit> -->\r\n\r\n\r\n\r\n<div *ngIf=\"this.seasonById\">\r\n    <div class=\"card mt-2\">\r\n        <div class=\"card-header\">\r\n                <h5 class=\"card-title\">\r\n                        Detailed Information about {{this.seasonById.name | uppercase}}\r\n                    </h5>\r\n        </div>\r\n        <div class=\"card-body\">\r\n            <p class=\"card-text\">\r\n\r\n                <b>Name:</b>\r\n                <br />\r\n                {{this.seasonById.name}}\r\n                <br />\r\n                <b>Description:</b>\r\n                <br />\r\n                {{this.seasonById.description}}\r\n                <br />\r\n                <b>Year: </b>\r\n                <br />\r\n                {{this.seasonById.year}}\r\n                <br />\r\n                <b>Season: </b>\r\n                <br />\r\n                {{this.seasonById.season}}\r\n                <br />\r\n            </p>\r\n\r\n           \r\n        </div>\r\n        <div class=\"card-footer text-center\">\r\n            <small>This component was made for Richardson maturity level 2</small>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<!-- <div *ngIf=\"this.display\" class=\"mt-5\">\r\n        <div *ngFor=\"let operator of operators\">\r\n            <div class=\"card\" *ngIf=\"seasonHas(operator)\">\r\n    \r\n                <div class=\"card-title\">\r\n                    <h5>\r\n                        {{operator.name}}\r\n                    </h5>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <b>\r\n                        Description:\r\n                    </b>\r\n                    {{operator.description}}\r\n                    <br />\r\n                    <b>\r\n                        Side\r\n                    </b>\r\n                    {{operator.side}}\r\n    \r\n                </div>\r\n            </div>\r\n    \r\n        </div>\r\n    </div> -->\r\n\r\n"
+
+/***/ }),
+
+/***/ "./src/app/seasons/season-with-id/season-width-id/season-width-id.component.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/seasons/season-with-id/season-width-id/season-width-id.component.ts ***!
+  \*************************************************************************************/
+/*! exports provided: SeasonWidthIdComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SeasonWidthIdComponent", function() { return SeasonWidthIdComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _season_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../season.model */ "./src/app/seasons/season.model.ts");
+/* harmony import */ var src_app_siege_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/siege.service */ "./src/app/siege.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var SeasonWidthIdComponent = /** @class */ (function () {
+    function SeasonWidthIdComponent(route, _siegeService) {
+        this.route = route;
+        this._siegeService = _siegeService;
+    }
+    SeasonWidthIdComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.sub = this.route.params.subscribe(function (params) {
+            console.log("Id before return: " + params['id']);
+            return _this._siegeService.getSeasonById(params.id)
+                .subscribe(function (res) {
+                _this.seasonById = res;
+                console.log('res: ' + res);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _season_model__WEBPACK_IMPORTED_MODULE_1__["Season"])
+    ], SeasonWidthIdComponent.prototype, "season", void 0);
+    SeasonWidthIdComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-season-width-id',
+            template: __webpack_require__(/*! ./season-width-id.component.html */ "./src/app/seasons/season-with-id/season-width-id/season-width-id.component.html"),
+            styles: [__webpack_require__(/*! ./season-width-id.component.css */ "./src/app/seasons/season-with-id/season-width-id/season-width-id.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            src_app_siege_service__WEBPACK_IMPORTED_MODULE_2__["SiegeService"]])
+    ], SeasonWidthIdComponent);
+    return SeasonWidthIdComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/seasons/season.model.ts":
 /*!*****************************************!*\
   !*** ./src/app/seasons/season.model.ts ***!
   \*****************************************/
-/*! exports provided: Season, popuSeason */
+/*! exports provided: Season */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Season", function() { return Season; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "popuSeason", function() { return popuSeason; });
 var Season = /** @class */ (function () {
-    function Season(name, newName, description, year, season) {
-        this.name = name;
-        this.newName = newName;
-        this.description = description;
-        this.year = year;
-        this.season = season;
-    }
-    return Season;
-}());
-
-var popuSeason = /** @class */ (function () {
-    function popuSeason(_id, name, description, year, season, world, operator) {
+    function Season(_id, name, description, year, season, world, operator) {
         this._id = _id;
         this.name = name;
         this.description = description;
@@ -1670,7 +1920,7 @@ var popuSeason = /** @class */ (function () {
         this.world = world;
         this.operator = operator;
     }
-    return popuSeason;
+    return Season;
 }());
 
 
@@ -1695,7 +1945,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card mt-5\" *ngIf=\"_authService.loggedIn()\">\n    <div class=\"card-body\">\n        <a routerLink=\"/operations/create\" class=\"btn btn-success editbutton\">Niewe Operation aanmaken</a>\n        <a routerLink=\"/operations/populate\" class=\"btn btn-primary editbutton\">Populate bestaande Operation</a>\n        \n      </div>\n  </div>\n\n<div class=\"row mt-5\">\n  <div class=\"col-md-4 mb-3\" *ngFor=\"let season of seasons\">\n    <div class=\"card text-center\">\n      <div class=\"card-body\">\n        <h5 class=\"card-title\">\n          {{season.name}}\n        </h5>\n        <p class=\"card-text\">\n         Year {{season.year}}, Season: {{season.season}}\n        </p>\n        \n        <a (click)=\"onSelect(season)\" class=\"btn btn-primary\">Meer Informatie</a>\n      </div>\n    </div>\n  </div>\n</div>\n<app-season-detail [season]=\"selectedSeason\"></app-season-detail>\n"
+module.exports = "<div class=\"card mt-5\" *ngIf=\"_authService.loggedIn()\">\r\n    <div class=\"card-body\">\r\n        <a routerLink=\"/operations/create\" class=\"btn btn-success editbutton\">Niewe Operation aanmaken</a>\r\n        <a routerLink=\"/operations/populate\" class=\"btn btn-primary editbutton\">Populate bestaande Operation</a>\r\n        \r\n      </div>\r\n  </div>\r\n\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-md-4 mb-3\" *ngFor=\"let season of seasons\">\r\n    <div class=\"card text-center\">\r\n      <div class=\"card-body\">\r\n        <h5 class=\"card-title\">\r\n          {{season.name}}\r\n        </h5>\r\n        <p class=\"card-text\">\r\n         Year {{season.year}}, Season: {{season.season}}\r\n        </p>\r\n        <a (click)=\"onSelect(season)\" class=\"btn btn-primary\">Meer Informatie</a>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<app-season-detail [season]=\"selectedSeason\"></app-season-detail>\r\n"
 
 /***/ }),
 
@@ -1786,10 +2036,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var SiegeService = /** @class */ (function () {
-    //Detail URLs
-    // private _worldUrl = "http://siegewiki.herokuapp.com/api/world";
-    // private _operatorUrl = "http://siegewiki.herokuapp.com/api/operator";
-    // private _seasonUrl = "http://siegewiki.herokuapp.com/api/season";
     function SiegeService(http) {
         this.http = http;
         this.seasons = [];
@@ -1800,30 +2046,36 @@ var SiegeService = /** @class */ (function () {
         this._operatorsUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].serverUrl + "/api/operators/";
         this._seasonsUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].serverUrl + "/api/seasons/";
         this._userUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].serverUrl + "/api/users/";
+        //Detail URLs
+        this._worldUrl = "https://siegewiki.herokuapp.com/api/world/";
+        this._operatorUrl = "https://siegewiki.herokuapp.com/api/operator/";
+        this._seasonUrl = "https://siegewiki.herokuapp.com/api/season/";
     }
     //WORLDS API CALLS
     SiegeService.prototype.getWorlds = function () {
         return this.http.get(this._worldsUrl);
     };
+    SiegeService.prototype.getWorldById = function (_id) {
+        console.log(this._worldUrl + '' + _id);
+        return this.http.get(this._worldUrl + '' + _id);
+    };
     SiegeService.prototype.addWorld = function (world) {
-        return this.http.post(this._worldsUrl, world);
+        return this.http.post(this._worldUrl, world);
     };
-    SiegeService.prototype.editWorld = function (world) {
-        console.log('ewaja' + world);
-        return this.http.put(this._worldsUrl, world);
+    SiegeService.prototype.editWorld = function (_id, world) {
+        console.log(world);
+        return this.http.put(this._worldUrl + '' + _id, world);
     };
-    SiegeService.prototype.deleteWorld = function (name) {
-        var httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'name': name
-            })
-        };
-        return this.http.delete(this._worldsUrl, httpOptions);
+    SiegeService.prototype.deleteWorld = function (_id) {
+        console.log(_id);
+        return this.http.delete(this._worldUrl + '' + _id);
     };
     //OPERATORS API CALLS
     SiegeService.prototype.getOperators = function () {
         return this.http.get(this._operatorsUrl);
+    };
+    SiegeService.prototype.getOperatorById = function (_id) {
+        return this.http.get(this._operatorUrl + '' + _id);
     };
     SiegeService.prototype.addOperator = function (operator) {
         return this.http.post(this._operatorsUrl, operator);
@@ -1844,6 +2096,9 @@ var SiegeService = /** @class */ (function () {
     //SEASONS API CALLS
     SiegeService.prototype.getSeasons = function () {
         return this.http.get(this._seasonsUrl);
+    };
+    SiegeService.prototype.getSeasonById = function (_id) {
+        return this.http.get(this._seasonUrl + '' + _id);
     };
     SiegeService.prototype.addSeason = function (season) {
         return this.http.post(this._seasonsUrl, season);
@@ -1957,7 +2212,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"py-5\">\n    <div class=\"row\">\n      <div class=\"col-md-6 mx-auto\">\n        \n  \n        <!-- form card login -->\n        <div class=\"card rounded-0\">\n          <div class=\"card-header\">\n            <h3 class=\"mb-0\">Delete User</h3>\n          </div>\n          <div class=\"card-body\">\n            <form class=\"form\">\n              <div class=\"form-group\">\n                <label for=\"name1\">name</label>\n                <input type=\"text\" class=\"form-control rounded-0\" [(ngModel)]=\"name\" name=\"name\" required>\n              </div>\n              <div class=\"form-group\">\n                <label>Password</label>\n                <input type=\"password\" class=\"form-control rounded-0\" [(ngModel)]=\"password\" name=\"password\" required>\n              </div>\n              <button type=\"button\" (click)=\"deleteUser()\" class=\"btn btn-danger createbutton\">Delete</button>\n            </form>\n          </div>\n          <!--/card-block-->\n        </div>\n        <!-- /form card login -->\n  \n      </div>\n  \n  \n    </div>\n  </div>"
+module.exports = "<div class=\"py-5\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-6 mx-auto\">\r\n        \r\n  \r\n        <!-- form card login -->\r\n        <div class=\"card rounded-0\">\r\n          <div class=\"card-header\">\r\n            <h3 class=\"mb-0\">Delete User</h3>\r\n          </div>\r\n          <div class=\"card-body\">\r\n            <form class=\"form\">\r\n              <div class=\"form-group\">\r\n                <label for=\"name1\">name</label>\r\n                <input type=\"text\" class=\"form-control rounded-0\" [(ngModel)]=\"name\" name=\"name\" required>\r\n              </div>\r\n              <div class=\"form-group\">\r\n                <label>Password</label>\r\n                <input type=\"password\" class=\"form-control rounded-0\" [(ngModel)]=\"password\" name=\"password\" required>\r\n              </div>\r\n              <button type=\"button\" (click)=\"deleteUser()\" class=\"btn btn-danger createbutton\">Delete</button>\r\n            </form>\r\n          </div>\r\n          <!--/card-block-->\r\n        </div>\r\n        <!-- /form card login -->\r\n  \r\n      </div>\r\n  \r\n  \r\n    </div>\r\n  </div>"
 
 /***/ }),
 
@@ -2033,7 +2288,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card mt-5\">\n    <div class=\"card-heading text-center\">\n      Create New Map\n      <hr/>\n    </div>\n    <div class=\"card-body\">\n        <form class=\"form\">\n          <div class=\"form-group\">\n            <label for=\"name1\">Map name:</label>\n            <input type=\"text\" [(ngModel)]=\"worldCreateForm.name\" name=\"name\" class=\"form-control rounded-0\" required>\n          </div>\n          <div class=\"form-group\">\n            <label>Description: </label>\n            <input type=\"text\" [(ngModel)]=\"worldCreateForm.description\" name=\"description\" class=\"form-control rounded-0\"  required>\n          </div>\n          <div class=\"form-group\">\n              <label>availableInRanked: </label>\n              <input type=\"checkbox\" [(ngModel)]=\"worldCreateForm.availableInRanked\" name=\"availableInRanked\" class=\"form-control rounded-0\"  required>\n            </div>\n            \n          <button type=\"button\" (click)=\"addWorld()\" class=\"btn btn-primary float-right\">Confirm</button>\n        </form>\n      </div>\n    \n  </div>"
+module.exports = "<div class=\"card mt-5\">\r\n    <div class=\"card-heading text-center\">\r\n      Create New Map\r\n      <hr/>\r\n    </div>\r\n    <div class=\"card-body\">\r\n        <form class=\"form\">\r\n          <div class=\"form-group\">\r\n            <label for=\"name1\">Map name:</label>\r\n            <input type=\"text\" [(ngModel)]=\"worldCreateForm.name\" name=\"name\" class=\"form-control rounded-0\" required>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label>Description: </label>\r\n            <input type=\"text\" [(ngModel)]=\"worldCreateForm.description\" name=\"description\" class=\"form-control rounded-0\"  required>\r\n          </div>\r\n          <div class=\"form-group\">\r\n              <label>availableInRanked: </label>\r\n              <input type=\"checkbox\" [(ngModel)]=\"worldCreateForm.availableInRanked\" name=\"availableInRanked\" class=\"form-control rounded-0\"  required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label>Season</label>\r\n              <select class=\"string-box btn text-white rounding half-black list-item mt-1 text-center\" [(ngModel)]=\"worldCreateForm.season\"  name=\"season\">\r\n                  <option class=\"string-box btn text-white rounding half-black list-item mt-1 text-center\">Selecteer een Season</option>\r\n                  <option class=\"string-box btn text-white rounding half-black list-item mt-1 text-center\" *ngFor=\"let season of seasons\" value=\"{{season._id}}\">{{season.name}}</option>\r\n              </select>\r\n            </div>\r\n            \r\n          <button type=\"button\" (click)=\"addWorld()\" class=\"btn btn-primary float-right\">Confirm</button>\r\n        </form>\r\n      </div>\r\n    \r\n  </div>"
 
 /***/ }),
 
@@ -2050,6 +2305,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _siege_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../siege.service */ "./src/app/siege.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/auth.service */ "./src/app/auth.service.ts");
+/* harmony import */ var src_app_seasons_season_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/seasons/season.model */ "./src/app/seasons/season.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2062,17 +2319,25 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var WorldCreateComponent = /** @class */ (function () {
-    function WorldCreateComponent(_siegeService, _router) {
+    function WorldCreateComponent(_siegeService, _router, _auth) {
         this._siegeService = _siegeService;
         this._router = _router;
+        this._auth = _auth;
         this.worldCreateForm = {
             name: String,
             description: String,
-            availableInRanked: Boolean
+            availableInRanked: Boolean,
+            season: {}
         };
     }
     WorldCreateComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._auth.loggedIn();
+        this._siegeService.getSeasons()
+            .subscribe(function (res) { return _this.seasons = res; }, function (err) { return console.log(err); });
     };
     WorldCreateComponent.prototype.addWorld = function () {
         var _this = this;
@@ -2084,13 +2349,17 @@ var WorldCreateComponent = /** @class */ (function () {
             console.log(err);
         });
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", src_app_seasons_season_model__WEBPACK_IMPORTED_MODULE_4__["Season"])
+    ], WorldCreateComponent.prototype, "season", void 0);
     WorldCreateComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-world-create',
             template: __webpack_require__(/*! ./world-create.component.html */ "./src/app/worlds/world-create/world-create.component.html"),
             styles: [__webpack_require__(/*! ./world-create.component.css */ "./src/app/worlds/world-create/world-create.component.css")]
         }),
-        __metadata("design:paramtypes", [_siege_service__WEBPACK_IMPORTED_MODULE_1__["SiegeService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        __metadata("design:paramtypes", [_siege_service__WEBPACK_IMPORTED_MODULE_1__["SiegeService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"]])
     ], WorldCreateComponent);
     return WorldCreateComponent;
 }());
@@ -2117,7 +2386,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card mt-5\">\n  \n  <div class=\"card-body text-center\">\n     <h3>Weet je zeker dat je deze map wilt verwijderen?</h3>\n     <br/>\n     <button type=\"button\"\t(click)=\"deleteWorld()\" class=\"btn btn-danger createbutton\">Verwijder Map</button>\n    </div>\n  \n</div>"
+module.exports = "<div class=\"card mt-5\">\r\n  \r\n  <div class=\"card-body text-center\">\r\n     <h3>Weet je zeker dat je deze map wilt verwijderen?</h3>\r\n     <br/>\r\n     <button type=\"button\"\t(click)=\"deleteWorld()\" class=\"btn btn-danger createbutton\">Verwijder Map</button>\r\n    </div>\r\n  \r\n</div>"
 
 /***/ }),
 
@@ -2132,6 +2401,10 @@ module.exports = "<div class=\"card mt-5\">\n  \n  <div class=\"card-body text-c
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorldDeleteComponent", function() { return WorldDeleteComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _world_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../world.model */ "./src/app/worlds/world.model.ts");
+/* harmony import */ var src_app_siege_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/siege.service */ "./src/app/siege.service.ts");
+/* harmony import */ var _worlds_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../worlds.component */ "./src/app/worlds/worlds.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2142,18 +2415,47 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var WorldDeleteComponent = /** @class */ (function () {
-    function WorldDeleteComponent() {
+    function WorldDeleteComponent(_siegeService, _worldsComp, route) {
+        this._siegeService = _siegeService;
+        this._worldsComp = _worldsComp;
+        this.route = route;
     }
     WorldDeleteComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.sub = this.route.params.subscribe(function (params) {
+            _this._siegeService.getWorldById(params.id)
+                .subscribe(function (res) {
+                _this.worldToDelete = res;
+                //console.log(this.worldById)
+            }, function (err) {
+                console.log(err);
+            });
+        });
     };
+    WorldDeleteComponent.prototype.deleteWorld = function () {
+        var _this = this;
+        this._siegeService.deleteWorld(this.worldToDelete._id)
+            .subscribe(function (res) {
+            _this._worldsComp.refreshWorlds();
+            console.log(res);
+        }, function (err) { return console.log(err); });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _world_model__WEBPACK_IMPORTED_MODULE_1__["World"])
+    ], WorldDeleteComponent.prototype, "world", void 0);
     WorldDeleteComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-world-delete',
             template: __webpack_require__(/*! ./world-delete.component.html */ "./src/app/worlds/world-delete/world-delete.component.html"),
             styles: [__webpack_require__(/*! ./world-delete.component.css */ "./src/app/worlds/world-delete/world-delete.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [src_app_siege_service__WEBPACK_IMPORTED_MODULE_2__["SiegeService"], _worlds_component__WEBPACK_IMPORTED_MODULE_3__["WorldsComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
     ], WorldDeleteComponent);
     return WorldDeleteComponent;
 }());
@@ -2180,7 +2482,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-world-edit [world]=\"selectedWorld\"></app-world-edit>\n<div *ngIf=\"world\">\n    <div class=\"card\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">\n                Detailed Information about {{world.name | uppercase}}\n              </h5>\n              <hr/>\n              <p class=\"card-text\">\n\n                <b>Name:</b> \n                <br/>\n                {{world.name}}\n                <br/>\n                <b>Description:</b> \n                <br/>\n                {{world.description}}\n                <br/>\n                <b>season: </b>\n                <br/>\n                {{world.season}}\n                <br/>\n                <b>Available in Ranked: </b>\n                <br/>\n                {{world.availableInRanked}}\n              </p>\n              </div>\n              <div>\n                  <a *ngIf=\"_authService.loggedIn()\" (click)=\"onSelect(world)\" class=\"btn btn-warning editbutton\">Edit</a> \n                  <a *ngIf=\"_authService.loggedIn()\" (click)=\"deleteWorld()\" class=\"btn btn-danger deletebutton\">Delete</a> \n          </div>   \n    </div>\n</div>\n\n"
+module.exports = "<app-world-edit [world]=\"selectedWorld\"></app-world-edit>\r\n<div *ngIf=\"world\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n          <h5 class=\"card-title\">\r\n              Detailed Information about {{world.name | uppercase}}\r\n            </h5>\r\n      </div>\r\n        <div class=\"card-body\">           \r\n              <p class=\"card-text\">\r\n\r\n                <b>Name:</b> \r\n                <br/>\r\n                {{world.name}}\r\n                <br/>\r\n                <b>Description:</b> \r\n                <br/>\r\n                {{world.description}}\r\n                <br/>\r\n                <b>season: </b>\r\n                <br/>\r\n                {{world.season}}\r\n                <br/>\r\n                <b>Available in Ranked: </b>\r\n                <br/>\r\n                {{world.availableInRanked}}\r\n              </p>\r\n              </div>\r\n              <div class=\"card-footer text-center\">\r\n                  \r\n                  \r\n                  <button [routerLink]=\"['/map', world._id]\" routerLinkActive=\"active\" type=\"button\"\r\n                  class=\"btn btn-primary btn-season\">View</button>\r\n                 \r\n              </div>  \r\n    </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -2269,7 +2571,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"world\">\n  <div class=\"card mt-5 mb-5\">\n    <div class=\"card-heading text-center\">\n      Edit {{world.name}}\n      <hr/>\n    </div>\n    <div class=\"card-body\">\n        <form class=\"form\">\n          <div class=\"form-group\">\n            <label for=\"name1\">Map name:</label>\n            <input type=\"text\" [(ngModel)]=\"newName\" name=\"name\" class=\"form-control rounded-0\" required>\n          </div>\n          <div class=\"form-group\">\n            <label>Description: </label>\n            <input type=\"text\" [(ngModel)]=\"newWorldDesc\" name=\"description\" class=\"form-control rounded-0\"  required>\n          </div>\n  \n          <!-- <div class=\"form-group\">\n              <label>Season: </label>\n                <select id=\"OperationSelector\" [(ngModel)]=\" \" name=\"season\" style=\"width: 100%;\" class=\"dropdownoperator\" >\n                    <option *ngFor=\"let season of seasons\" value=\"{{season.name}}\" >{{season.name}}</option>\n                    </select>\n            </div> -->\n  \n          <div class=\"form-group\">\n              <label>availableInRanked: </label>\n              <input type=\"checkbox\" [(ngModel)]=\"newWorldRanked\" name=\"availableInRanked\" class=\"form-control rounded-0\" required>\n            </div>\n            \n          <button type=\"button\" (click)=\"editWorld()\" class=\"btn btn-primary float-right\">Confirm</button>\n        </form>\n      </div>\n    \n  </div>\n</div>\n"
+module.exports = "<!-- <div *ngIf=\"worldById\">\r\n  <div class=\"card mt-5 mb-5\">\r\n    <div class=\"card-heading text-center\">\r\n      Edit {{worldById.name}}\r\n      <hr/>\r\n    </div>\r\n    <div class=\"card-body\">\r\n        <form class=\"form\">\r\n          <div class=\"form-group\">\r\n            <label for=\"name1\">Map name:</label>\r\n            <input type=\"text\" [(ngModel)]=\"newName\" name=\"name\" class=\"form-control rounded-0\" required>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label>Description: </label>\r\n            <input type=\"text\" [(ngModel)]=\"newWorldDesc\" name=\"description\" class=\"form-control rounded-0\"  required>\r\n          </div>\r\n  \r\n      QUOTE OUT    <div class=\"form-group\">\r\n              <label>Season: </label>\r\n                <select id=\"OperationSelector\" [(ngModel)]=\" \" name=\"season\" style=\"width: 100%;\" class=\"dropdownoperator\" >\r\n                    <option *ngFor=\"let season of seasons\" value=\"{{season.name}}\" >{{season.name}}</option>\r\n                    </select>\r\n         TILL HERE   \r\n  \r\n          <div class=\"form-group\">\r\n              <label>availableInRanked: </label>\r\n              <input type=\"checkbox\" [(ngModel)]=\"newWorldRanked\" name=\"availableInRanked\" class=\"form-control rounded-0\" required>\r\n            </div>\r\n            \r\n          <button type=\"button\" (click)=\"editWorld()\" class=\"btn btn-primary float-right\">Confirm</button>\r\n        </form>\r\n      </div>\r\n    \r\n  </div>\r\n</div> -->\r\n\r\n<!-- <div *ngIf=\"worldById\"class=\"card mt-2\"> -->\r\n  <div *ngIf=\"worldById\" class=\"card mt-2\">\r\n  <div class=\"card-header\">\r\n    <h2 class=\"card-title\">\r\n      Edit {{worldById.name}}\r\n    </h2>\r\n    <div class=\"card-body\">\r\n      <form [formGroup]=\"worldEdit\">\r\n        <div class=\"row\">\r\n          <div class=\"col-md-6 text-center\">\r\n              <mat-form-field appearance=\"fill\">\r\n              \r\n                  <input matInput placeholder=\"Naam van Map\" formControlName=\"name\">\r\n                  <mat-error *ngIf=\"name.invalid\">{{validateName()}}</mat-error>\r\n                </mat-form-field>\r\n            <mat-label>Beschikbaar in ranked</mat-label> <br />\r\n            <mat-checkbox class=\"mt-4\" formControlName=\"availableInRanked\">\r\n           \r\n            </mat-checkbox>\r\n          </div>\r\n          <div class=\"col-md-6\">\r\n              <label>Beschrijving</label>\r\n              <br />\r\n              <mat-form-field appearance=\"fill\">\r\n                  <input matInput placeholder=\"Beschrijving van de map\" formControlName=\"description\">\r\n                  <mat-error *ngIf=\"name.invalid\">{{validateName()}}</mat-error>\r\n                </mat-form-field>\r\n                <br/>\r\n\r\n                <label>Season</label>\r\n                <br/>\r\n                <mat-form-field>\r\n                  <mat-select [(value)]=\"season\" formControlName=\"season\">\r\n                    <div class=\"position-inline\">\r\n                        <mat-option>--Kies een season--</mat-option>\r\n                        <mat-option *ngFor=\"let season of seasons\" value=\"{{season._id}}\">{{season.name}}</mat-option>\r\n                    </div>                    \r\n                  </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n        </div> \r\n\r\n        <button (click)=\"editWorld()\" type=\"button\" class=\"btn btn-primary float-right mb-2 mr-2\">Bevestig</button>\r\n      </form>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2288,6 +2590,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _siege_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../siege.service */ "./src/app/siege.service.ts");
 /* harmony import */ var src_app_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/auth.service */ "./src/app/auth.service.ts");
 /* harmony import */ var _worlds_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../worlds.component */ "./src/app/worlds/worlds.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2302,31 +2606,103 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var WorldEditComponent = /** @class */ (function () {
-    function WorldEditComponent(_siegeService, _authService, _worldsComp) {
+    function WorldEditComponent(route, _router, _siegeService, _authService, _worldsComp, fb) {
+        this.route = route;
+        this._router = _router;
         this._siegeService = _siegeService;
         this._authService = _authService;
         this._worldsComp = _worldsComp;
+        this.fb = fb;
         this.seasons = [];
-        this.newName = '';
-        this.newWorldDesc = '';
-        this.newWorldRanked = false;
     }
     WorldEditComponent.prototype.ngOnInit = function () {
         var _this = this;
-        return this._siegeService.getSeasons()
-            .subscribe(function (res) { return _this.seasons = res; }, function (err) { return console.log(err); });
+        // return this._siegeService.getSeasons()
+        // .subscribe(
+        //   res => this.seasons = res,
+        //   err => console.log(err)
+        // )
+        this.sub = this.route.params.subscribe(function (params) {
+            //console.log(params['id']);
+            return _this.worldEdit = _this.fb.group({
+                name: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
+                description: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
+                availableInRanked: [false, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
+                season: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]]
+            }),
+                _this._siegeService.getSeasons().subscribe(function (res) { return _this.seasons = res; }, function (err) { return console.log(err); })
+                , _this._siegeService.getWorldById(params.id)
+                    .subscribe(function (res) {
+                    _this.worldById = res;
+                    //console.log(this.worldById)
+                }, function (err) {
+                    console.log(err);
+                });
+        });
     };
     WorldEditComponent.prototype.editWorld = function () {
         var _this = this;
-        if (this._authService.loggedIn) {
-            this.worldEdit = new _world_model__WEBPACK_IMPORTED_MODULE_1__["World"](this.world._id, this.world.name, this.newName, this.newWorldDesc, this.newWorldRanked);
-            this._siegeService.editWorld(this.worldEdit)
-                .subscribe(function (res) {
-                _this._worldsComp.refreshWorlds();
-                console.log(res);
-            }, function (err) { return console.log(err); });
-        }
+        console.log(this.worldEdit.value);
+        this._siegeService.editWorld(this.worldById._id, this.worldEdit.value)
+            .subscribe(function (res) {
+            console.log(res);
+            _this._router.navigate(['/worlds/']);
+        }, function (err) { return console.log(err); });
+        // if (this._authService.loggedIn) {
+        //   this.worldEdit = new World(this.worldById._id, this.newName, this.newWorldDesc, this.newWorldRanked)
+        //   this._siegeService.editWorld(this.worldEdit)
+        //   .subscribe(
+        //     res => {
+        //       this._worldsComp.refreshWorlds();
+        //       console.log(res)},
+        //     err => {
+        //       console.log(err)
+        //       console.log("form: " + this.worldEdit.value)
+        //     }
+        //   )}
+    };
+    Object.defineProperty(WorldEditComponent.prototype, "name", {
+        get: function () {
+            return this.worldEdit.get('name');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WorldEditComponent.prototype, "description", {
+        get: function () {
+            return this.worldEdit.get('description');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WorldEditComponent.prototype, "availableInRanked", {
+        get: function () {
+            return this.worldEdit.get('availableInRanked');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WorldEditComponent.prototype, "season", {
+        get: function () {
+            return this.worldEdit.get('season');
+        },
+        enumerable: true,
+        configurable: true
+    });
+    WorldEditComponent.prototype.validateName = function () {
+        return this.name.hasError('required') ? 'Voer een naam in' : '';
+    };
+    WorldEditComponent.prototype.validateDescription = function () {
+        return this.description.hasError('required') ? 'Voer een beschrijving in' : '';
+    };
+    WorldEditComponent.prototype.validateAvailableInRanked = function () {
+        return this.availableInRanked.hasError('required') ? 'Voer een keuze in' : '';
+    };
+    WorldEditComponent.prototype.validateSeason = function () {
+        return this.season.hasError('required') ? 'Voer een season in' : '';
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -2338,9 +2714,107 @@ var WorldEditComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./world-edit.component.html */ "./src/app/worlds/world-edit/world-edit.component.html"),
             styles: [__webpack_require__(/*! ./world-edit.component.css */ "./src/app/worlds/world-edit/world-edit.component.css")]
         }),
-        __metadata("design:paramtypes", [_siege_service__WEBPACK_IMPORTED_MODULE_2__["SiegeService"], src_app_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"], _worlds_component__WEBPACK_IMPORTED_MODULE_4__["WorldsComponent"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+            _siege_service__WEBPACK_IMPORTED_MODULE_2__["SiegeService"],
+            src_app_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+            _worlds_component__WEBPACK_IMPORTED_MODULE_4__["WorldsComponent"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])
     ], WorldEditComponent);
     return WorldEditComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/worlds/world-with-id/world-with-id.component.css":
+/*!******************************************************************!*\
+  !*** ./src/app/worlds/world-with-id/world-with-id.component.css ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3dvcmxkcy93b3JsZC13aXRoLWlkL3dvcmxkLXdpdGgtaWQuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/worlds/world-with-id/world-with-id.component.html":
+/*!*******************************************************************!*\
+  !*** ./src/app/worlds/world-with-id/world-with-id.component.html ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"this.worldById\">\r\n  <div class=\"card mt-2\">\r\n    <div class=\"card-header\">\r\n      <h5 class=\"card-title\">\r\n        Detailed information about {{this.worldById.name | uppercase}}\r\n      </h5>\r\n    </div>\r\n    <div class=\"card-body\">\r\n        <p class=\"card-text\">\r\n\r\n            <b>Name:</b>\r\n            <br />\r\n            {{this.worldById.name}}\r\n            <br />\r\n            <b>Description:</b>\r\n            <br />\r\n            {{this.worldById.description}}\r\n            <br />\r\n            <b>Season: </b>\r\n            <br />\r\n            {{this.worldById.season}}\r\n            <br />\r\n            <b>Available in ranked: </b>\r\n            <br />\r\n            {{this.worldById.availableInRanked}}\r\n            <br />\r\n        </p>\r\n    </div>\r\n    <div class=\"card-footer text-center\">\r\n        <button *ngIf=\"_authService.loggedIn()\" [routerLink]=\"['/map/edit', this.worldById._id]\" type=\"button\"\r\n        class=\"btn btn-warning float-left btn-season\">Edit</button>\r\n        <button *ngIf=\"_authService.loggedIn()\" [routerLink]=\"['/map/delete', this.worldById._id]\" type=\"button\"\r\n        class=\"btn btn-danger float-right btn-season\">Delete</button>\r\n    </div>\r\n  </div>\r\n  </div>\r\n\r\n "
+
+/***/ }),
+
+/***/ "./src/app/worlds/world-with-id/world-with-id.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/worlds/world-with-id/world-with-id.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: WorldWithIdComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorldWithIdComponent", function() { return WorldWithIdComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _world_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../world.model */ "./src/app/worlds/world.model.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var src_app_siege_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/siege.service */ "./src/app/siege.service.ts");
+/* harmony import */ var src_app_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/auth.service */ "./src/app/auth.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var WorldWithIdComponent = /** @class */ (function () {
+    function WorldWithIdComponent(_router, route, _siegeService, _authService) {
+        this._router = _router;
+        this.route = route;
+        this._siegeService = _siegeService;
+        this._authService = _authService;
+    }
+    WorldWithIdComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.sub = this.route.params.subscribe(function (params) {
+            console.log(params['id']);
+            return _this._siegeService.getWorldById(params.id)
+                .subscribe(function (res) {
+                _this.worldById = res;
+                console.log('res: ' + res);
+            }, function (err) {
+                console.log(err);
+            });
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _world_model__WEBPACK_IMPORTED_MODULE_1__["World"])
+    ], WorldWithIdComponent.prototype, "world", void 0);
+    WorldWithIdComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-world-with-id',
+            template: __webpack_require__(/*! ./world-with-id.component.html */ "./src/app/worlds/world-with-id/world-with-id.component.html"),
+            styles: [__webpack_require__(/*! ./world-with-id.component.css */ "./src/app/worlds/world-with-id/world-with-id.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            src_app_siege_service__WEBPACK_IMPORTED_MODULE_3__["SiegeService"],
+            src_app_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"]])
+    ], WorldWithIdComponent);
+    return WorldWithIdComponent;
 }());
 
 
@@ -2358,10 +2832,9 @@ var WorldEditComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "World", function() { return World; });
 var World = /** @class */ (function () {
-    function World(_id, name, newName, description, availableInRanked) {
+    function World(_id, name, description, availableInRanked) {
         this._id = _id;
         this.name = name;
-        this.newName = newName;
         this.description = description;
         this.availableInRanked = availableInRanked;
     }
@@ -2390,7 +2863,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card mt-5\" *ngIf=\"_authService.loggedIn()\">\r\n    <div class=\"card-body\">\r\n        <a routerLink=\"/maps/create\" class=\"btn btn-success createbutton\">Niewe Map aanmaken</a>\r\n        \r\n    </div>\r\n  </div>\r\n\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-md-4 mb-3\" *ngFor=\"let world of worlds\" [class.selected] = \"world === selectedWorld\">\r\n    <div class=\"card text-center\">\r\n      <div class=\"card-body\">\r\n        <h5 class=\"card-title\">\r\n          {{world.name}}\r\n        </h5>\r\n        <p class=\"card-text\">\r\n          {{world.season}}\r\n        </p>\r\n        <a class=\"btn btn-primary\" (click)=\"onSelect(world)\">Meer Informatie</a>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<app-world-detail [world]=\"selectedWorld\"></app-world-detail>"
+module.exports = "<div class=\"card mt-5\" *ngIf=\"_authService.loggedIn()\">\r\n    <div class=\"card-body\">\r\n        <a routerLink=\"/maps/create\" class=\"btn btn-success createbutton\">Niewe Map aanmaken</a>\r\n        \r\n    </div>\r\n  </div>\r\n\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-md-4 mb-3\" *ngFor=\"let world of worlds\" [class.selected] = \"world === selectedWorld\">\r\n    <div class=\"card text-center\">\r\n      <div class=\"card-body\">\r\n        <h5 class=\"card-title\">\r\n          {{world.name}}\r\n        </h5>\r\n       \r\n        <button [routerLink]=\"['/map', world._id]\" routerLinkActive=\"active\" type=\"button\"\r\n                  class=\"btn btn-primary btn-season\">View</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<app-world-detail [world]=\"selectedWorld\"></app-world-detail>"
 
 /***/ }),
 
@@ -2515,7 +2988,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\bottc\Documents\Informatica 2018-2019\Periode 2\clientsideindividueel\projects\FrontEndApp\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\bottc\AngularProjects\SiegeWikiFrontEnd\src\main.ts */"./src/main.ts");
 
 
 /***/ })
