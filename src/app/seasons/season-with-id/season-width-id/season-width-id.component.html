@@ -24,15 +24,15 @@
                </div>
                <div class="col-lg-6">
                     <div class="row">
-                            <div class="col-lg-6 text-center">
+                            <div *ngIf="operator1" class="col-lg-6 text-center">
                                 <h5>Operator 1</h5>
                                 <button class="btn btn-primary" [routerLink]="['/operator', operator1._id]" style="width:100%">{{this.operator1.name}}</button>
                             </div>
-                            <div class="col-lg-6 text-center">  
+                            <div *ngIf="operator2" class="col-lg-6 text-center">  
                                 <h5>Operator 2</h5>
                                 <button class="btn btn-primary" [routerLink]="['/operator', operator2._id]" style="width:100%">{{this.operator2.name}}</button>
                                 </div>
-                                <div class="col-lg-12 text-center">
+                                <div *ngIf="world" class="col-lg-12 text-center">
                                         <h5>Map</h5>
                                         <button class="btn btn-primary" [routerLink]="['/map', world._id]" style="width:100%">{{this.world.name}}</button>
                                 </div>

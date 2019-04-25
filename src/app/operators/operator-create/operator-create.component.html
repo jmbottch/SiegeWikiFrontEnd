@@ -22,9 +22,9 @@
           </div>
           <div class="form-group">
               <label>Operation: </label>
-              <select class="string-box btn text-white rounding half-black list-item mt-1 text-center" [(ngModel)]="operatorCreateForm.season"  name="season">
-                  <option class="string-box btn text-white rounding half-black list-item mt-1 text-center">Selecteer een Season</option>
-                  <option class="string-box btn text-white rounding half-black list-item mt-1 text-center" *ngFor="let season of seasons" value="{{season._id}}">{{season.name}}</option>
+              <select class=" btn text-white rounding border mt-1 text-center" [(ngModel)]="operatorCreateForm.season"  name="season" style="width: 100%;">
+                  <option class="btn text-white rounding border mt-1 text-center" style="width: 100%;">Selecteer een Season</option>
+                  <option class="btn text-white rounding border mt-1 text-center" *ngFor="let season of seasons" value="{{season._id}}" style="width: 100%;">{{season.name}}</option>
               </select>
             </div>
             
