@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { HomeComponent } from './home/home.component';
-import { SeasonDetailComponent } from './seasons/season-detail/season-detail.component';
 import { OperatorDetailComponent } from './operators/operator-detail/operator-detail.component';
 import { WorldDetailComponent } from './worlds/world-detail/world-detail.component';
 import { SeasonCreateComponent } from './seasons/season-create/season-create.component';

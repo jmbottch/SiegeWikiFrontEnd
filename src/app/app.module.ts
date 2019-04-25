@@ -3,7 +3,7 @@ import { NgModule, forwardRef } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SeasonsComponent } from './seasons/seasons.component';
-import { SeasonDetailComponent } from './seasons/season-detail/season-detail.component';
+
 import { SeasonEditComponent } from './seasons/season-edit/season-edit.component';
 import { SeasonDeleteComponent } from './seasons/season-delete/season-delete.component';
 import { OperatorsComponent } from './operators/operators.component';
@@ -45,7 +45,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     SeasonsComponent,
-    SeasonDetailComponent,
     SeasonEditComponent,
     SeasonDeleteComponent,
     OperatorsComponent,

@@ -3,5 +3,5 @@ import { Character } from '../operators/operator.model';
 
 
 export class Season {
-    constructor(public _id?:String, public name?:String, public description?:String, public year?:Number, public season?:Number, public world?: World, public operator?: Character) {}
+    constructor(public _id?:String, public name?:String, public description?:String, public year?:Number, public season?:Number, public world?: World, public operator1?: Character, public operator2?: Character) {}
 }

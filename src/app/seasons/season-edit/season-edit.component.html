@@ -1,33 +1,89 @@
-<div *ngIf="seasonById">
-    <div class="card mt-5 mb-5">
-        <div class="card-heading text-center">
-          Edit {{seasonById.name}}
-          <hr />
-        </div>
-        <div class="card-body">
-          <form class="form">
-            <div class="form-group">
-              <label for="name">Operation name:</label>
-              <input type="text" [(ngModel)]="seasonNewName" name="name" class="form-control rounded-0" required>
-            </div>
-            <div class="form-group">
-              <label>Description: </label>
-              <input type="text" [(ngModel)]="seasonNewDesc" name="description" class="form-control rounded-0"
-                required>
-            </div>
-            <div class="form-group">
-              <label>Year: </label>
-              <input type="number" [(ngModel)]="seasonNewYear" name="year" class="form-control rounded-0" required>
-            </div>
-            <div class="form-group">
-              <label>Season: </label>
-              <input type="number" [(ngModel)]="seasonNewSeason" name="season" class="form-control rounded-0"
-                required>
-            </div>    
-           
-            <button type="button" (click)="editSeason()" class="btn btn-primary float-right">Confirm</button>
-          </form>
-        </div>
-      
-      </div>
+<div class="card">
+  <div class="card-header">
+    <div class="text-center">
+      <div *ngIf="seasonById">
+          <h1 class="text-center">Edit {{seasonById.name}}</h1>
+      </div>      
     </div>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="seasonData">
+      <div class="row">
+        <div class="col-lg-6">
+          <label class="mt-4">Naam</label>
+          <br />
+          <mat-form-field appearance="fill" style="width:100%;">
+            <input matInput placeholder="Naam van de operation" formControlName="name" style="width:100%">
+            <mat-error *ngIf="name.invalid">{{validateName()}}</mat-error>
+          </mat-form-field>
+          <br />
+          <label class="mt-4">Beschrijving</label>
+          <br />
+          <mat-form-field appearance="fill" style="width:100%;">
+            <textarea matInput placeholder="Beschrijving van de operation" formControlName="description"
+              style="height:200px;"></textarea>
+            <mat-error *ngIf="description.invalid">{{validateDescription()}}</mat-error>
+          </mat-form-field>
+          <br />
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-6">
+                <label class="mt-4">Jaar</label>
+                <br/>
+                <mat-form-field appearance="fill" style="width:100%;">
+                  <input matInput type="number" formControlName="year">
+                  <mat-error *ngIf="year.invalid">{{validateYear()}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+              <label class="mt-4">Seizoen</label>
+              <br/>
+              <mat-form-field appearance="fill" style="width:100%;">
+              <input matInput type="number" formControlName="season">
+              <mat-error *ngIf="season.invalid">{{validateSeason()}}</mat-error>
+            </mat-form-field>
+            </div>
+          </div>
+          <br/>
+          <label class="mt-4">Operator 1</label>
+          <br/>
+          <mat-form-field appearance="fill" style="width:100%">
+              <mat-select [(value)]="operator1" formControlName="operator1">
+                  <div class="position-inline">
+                      <mat-option>--Kies een operator--</mat-option>
+                      <mat-option *ngFor="let operator of seasonOperators" value="{{operator._id}}" style="color:white;background-color:grey;">{{operator.name}}</mat-option>
+                  </div>                    
+                </mat-select>
+          </mat-form-field>
+          <br/>
+          <label class="mt-4">Operator 2</label>
+          <br/>
+          <mat-form-field appearance="fill" style="width:100%">
+              <mat-select [(value)]="operator2" formControlName="operator2">
+                  <div class="position-inline">
+                      <mat-option>--Kies een operator--</mat-option>
+                      <mat-option *ngFor="let operator of seasonOperators" value="{{operator._id}}" style="color:white;background-color:grey;">{{operator.name}}</mat-option>
+                  </div>                    
+                </mat-select>
+          </mat-form-field>
+          <br/>
+          <label class="mt-4">Map</label>
+          <mat-form-field appearance="fill" style="width:100%">
+              <mat-select [(value)]="world" formControlName="world">
+                  <div class="position-inline">
+                      <mat-option>--Kies een map--</mat-option>
+                      <mat-option *ngFor="let world of seasonWorlds" value="{{world._id}}" style="color:white;background-color:grey;">{{world.name}}</mat-option>
+                  </div>                    
+                </mat-select>
+          </mat-form-field>
+          
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-success" (click)="editSeason()">Save</button>
+  </div>
+</div>

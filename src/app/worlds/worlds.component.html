@@ -4,6 +4,11 @@
         
     </div>
   </div>
+  <div class="container text-center mt-2 pb-2 pt-2 rounded" style="background-color:grey">
+      <h1 style="color:white;">Maps</h1>
+      <p>Selecteer een map uit de lijst om meer informatie te zien</p>
+      <hr style="background-color:white;"/>
+    </div>
 
 <div class="row mt-5">
   <div class="col-md-4 mb-3" *ngFor="let world of worlds" [class.selected] = "world === selectedWorld">
@@ -19,5 +24,3 @@
     </div>
   </div>
 </div>
-
-<app-world-detail [world]="selectedWorld"></app-world-detail>

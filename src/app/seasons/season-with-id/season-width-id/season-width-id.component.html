@@ -10,32 +10,50 @@
                     </h5>
         </div>
         <div class="card-body">
-            <p class="card-text">
+           <div class="row">
+               <div class="col-lg-6">
+                   <h5>Naam</h5>
+                   <p>{{this.seasonById.name}}</p>
+                   <br/>
+                   <h5>Beschrijving</h5>
+                   <p>{{this.seasonById.description}}</p>
+                   <h5>Jaar</h5>
+                   <p>{{this.seasonById.year}}</p>
+                    <h5>Seizoen</h5>
+                    <p>{{this.seasonById.season}}</p>
+               </div>
+               <div class="col-lg-6">
+                    <div class="row">
+                            <div class="col-lg-6 text-center">
+                                <h5>Operator 1</h5>
+                                <button class="btn btn-primary" [routerLink]="['/operator', operator1._id]" style="width:100%">{{this.operator1.name}}</button>
+                            </div>
+                            <div class="col-lg-6 text-center">  
+                                <h5>Operator 2</h5>
+                                <button class="btn btn-primary" [routerLink]="['/operator', operator2._id]" style="width:100%">{{this.operator2.name}}</button>
+                                </div>
+                                <div class="col-lg-12 text-center">
+                                        <h5>Map</h5>
+                                        <button class="btn btn-primary" [routerLink]="['/map', world._id]" style="width:100%">{{this.world.name}}</button>
+                                </div>
+                        </div>
 
-                <b>Name:</b>
-                <br />
-                {{this.seasonById.name}}
-                <br />
-                <b>Description:</b>
-                <br />
-                {{this.seasonById.description}}
-                <br />
-                <b>Year: </b>
-                <br />
-                {{this.seasonById.year}}
-                <br />
-                <b>Season: </b>
-                <br />
-                {{this.seasonById.season}}
-                <br />
-            </p>
+                        
+               </div>
+           </div>
+
+               
+               
+            
+                
+            
 
            
         </div>
         <div class="card-footer text-center">
-            <button [routerLink]="['/season/edit', seasonById._id]" routerLinkActive="active" type="button"
-            class="btn btn-warning float-left btn-season">Edit</button>
-            <button [routerLink]="['/season/delete', seasonById._id]" routerLinkActive="active" type="button"
+                <button  *ngIf="_authService.loggedIn()" [routerLink]="['/season/edit', this.seasonById._id]" type="button"
+                class="btn btn-warning float-left btn-season">Edit</button>
+            <button *ngIf="_authService.loggedIn()" [routerLink]="['/season/delete', seasonById._id]" routerLinkActive="active" type="button"
         class="btn btn-danger float-right  btn-season">Delete</button>
         </div>
     </div>

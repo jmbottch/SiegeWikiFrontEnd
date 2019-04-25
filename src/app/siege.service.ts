@@ -87,7 +87,7 @@ export class SiegeService {
     return this.http.post<any>(this._seasonUrl, season)
   }
 
-  editSeason(_id: any, season: {}) {
+  editSeason(_id: any, season: any) {
     console.log('ewaja' + season)
     return this.http.put<any>(this._seasonUrl + '' + _id, season);
   }

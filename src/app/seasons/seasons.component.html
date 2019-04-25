@@ -1,10 +1,15 @@
 <div class="card mt-5" *ngIf="_authService.loggedIn()">
     <div class="card-body">
-        <a routerLink="/season/create" class="btn btn-success editbutton">Niewe Operation aanmaken</a>
-        <a routerLink="/operations/populate" class="btn btn-primary editbutton">Populate bestaande Operation</a>
+        <a routerLink="/season/create" class="btn btn-success" style="width: 100%">Niewe Operation aanmaken</a>
+    
         
       </div>
   </div>
+  <div class="container text-center mt-2 pb-2 pt-2 rounded" style="background-color:grey">
+      <h1 style="color:white;">Operations</h1>
+      <p>Selecteer een seizoen uit de lijst om meer informatie te zien</p>
+      <hr style="background-color:white;"/>
+    </div>
 
 <div class="row mt-5">
   <div class="col-md-4 mb-3" *ngFor="let season of seasons">
@@ -22,4 +27,4 @@
     </div>
   </div>
 </div>
-<app-season-detail [season]="selectedSeason"></app-season-detail>
+

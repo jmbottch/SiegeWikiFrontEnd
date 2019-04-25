@@ -116,16 +116,16 @@ var routes = [
     },
     //SEASON ROUTES
     {
-        path: 'operations/create',
+        path: 'season/create',
         component: _seasons_season_create_season_create_component__WEBPACK_IMPORTED_MODULE_8__["SeasonCreateComponent"],
     },
     {
-        path: 'operations/delete',
-        component: _seasons_season_delete_season_delete_component__WEBPACK_IMPORTED_MODULE_12__["SeasonDeleteComponent"]
+        path: 'season/edit/:id',
+        component: _seasons_season_edit_season_edit_component__WEBPACK_IMPORTED_MODULE_14__["SeasonEditComponent"]
     },
     {
-        path: 'operations/edit',
-        component: _seasons_season_edit_season_edit_component__WEBPACK_IMPORTED_MODULE_14__["SeasonEditComponent"]
+        path: 'season/delete/:id',
+        component: _seasons_season_delete_season_delete_component__WEBPACK_IMPORTED_MODULE_12__["SeasonDeleteComponent"]
     },
     {
         path: 'operations/populate',
@@ -141,10 +141,6 @@ var routes = [
         component: _worlds_world_create_world_create_component__WEBPACK_IMPORTED_MODULE_9__["WorldCreateComponent"]
     },
     {
-        path: 'maps/delete',
-        component: _worlds_world_delete_world_delete_component__WEBPACK_IMPORTED_MODULE_13__["WorldDeleteComponent"]
-    },
-    {
         path: 'map/edit/:id',
         component: _worlds_world_edit_world_edit_component__WEBPACK_IMPORTED_MODULE_17__["WorldEditComponent"]
     },
@@ -158,14 +154,14 @@ var routes = [
     },
     //OPERATOR ROUTES
     {
-        path: 'operators/create',
+        path: 'operator/create',
         component: _operators_operator_create_operator_create_component__WEBPACK_IMPORTED_MODULE_10__["OperatorCreateComponent"]
     },
-    { path: 'operators/delete',
+    { path: 'operator/delete/:id',
         component: _operators_operator_delete_operator_delete_component__WEBPACK_IMPORTED_MODULE_11__["OperatorDeleteComponent"]
     },
     {
-        path: 'operators/edit/:id',
+        path: 'operator/edit/:id',
         component: _operators_operator_edit_operator_edit_component__WEBPACK_IMPORTED_MODULE_16__["OperatorEditComponent"]
     },
     {
@@ -807,6 +803,9 @@ module.exports = "<div class=\"card mt-5\">\r\n  \r\n  <div class=\"card-body te
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OperatorDeleteComponent", function() { return OperatorDeleteComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _operator_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../operator.model */ "./src/app/operators/operator.model.ts");
+/* harmony import */ var src_app_siege_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/siege.service */ "./src/app/siege.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -817,18 +816,50 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var OperatorDeleteComponent = /** @class */ (function () {
-    function OperatorDeleteComponent() {
+    function OperatorDeleteComponent(route, _siegeService, _router) {
+        this.route = route;
+        this._siegeService = _siegeService;
+        this._router = _router;
     }
     OperatorDeleteComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.sub = this.route.params.subscribe(function (params) {
+            _this._siegeService.getOperatorById(params.id)
+                .subscribe(function (res) {
+                _this.operatorById = res;
+                console.log(res);
+            }, function (err) {
+                console.log(err);
+            });
+        });
     };
+    OperatorDeleteComponent.prototype.deleteOperator = function () {
+        var _this = this;
+        this._siegeService.deleteOperator(this.operatorById._id)
+            .subscribe(function (res) {
+            console.log(res);
+            _this._router.navigate(['/operators']);
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _operator_model__WEBPACK_IMPORTED_MODULE_2__["Character"])
+    ], OperatorDeleteComponent.prototype, "operator", void 0);
     OperatorDeleteComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-operator-delete',
             template: __webpack_require__(/*! ./operator-delete.component.html */ "./src/app/operators/operator-delete/operator-delete.component.html"),
             styles: [__webpack_require__(/*! ./operator-delete.component.css */ "./src/app/operators/operator-delete/operator-delete.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            src_app_siege_service__WEBPACK_IMPORTED_MODULE_3__["SiegeService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], OperatorDeleteComponent);
     return OperatorDeleteComponent;
 }());
@@ -944,7 +975,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"operator\">\r\n  <div class=\"card mt-5 mb-5\">\r\n    <div class=\"card-heading text-center\">\r\n      Edit {{operator.name}}\r\n      <hr />\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <form class=\"form\">\r\n        <div class=\"form-group\">\r\n          <label for=\"name\">Operator name:</label>\r\n          <input type=\"text\" [(ngModel)]=\"newOperatorName\" name=\"newName\" class=\"form-control rounded-0\" required>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label>Description: </label>\r\n          <input type=\"text\" [(ngModel)]=\"newOperatorDesc\" name=\"description\" class=\"form-control rounded-0\" required>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label>Side: </label>\r\n          <select id=\"OperatorSelector\" [(ngModel)]=\"newOperatorSide\" name=\"side\" style=\"width: 100%;\" class=\"dropdownoperator\">\r\n            <option>Attacker</option>\r\n            <option>Defender</option>\r\n          </select>\r\n        </div>\r\n        <button type=\"button\" (click)=\"editOperator()\" class=\"btn btn-primary float-right\">Confirm</button>\r\n      </form>\r\n    </div>\r\n\r\n  </div>\r\n</div>"
+module.exports = "<div *ngIf=\"operatorById\">\r\n  <div class=\"card mt-5 mb-5\">\r\n    <div class=\"card-header text-center\">\r\n      <h1>Edit {{operatorById.name}}</h1>\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <form [formGroup]=\"operatorData\">\r\n        <mat-form-field appearance=\"outline\" style=\"width:100%\">\r\n          <mat-label>Name</mat-label>\r\n          <input matInput placeholder=\"Operator Name\" formControlName=\"name\" style=\"height:60px;\">\r\n        </mat-form-field>\r\n        <mat-form-field appearance=\"outline\" style=\"width:100%\">\r\n          <mat-label>Description</mat-label>\r\n          <textarea matInput placeholder=\"Operator Description\" formControlName=\"description\" style=\"height:200px;\"\r\n            class=\"mt-4\"></textarea>\r\n        </mat-form-field>\r\n        <mat-form-field appearance=\"outline\" style=\"width:100%;\">\r\n          <select matNativeControl placeholder=\"Side\" formControlName=\"side\" style=\"height:60px;\">\r\n            <option disabled >Select a side</option>\r\n            <option value=\"Attacker\">Attacker</option>\r\n            <option value=\"Defender\">Defender</option>\r\n          </select>\r\n        </mat-form-field>\r\n      </form>\r\n    </div>\r\n    <div class=\"card-footer\">\r\n      <button class=\"btn btn-primary float-left\">Cancel</button>\r\n      <button (click)=\"editOperator()\" class=\"btn btn-success float-right\">Save</button>\r\n    </div>\r\n  </div>\r\n</div>\r\n<!-- <div *ngIf=\"operatorById\">\r\n  <div class=\"card mt-5 mb-5\">\r\n    <div class=\"card-heading text-center\">\r\n      Edit {{operatorById.name}}\r\n      <hr />\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <form class=\"form\">\r\n        <div class=\"form-group\">\r\n          <label for=\"name\">Operator name:</label>\r\n          <input type=\"text\" [(ngModel)]=\"newOperatorName\" name=\"newName\" class=\"form-control rounded-0\" required>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label>Description: </label>\r\n          <input type=\"text\" [(ngModel)]=\"newOperatorDesc\" name=\"description\" class=\"form-control rounded-0\" required>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label>Side: </label>\r\n          <select id=\"OperatorSelector\" name=\"side\" [(ngModel)]=\"newOperatorSide\" style=\"width: 100%;\" class=\"dropdownoperator\">\r\n            <option value=\"Attacker\">Attacker</option>\r\n            <option value=\"Defender\">Defender</option>\r\n          </select>\r\n        </div>\r\n        <button type=\"button\" (click)=\"editOperator()\" class=\"btn btn-primary float-right\">Confirm</button>\r\n      </form>\r\n    </div>\r\n\r\n  </div>\r\n</div> -->"
 
 /***/ }),
 
@@ -963,6 +994,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _siege_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../siege.service */ "./src/app/siege.service.ts");
 /* harmony import */ var src_app_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/auth.service */ "./src/app/auth.service.ts");
 /* harmony import */ var _operators_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../operators.component */ "./src/app/operators/operators.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -977,36 +1010,56 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var OperatorEditComponent = /** @class */ (function () {
+    // operatorEdit;
+    // newOperatorName = '';
+    // newOperatorDesc = '';
+    // newOperatorSide = '';
     // operator = {
     //   name: String,
     //   description: String,
     //   side: String,
     //   operator: Character
     // }
-    function OperatorEditComponent(_siegeService, _authService, _operatorComp) {
+    function OperatorEditComponent(_siegeService, _authService, _operatorComp, _router, route, fb) {
         this._siegeService = _siegeService;
         this._authService = _authService;
         this._operatorComp = _operatorComp;
+        this._router = _router;
+        this.route = route;
+        this.fb = fb;
         this.seasons = [];
-        this.newOperatorName = '';
-        this.newOperatorDesc = '';
-        this.newOperatorSide = '';
     }
     OperatorEditComponent.prototype.ngOnInit = function () {
         var _this = this;
-        return this._siegeService.getSeasons()
-            .subscribe(function (res) { return _this.seasons = res; }, function (err) { return console.log(err); });
+        this.sub = this.route.params.subscribe(function (params) {
+            _this._siegeService.getOperatorById(params.id)
+                .subscribe(function (res) {
+                _this.operatorById = res;
+                console.log(res);
+            }, function (err) {
+                console.log(err);
+            });
+            return _this.operatorData = _this.fb.group({
+                name: [''],
+                description: [''],
+                side: ['']
+            });
+        });
     };
     OperatorEditComponent.prototype.editOperator = function () {
         var _this = this;
         if (this._authService.loggedIn) {
-            this.operatorEdit = new _operator_model__WEBPACK_IMPORTED_MODULE_1__["Character"](this.operator.name, this.newOperatorName, this.newOperatorDesc, this.newOperatorSide);
-            this._siegeService.editOperator(this.operatorEdit)
+            console.log(this.operatorData.value);
+            this._siegeService.editOperator(this.operatorById._id, this.operatorData.value)
                 .subscribe(function (res) {
-                _this._operatorComp.refreshOperators();
                 console.log(res);
-            }, function (err) { return console.log(err); });
+                _this._router.navigate(['/operators']);
+            }, function (err) {
+                console.log(err);
+            });
         }
     };
     __decorate([
@@ -1019,7 +1072,12 @@ var OperatorEditComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./operator-edit.component.html */ "./src/app/operators/operator-edit/operator-edit.component.html"),
             styles: [__webpack_require__(/*! ./operator-edit.component.css */ "./src/app/operators/operator-edit/operator-edit.component.css")]
         }),
-        __metadata("design:paramtypes", [_siege_service__WEBPACK_IMPORTED_MODULE_2__["SiegeService"], src_app_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"], _operators_component__WEBPACK_IMPORTED_MODULE_4__["OperatorsComponent"]])
+        __metadata("design:paramtypes", [_siege_service__WEBPACK_IMPORTED_MODULE_2__["SiegeService"],
+            src_app_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+            _operators_component__WEBPACK_IMPORTED_MODULE_4__["OperatorsComponent"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]])
     ], OperatorEditComponent);
     return OperatorEditComponent;
 }());
@@ -1046,7 +1104,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"this.operatorById\">\r\n    <div class=\"card mt-2\">\r\n        <div class=\"card-header\">\r\n          <h5 class=\"card-title\">\r\n            Detailed information about {{this.operatorById.name | uppercase}}\r\n          </h5>\r\n        </div>\r\n        <div class=\"card-body\">\r\n            <p class=\"card-text\">\r\n    \r\n                <b>Name:</b>\r\n                <br />\r\n                {{this.operatorById.name}}\r\n                <br />\r\n                <b>Description:</b>\r\n                <br />\r\n                {{this.operatorById.description}}\r\n                <br />\r\n                <b>Season: </b>\r\n                <br />\r\n                {{this.operatorById.season}}\r\n                <br />\r\n                <b>Available in ranked: </b>\r\n                <br />\r\n                {{this.operatorById.availableInRanked}}\r\n                <br />\r\n            </p>\r\n        </div>\r\n        <div class=\"card-footer text-center\">\r\n          <small>This component was made for Richardson Maturity level 2</small>\r\n        </div>\r\n      </div>\r\n      </div>"
+module.exports = "<div *ngIf=\"this.operatorById\">\r\n    <div class=\"card mt-2\">\r\n        <div class=\"card-header\">\r\n          <h5 class=\"card-title\">\r\n            Detailed information about {{this.operatorById.name | uppercase}}\r\n          </h5>\r\n        </div>\r\n        <div class=\"card-body\">\r\n            <p class=\"card-text\">\r\n    \r\n                <b>Name:</b>\r\n                <br />\r\n                {{this.operatorById.name}}\r\n                <br />\r\n                <b>Description:</b>\r\n                <br />\r\n                {{this.operatorById.description}}\r\n                <br />\r\n                <b>Season: </b>\r\n                <br />\r\n                {{this.operatorById.season}}\r\n                <br />\r\n                <b>Available in ranked: </b>\r\n                <br />\r\n                {{this.operatorById.availableInRanked}}\r\n                <br />\r\n            </p>\r\n        </div>\r\n        <div class=\"card-footer text-center\">\r\n          <button [routerLink]=\"['/operator/edit', this.operatorById._id]\" routerLinkActive=\"active\" type=\"button\"\r\n          class=\"btn btn-warning float-left btn-season\">Edit</button>\r\n          <button [routerLink]=\"['/operator/delete', operatorById._id]\" routerLinkActive=\"active\" type=\"button\"\r\n      class=\"btn btn-danger float-right  btn-season\">Delete</button>\r\n        </div>\r\n      </div>\r\n      </div>"
 
 /***/ }),
 
@@ -1156,7 +1214,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card mt-5\"  *ngIf=\"_authService.loggedIn()\">\r\n  <div class=\"card-body\">\r\n      <a class=\"btn btn-success createbutton\"  routerLink = \"/operators/create\">Niewe Operator aanmaken</a>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-md-4 mb-3\" *ngFor=\"let operator of operators\">\r\n    <div class=\"card text-center\">\r\n      <div class=\"card-body\">\r\n        <h5 class=\"card-title\">\r\n          {{operator.name}}\r\n        </h5>\r\n        <p class=\"card-text\">\r\n          {{operator.side}}\r\n        </p>\r\n        <a (click)=\"onSelect(operator)\" class=\"btn btn-primary\">Meer Informatie</a>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<app-operator-detail [operator]=\"selectedOperator\"></app-operator-detail>"
+module.exports = "<div class=\"card mt-5\"  *ngIf=\"_authService.loggedIn()\">\r\n  <div class=\"card-body\">\r\n      <a class=\"btn btn-success createbutton\"  routerLink = \"/operator/create\">Niewe Operator aanmaken</a>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-md-4 mb-3\" *ngFor=\"let operator of operators\">\r\n    <div class=\"card text-center\">\r\n      <div class=\"card-body\">\r\n        <h5 class=\"card-title\">\r\n          {{operator.name}}\r\n        </h5>\r\n        <p class=\"card-text\">\r\n          {{operator.side}}\r\n        </p>\r\n        <button [routerLink]=\"['/operator', operator._id]\" routerLinkActive=\"active\" type=\"button\"\r\n        class=\"btn btn-primary btn-operator\">View</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<app-operator-detail [operator]=\"selectedOperator\"></app-operator-detail>"
 
 /***/ }),
 
@@ -1367,40 +1425,19 @@ var SeasonCreateComponent = /** @class */ (function () {
             year: Number,
             season: Number
         };
-        this.displayresult = {};
-        this.displayresults = [];
     }
     SeasonCreateComponent.prototype.ngOnInit = function () {
-        this.showResultBox = false;
     };
     SeasonCreateComponent.prototype.addSeason = function () {
         var _this = this;
+        console.log(this.seasonCreate);
         this._siegeService.addSeason(this.seasonCreate)
             .subscribe(function (res) {
             _this._router.navigate(['/operations']);
             console.log(res);
-            _this.displayresult = {
-                result: "success",
-                message: "Season was created succesfully"
-            };
-            _this.showResult();
         }, function (err) {
             console.log(err);
-            _this.displayresults = [
-                _this.displayresult = {
-                    result: "Failed",
-                    message: JSON.stringify(err.error.err.errors.name.message)
-                },
-            ];
-            _this.showResult();
         });
-    };
-    SeasonCreateComponent.prototype.showResult = function () {
-        var _this = this;
-        this.showResultBox = true;
-        setTimeout(function () {
-            _this.showResultBox = false;
-        }, 5000);
     };
     SeasonCreateComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1435,7 +1472,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card mt-5\">\r\n  \r\n  <div class=\"card-body text-center\">\r\n     <h3>Weet je zeker dat je deze operation wilt verwijderen?</h3>\r\n     <br/>\r\n     <button type=\"button\"\t(click)=\"deleteSeason()\" class=\"btn btn-danger createbutton\">Verwijder Operation</button>\r\n    </div>\r\n  \r\n</div>"
+module.exports = "<div class=\"card mt-5\">\r\n  \r\n  <div class=\"card-body text-center\">\r\n     <h3>Weet je zeker dat je deze operation wilt verwijderen?</h3>\r\n     <br/>\r\n     <button type=\"button\"\t(click)=\"delete()\" class=\"btn btn-danger createbutton\">Verwijder Operation</button>\r\n    </div>\r\n  \r\n</div>"
 
 /***/ }),
 
@@ -1450,7 +1487,9 @@ module.exports = "<div class=\"card mt-5\">\r\n  \r\n  <div class=\"card-body te
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SeasonDeleteComponent", function() { return SeasonDeleteComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var src_app_siege_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/siege.service */ "./src/app/siege.service.ts");
+/* harmony import */ var _season_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../season.model */ "./src/app/seasons/season.model.ts");
+/* harmony import */ var src_app_siege_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/siege.service */ "./src/app/siege.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1462,19 +1501,49 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var SeasonDeleteComponent = /** @class */ (function () {
-    function SeasonDeleteComponent(_siegeService) {
+    function SeasonDeleteComponent(_siegeService, route, _router) {
         this._siegeService = _siegeService;
+        this.route = route;
+        this._router = _router;
     }
     SeasonDeleteComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.sub = this.route.params.subscribe(function (params) {
+            _this._siegeService.getSeasonById(params.id)
+                .subscribe(function (res) {
+                _this.seasonToDelete = res;
+                console.log("Mission Accomplished");
+            }, function (err) {
+                console.log(err);
+            });
+        });
     };
+    SeasonDeleteComponent.prototype.delete = function () {
+        var _this = this;
+        this._siegeService.deleteSeason(this.seasonToDelete._id)
+            .subscribe(function (res) {
+            console.log(res);
+            _this._router.navigate(['/operations']);
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _season_model__WEBPACK_IMPORTED_MODULE_1__["Season"])
+    ], SeasonDeleteComponent.prototype, "season", void 0);
     SeasonDeleteComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-season-delete',
             template: __webpack_require__(/*! ./season-delete.component.html */ "./src/app/seasons/season-delete/season-delete.component.html"),
             styles: [__webpack_require__(/*! ./season-delete.component.css */ "./src/app/seasons/season-delete/season-delete.component.css")]
         }),
-        __metadata("design:paramtypes", [src_app_siege_service__WEBPACK_IMPORTED_MODULE_1__["SiegeService"]])
+        __metadata("design:paramtypes", [src_app_siege_service__WEBPACK_IMPORTED_MODULE_2__["SiegeService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], SeasonDeleteComponent);
     return SeasonDeleteComponent;
 }());
@@ -1617,7 +1686,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div *ngIf=\"season\">\r\n    <div class=\"card mt-5 mb-5\">\r\n        <div class=\"card-heading text-center\">\r\n          Edit {{season.name}}\r\n          <hr />\r\n        </div>\r\n        <div class=\"card-body\">\r\n          <form class=\"form\">\r\n            <div class=\"form-group\">\r\n              <label for=\"name\">Operation name:</label>\r\n              <input type=\"text\" [(ngModel)]=\"seasonNewName\" name=\"name\" class=\"form-control rounded-0\" required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label>Description: </label>\r\n              <input type=\"text\" [(ngModel)]=\"seasonNewDesc\" name=\"description\" class=\"form-control rounded-0\"\r\n                required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label>Year: </label>\r\n              <input type=\"number\" [(ngModel)]=\"seasonNewYear\" name=\"year\" class=\"form-control rounded-0\" required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label>Season: </label>\r\n              <input type=\"number\" [(ngModel)]=\"seasonNewSeason\" name=\"season\" class=\"form-control rounded-0\"\r\n                required>\r\n            </div>    \r\n           \r\n            <button type=\"button\" (click)=\"editSeason()\" class=\"btn btn-primary float-right\">Confirm</button>\r\n          </form>\r\n        </div>\r\n      \r\n      </div>\r\n</div>"
+module.exports = "<div *ngIf=\"seasonById\">\r\n    <div class=\"card mt-5 mb-5\">\r\n        <div class=\"card-heading text-center\">\r\n          Edit {{seasonById.name}}\r\n          <hr />\r\n        </div>\r\n        <div class=\"card-body\">\r\n          <form class=\"form\">\r\n            <div class=\"form-group\">\r\n              <label for=\"name\">Operation name:</label>\r\n              <input type=\"text\" [(ngModel)]=\"seasonNewName\" name=\"name\" class=\"form-control rounded-0\" required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label>Description: </label>\r\n              <input type=\"text\" [(ngModel)]=\"seasonNewDesc\" name=\"description\" class=\"form-control rounded-0\"\r\n                required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label>Year: </label>\r\n              <input type=\"number\" [(ngModel)]=\"seasonNewYear\" name=\"year\" class=\"form-control rounded-0\" required>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label>Season: </label>\r\n              <input type=\"number\" [(ngModel)]=\"seasonNewSeason\" name=\"season\" class=\"form-control rounded-0\"\r\n                required>\r\n            </div>    \r\n           \r\n            <button type=\"button\" (click)=\"editSeason()\" class=\"btn btn-primary float-right\">Confirm</button>\r\n          </form>\r\n        </div>\r\n      \r\n      </div>\r\n    </div>"
 
 /***/ }),
 
@@ -1637,6 +1706,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_worlds_world_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/worlds/world.model */ "./src/app/worlds/world.model.ts");
 /* harmony import */ var src_app_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/auth.service */ "./src/app/auth.service.ts");
 /* harmony import */ var _seasons_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../seasons.component */ "./src/app/seasons/seasons.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1652,6 +1722,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SeasonEditComponent = /** @class */ (function () {
     // seasonEditForm = {
     //     name: String,
@@ -1661,7 +1732,9 @@ var SeasonEditComponent = /** @class */ (function () {
     //     operator: Character,
     //     world: World
     // }
-    function SeasonEditComponent(_siegeService, _authService, _seasonComp) {
+    function SeasonEditComponent(_router, route, _siegeService, _authService, _seasonComp) {
+        this._router = _router;
+        this.route = route;
         this._siegeService = _siegeService;
         this._authService = _authService;
         this._seasonComp = _seasonComp;
@@ -1674,20 +1747,32 @@ var SeasonEditComponent = /** @class */ (function () {
     }
     SeasonEditComponent.prototype.ngOnInit = function () {
         var _this = this;
-        return this._siegeService.getOperators()
-            .subscribe(function (res) { return _this.operators = res; }, function (err) { return console.log(err); }),
-            this._siegeService.getWorlds()
-                .subscribe(function (res) { return _this.worlds = res; }, function (err) { return console.log(err); });
+        this.sub = this.route.params.subscribe(function (params) {
+            _this._siegeService.getSeasonById(params.id)
+                .subscribe(function (res) {
+                _this.seasonById = res;
+                //console.log(this.worldById)
+            }, function (err) {
+                console.log(err);
+            });
+            return _this._siegeService.getOperators()
+                .subscribe(function (res) { return _this.operators = res; }, function (err) { return console.log(err); }),
+                _this._siegeService.getWorlds()
+                    .subscribe(function (res) { return _this.worlds = res; }, function (err) { return console.log(err); });
+        });
     };
     SeasonEditComponent.prototype.editSeason = function () {
         var _this = this;
         if (this._authService.loggedIn) {
-            this.seasonEdit = new _season_model__WEBPACK_IMPORTED_MODULE_1__["Season"](this.season.name, this.seasonNewName, this.seasonNewDesc, this.seasonNewYear, this.seasonNewSeason);
-            this._siegeService.editSeason(this.seasonEdit)
+            this.seasonEdit = new _season_model__WEBPACK_IMPORTED_MODULE_1__["Season"](this.seasonById._id, this.seasonNewName, this.seasonNewDesc, this.seasonNewYear, this.seasonNewSeason);
+            this._siegeService.editSeason(this.seasonById._id, this.seasonEdit)
                 .subscribe(function (res) {
                 _this._seasonComp.refreshSeasons();
                 console.log(res);
-            }, function (err) { return console.log(err); });
+                _this._router.navigate(['/operations']);
+            }, function (err) {
+                console.log(err);
+            });
         }
     };
     __decorate([
@@ -1704,7 +1789,7 @@ var SeasonEditComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./season-edit.component.html */ "./src/app/seasons/season-edit/season-edit.component.html"),
             styles: [__webpack_require__(/*! ./season-edit.component.css */ "./src/app/seasons/season-edit/season-edit.component.css")]
         }),
-        __metadata("design:paramtypes", [_siege_service__WEBPACK_IMPORTED_MODULE_2__["SiegeService"], src_app_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"], _seasons_component__WEBPACK_IMPORTED_MODULE_5__["SeasonsComponent"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], _siege_service__WEBPACK_IMPORTED_MODULE_2__["SiegeService"], src_app_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"], _seasons_component__WEBPACK_IMPORTED_MODULE_5__["SeasonsComponent"]])
     ], SeasonEditComponent);
     return SeasonEditComponent;
 }());
@@ -1831,7 +1916,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <app-season-edit [season]=\"selectedSeason\"></app-season-edit> -->\r\n\r\n\r\n\r\n<div *ngIf=\"this.seasonById\">\r\n    <div class=\"card mt-2\">\r\n        <div class=\"card-header\">\r\n                <h5 class=\"card-title\">\r\n                        Detailed Information about {{this.seasonById.name | uppercase}}\r\n                    </h5>\r\n        </div>\r\n        <div class=\"card-body\">\r\n            <p class=\"card-text\">\r\n\r\n                <b>Name:</b>\r\n                <br />\r\n                {{this.seasonById.name}}\r\n                <br />\r\n                <b>Description:</b>\r\n                <br />\r\n                {{this.seasonById.description}}\r\n                <br />\r\n                <b>Year: </b>\r\n                <br />\r\n                {{this.seasonById.year}}\r\n                <br />\r\n                <b>Season: </b>\r\n                <br />\r\n                {{this.seasonById.season}}\r\n                <br />\r\n            </p>\r\n\r\n           \r\n        </div>\r\n        <div class=\"card-footer text-center\">\r\n            <small>This component was made for Richardson maturity level 2</small>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<!-- <div *ngIf=\"this.display\" class=\"mt-5\">\r\n        <div *ngFor=\"let operator of operators\">\r\n            <div class=\"card\" *ngIf=\"seasonHas(operator)\">\r\n    \r\n                <div class=\"card-title\">\r\n                    <h5>\r\n                        {{operator.name}}\r\n                    </h5>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <b>\r\n                        Description:\r\n                    </b>\r\n                    {{operator.description}}\r\n                    <br />\r\n                    <b>\r\n                        Side\r\n                    </b>\r\n                    {{operator.side}}\r\n    \r\n                </div>\r\n            </div>\r\n    \r\n        </div>\r\n    </div> -->\r\n\r\n"
+module.exports = "<!-- <app-season-edit [season]=\"selectedSeason\"></app-season-edit> -->\r\n\r\n\r\n\r\n<div *ngIf=\"this.seasonById\">\r\n    <div class=\"card mt-2\">\r\n        <div class=\"card-header\">\r\n                <h5 class=\"card-title\">\r\n                        Detailed Information about {{this.seasonById.name | uppercase}}\r\n                    </h5>\r\n        </div>\r\n        <div class=\"card-body\">\r\n            <p class=\"card-text\">\r\n\r\n                <b>Name:</b>\r\n                <br />\r\n                {{this.seasonById.name}}\r\n                <br />\r\n                <b>Description:</b>\r\n                <br />\r\n                {{this.seasonById.description}}\r\n                <br />\r\n                <b>Year: </b>\r\n                <br />\r\n                {{this.seasonById.year}}\r\n                <br />\r\n                <b>Season: </b>\r\n                <br />\r\n                {{this.seasonById.season}}\r\n                <br />\r\n            </p>\r\n\r\n           \r\n        </div>\r\n        <div class=\"card-footer text-center\">\r\n            <button [routerLink]=\"['/season/edit', seasonById._id]\" routerLinkActive=\"active\" type=\"button\"\r\n            class=\"btn btn-warning float-left btn-season\">Edit</button>\r\n            <button [routerLink]=\"['/season/delete', seasonById._id]\" routerLinkActive=\"active\" type=\"button\"\r\n        class=\"btn btn-danger float-right  btn-season\">Delete</button>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<!-- <div *ngIf=\"this.display\" class=\"mt-5\">\r\n        <div *ngFor=\"let operator of operators\">\r\n            <div class=\"card\" *ngIf=\"seasonHas(operator)\">\r\n    \r\n                <div class=\"card-title\">\r\n                    <h5>\r\n                        {{operator.name}}\r\n                    </h5>\r\n                </div>\r\n                <div class=\"card-body\">\r\n                    <b>\r\n                        Description:\r\n                    </b>\r\n                    {{operator.description}}\r\n                    <br />\r\n                    <b>\r\n                        Side\r\n                    </b>\r\n                    {{operator.side}}\r\n    \r\n                </div>\r\n            </div>\r\n    \r\n        </div>\r\n    </div> -->\r\n\r\n"
 
 /***/ }),
 
@@ -1945,7 +2030,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card mt-5\" *ngIf=\"_authService.loggedIn()\">\r\n    <div class=\"card-body\">\r\n        <a routerLink=\"/operations/create\" class=\"btn btn-success editbutton\">Niewe Operation aanmaken</a>\r\n        <a routerLink=\"/operations/populate\" class=\"btn btn-primary editbutton\">Populate bestaande Operation</a>\r\n        \r\n      </div>\r\n  </div>\r\n\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-md-4 mb-3\" *ngFor=\"let season of seasons\">\r\n    <div class=\"card text-center\">\r\n      <div class=\"card-body\">\r\n        <h5 class=\"card-title\">\r\n          {{season.name}}\r\n        </h5>\r\n        <p class=\"card-text\">\r\n         Year {{season.year}}, Season: {{season.season}}\r\n        </p>\r\n        <a (click)=\"onSelect(season)\" class=\"btn btn-primary\">Meer Informatie</a>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<app-season-detail [season]=\"selectedSeason\"></app-season-detail>\r\n"
+module.exports = "<div class=\"card mt-5\" *ngIf=\"_authService.loggedIn()\">\r\n    <div class=\"card-body\">\r\n        <a routerLink=\"/season/create\" class=\"btn btn-success editbutton\">Niewe Operation aanmaken</a>\r\n        <a routerLink=\"/operations/populate\" class=\"btn btn-primary editbutton\">Populate bestaande Operation</a>\r\n        \r\n      </div>\r\n  </div>\r\n\r\n<div class=\"row mt-5\">\r\n  <div class=\"col-md-4 mb-3\" *ngFor=\"let season of seasons\">\r\n    <div class=\"card text-center\">\r\n      <div class=\"card-body\">\r\n        <h5 class=\"card-title\">\r\n          {{season.name}}\r\n        </h5>\r\n        <p class=\"card-text\">\r\n         Year {{season.year}}, Season: {{season.season}}\r\n        </p>\r\n        <button [routerLink]=\"['/season', season._id]\" routerLinkActive=\"active\" type=\"button\"\r\n        class=\"btn btn-primary btn-season\">View</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<app-season-detail [season]=\"selectedSeason\"></app-season-detail>\r\n"
 
 /***/ }),
 
@@ -2078,20 +2163,14 @@ var SiegeService = /** @class */ (function () {
         return this.http.get(this._operatorUrl + '' + _id);
     };
     SiegeService.prototype.addOperator = function (operator) {
-        return this.http.post(this._operatorsUrl, operator);
+        return this.http.post(this._operatorUrl, operator);
     };
-    SiegeService.prototype.editOperator = function (operator) {
+    SiegeService.prototype.editOperator = function (_id, operator) {
         console.log('ewaja' + operator);
-        return this.http.put(this._operatorsUrl, operator);
+        return this.http.put(this._operatorUrl + '' + _id, operator);
     };
-    SiegeService.prototype.deleteOperator = function (name) {
-        var httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'name': name
-            })
-        };
-        return this.http.delete(this._operatorsUrl, httpOptions);
+    SiegeService.prototype.deleteOperator = function (_id) {
+        return this.http.delete(this._operatorUrl + '' + _id);
     };
     //SEASONS API CALLS
     SiegeService.prototype.getSeasons = function () {
@@ -2101,25 +2180,18 @@ var SiegeService = /** @class */ (function () {
         return this.http.get(this._seasonUrl + '' + _id);
     };
     SiegeService.prototype.addSeason = function (season) {
-        return this.http.post(this._seasonsUrl, season);
+        return this.http.post(this._seasonUrl, season);
     };
-    SiegeService.prototype.editSeason = function (season) {
+    SiegeService.prototype.editSeason = function (_id, season) {
         console.log('ewaja' + season);
-        return this.http.put(this._seasonsUrl, season);
+        return this.http.put(this._seasonUrl + '' + _id, season);
     };
     SiegeService.prototype.populateSeason = function (season) {
         console.log(season);
         return this.http.put(this._seasonsUrl + 'populate/', season);
     };
-    SiegeService.prototype.deleteSeason = function (name) {
-        console.log(name);
-        var httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'name': name
-            })
-        };
-        return this.http.delete(this._seasonsUrl, httpOptions);
+    SiegeService.prototype.deleteSeason = function (_id) {
+        return this.http.delete(this._seasonUrl + '' + _id);
     };
     //USER DELETE
     SiegeService.prototype.deleteUser = function (name, pass) {
@@ -2420,10 +2492,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var WorldDeleteComponent = /** @class */ (function () {
-    function WorldDeleteComponent(_siegeService, _worldsComp, route) {
+    function WorldDeleteComponent(_siegeService, _worldsComp, route, _router) {
         this._siegeService = _siegeService;
         this._worldsComp = _worldsComp;
         this.route = route;
+        this._router = _router;
     }
     WorldDeleteComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -2442,6 +2515,7 @@ var WorldDeleteComponent = /** @class */ (function () {
         this._siegeService.deleteWorld(this.worldToDelete._id)
             .subscribe(function (res) {
             _this._worldsComp.refreshWorlds();
+            _this._router.navigate(['/maps']);
             console.log(res);
         }, function (err) { return console.log(err); });
     };
@@ -2455,7 +2529,7 @@ var WorldDeleteComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./world-delete.component.html */ "./src/app/worlds/world-delete/world-delete.component.html"),
             styles: [__webpack_require__(/*! ./world-delete.component.css */ "./src/app/worlds/world-delete/world-delete.component.css")]
         }),
-        __metadata("design:paramtypes", [src_app_siege_service__WEBPACK_IMPORTED_MODULE_2__["SiegeService"], _worlds_component__WEBPACK_IMPORTED_MODULE_3__["WorldsComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
+        __metadata("design:paramtypes", [src_app_siege_service__WEBPACK_IMPORTED_MODULE_2__["SiegeService"], _worlds_component__WEBPACK_IMPORTED_MODULE_3__["WorldsComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], WorldDeleteComponent);
     return WorldDeleteComponent;
 }());
@@ -2648,8 +2722,8 @@ var WorldEditComponent = /** @class */ (function () {
         console.log(this.worldEdit.value);
         this._siegeService.editWorld(this.worldById._id, this.worldEdit.value)
             .subscribe(function (res) {
+            _this._router.navigate(['/maps']);
             console.log(res);
-            _this._router.navigate(['/worlds/']);
         }, function (err) { return console.log(err); });
         // if (this._authService.loggedIn) {
         //   this.worldEdit = new World(this.worldById._id, this.newName, this.newWorldDesc, this.newWorldRanked)

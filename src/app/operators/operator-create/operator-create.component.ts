@@ -12,16 +12,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./operator-create.component.css']
 })
 export class OperatorCreateComponent implements OnInit {
+  
+  seasons: [];
 
   operatorCreateForm = {
     name: String,
     description: String,
-    side: String
+    side: String,
+    season: String
   }
 
   constructor(private _siegeService : SiegeService, private _router: Router) { }
 
   ngOnInit() {
+    return this._siegeService.getSeasons()
+    .subscribe(
+      res => {
+        this.seasons = res
+      },
+      err => console.log(err)
+    )
   }
 
   addOperator() {

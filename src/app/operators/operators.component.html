@@ -3,6 +3,11 @@
       <a class="btn btn-success createbutton"  routerLink = "/operator/create">Niewe Operator aanmaken</a>
   </div>
 </div>
+<div class="container text-center mt-2 pb-2 pt-2 rounded" style="background-color:grey">
+    <h1 style="color:white;">Operators</h1>
+    <p>Selecteer een operator uit de lijst om meer informatie te zien</p>
+    <hr style="background-color:white;"/>
+  </div>
 
 <div class="row mt-5">
   <div class="col-md-4 mb-3" *ngFor="let operator of operators">
@@ -20,4 +25,4 @@
     </div>
   </div>
 </div>
-<app-operator-detail [operator]="selectedOperator"></app-operator-detail>
+<!-- <app-operator-detail [operator]="selectedOperator"></app-operator-detail> -->

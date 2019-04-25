@@ -6,25 +6,20 @@
       </h5>
     </div>
     <div class="card-body">
-        <p class="card-text">
-
-            <b>Name:</b>
-            <br />
-            {{this.worldById.name}}
-            <br />
-            <b>Description:</b>
-            <br />
-            {{this.worldById.description}}
-            <br />
-            <b>Season: </b>
-            <br />
-            {{this.worldById.season}}
-            <br />
-            <b>Available in ranked: </b>
-            <br />
-            {{this.worldById.availableInRanked}}
-            <br />
-        </p>
+          <div class="row">
+            <div class="col-lg-6">
+              <h5>Naam</h5>
+              <p>{{this.worldById.name}}</p>
+              <h5>Beschrijving</h5>
+              <p>{{this.worldById.description}}</p>
+            </div>
+            <div class="col-lg-6">
+              <h5>Operation</h5>
+              <button class="btn btn-primary" style="width: 100%" [routerLink]="['/season', this.seasonById._id]">{{this.seasonById.name}}</button>
+              <!-- <h5>Available in Ranked</h5>
+              <p>{{this.worldById.availableInRanked}}</p> -->
+            </div>
+          </div>
     </div>
     <div class="card-footer text-center">
         <button *ngIf="_authService.loggedIn()" [routerLink]="['/map/edit', this.worldById._id]" type="button"

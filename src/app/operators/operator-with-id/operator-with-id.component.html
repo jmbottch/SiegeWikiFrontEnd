@@ -1,36 +1,32 @@
 <div *ngIf="this.operatorById">
-    <div class="card mt-2">
-        <div class="card-header">
-          <h5 class="card-title">
-            Detailed information about {{this.operatorById.name | uppercase}}
-          </h5>
+  <div class="card mt-2">
+    <div class="card-header">
+      <h5 class="card-title">
+        Detailed information about {{operatorById.name | uppercase}}
+      </h5>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-6">
+          <h5>Naam</h5>
+          <p>{{this.operatorById.name}}</p>
+          <h5>Beschrijving</h5>
+          <p>{{this.operatorById.description}}</p>
         </div>
-        <div class="card-body">
-            <p class="card-text">
-    
-                <b>Name:</b>
-                <br />
-                {{this.operatorById.name}}
-                <br />
-                <b>Description:</b>
-                <br />
-                {{this.operatorById.description}}
-                <br />
-                <b>Season: </b>
-                <br />
-                {{this.operatorById.season}}
-                <br />
-                <b>Available in ranked: </b>
-                <br />
-                {{this.operatorById.availableInRanked}}
-                <br />
-            </p>
-        </div>
-        <div class="card-footer text-center">
-          <button [routerLink]="['/operator/edit', this.operatorById._id]" routerLinkActive="active" type="button"
-          class="btn btn-warning float-left btn-season">Edit</button>
-          <button [routerLink]="['/operator/delete', operatorById._id]" routerLinkActive="active" type="button"
-      class="btn btn-danger float-right  btn-season">Delete</button>
+        <div class="col-lg-6">
+          <div *ngIf="operatorSeason">
+          <h5>Operation</h5>          
+          <button style="width:100%" class="btn btn-primary"
+            [routerLink]="['/season', this.operatorById.season]">{{operatorSeason.name}}</button>
+          </div>
         </div>
       </div>
-      </div>
+    </div>
+    <div class="card-footer text-center">
+      <button *ngIf="_authService.loggedIn()" [routerLink]="['/operator/edit', this.operatorById._id]" routerLinkActive="active" type="button"
+        class="btn btn-warning float-left btn-season">Edit</button>
+      <button *ngIf="_authService.loggedIn()" [routerLink]="['/operator/delete', operatorById._id]" routerLinkActive="active" type="button"
+        class="btn btn-danger float-right  btn-season">Delete</button>
+    </div>
+  </div>
+</div>

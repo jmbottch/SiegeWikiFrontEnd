@@ -20,6 +20,13 @@
                   <option >Defender</option>
                   </select>
           </div>
+          <div class="form-group">
+              <label>Operation: </label>
+              <select class="string-box btn text-white rounding half-black list-item mt-1 text-center" [(ngModel)]="operatorCreateForm.season"  name="season">
+                  <option class="string-box btn text-white rounding half-black list-item mt-1 text-center">Selecteer een Season</option>
+                  <option class="string-box btn text-white rounding half-black list-item mt-1 text-center" *ngFor="let season of seasons" value="{{season._id}}">{{season.name}}</option>
+              </select>
+            </div>
             
           <button type="button" (click)="addOperator()" class="btn btn-primary float-right">Confirm</button>
         </form>

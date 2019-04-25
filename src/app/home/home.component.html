@@ -1,23 +1,25 @@
-<div class='card mt-5'>
-    <div class='card-header text-center'>
-        <h1>Operations:</h1>
+<div class="container rounded mt-2 pb-2" style="background-color: grey;">
+    <div class="text-center">
+        <h1 style="color:white;">Welkom bij SiegeWikia</h1>
+        <h3>De hulppagina voor als je wilt weten wat de achtergronden achter de karakters, maps
+            en seizoenen zijn van Tom Clancy's Rainbow Six Siege</h3>
+        <hr style="background-color:white;"/>
     </div>
 </div>
 
-    <app-seasons></app-seasons>
-
-
-<div class='card mt-5'>
-    <div class='card-header text-center'>
-        <h1>Operators:</h1>
+<div class="container rounded mt-2 pt-2 pb-2" style="background-color:grey;">
+    <h2 style="color:white;">Opties</h2>
+    <p>Klik op een van onderstaande knoppen om naar deze pagina te navigeren.</p>
+    <hr/>
+    <div class="row">
+        <div class="col-lg-4">  
+            <button class="btn btn-primary" style="width:100%;height:60px;" routerLink="/operations">Operations</button>
+        </div>
+        <div class="col-lg-4">
+                <button class="btn btn-primary" style="width:100%;height:60px;" routerLink="/maps">Maps</button>
+        </div>
+        <div class="col-lg-4">
+                <button class="btn btn-primary" style="width:100%;height:60px;" routerLink="/operators">Operators</button>
+        </div>
     </div>
 </div>
-
-<app-operators></app-operators>
-
-<div class='card mt-5'>
-    <div class='card-header text-center'>
-        <h1>Maps:</h1>
-    </div>
-</div>
-<app-worlds></app-worlds>
