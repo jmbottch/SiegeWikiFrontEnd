@@ -13,7 +13,7 @@
               <h5>Beschrijving</h5>
               <p>{{this.worldById.description}}</p>
             </div>
-            <div class="col-lg-6">
+            <div *ngIf="this.seasonById" class="col-lg-6">
               <h5>Operation</h5>
               <button class="btn btn-primary" style="width: 100%" [routerLink]="['/season', this.seasonById._id]">{{this.seasonById.name}}</button>
               <!-- <h5>Available in Ranked</h5>
