@@ -61,18 +61,22 @@ const routes: Routes = [
   {
     path:'season/create',
     component: SeasonCreateComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'season/edit/:id',
-    component: SeasonEditComponent
+    component: SeasonEditComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'season/delete/:id',
-    component:SeasonDeleteComponent
+    component:SeasonDeleteComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'operations/populate',
-    component: SeasonPopulateComponent
+    component: SeasonPopulateComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'season/:id',
@@ -81,15 +85,18 @@ const routes: Routes = [
   //WORLD ROUTES
   {
     path:'maps/create',
-    component: WorldCreateComponent
+    component: WorldCreateComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'map/edit/:id',
-    component: WorldEditComponent
+    component: WorldEditComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'map/delete/:id',
-    component: WorldDeleteComponent
+    component: WorldDeleteComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'map/:id',
@@ -98,14 +105,17 @@ const routes: Routes = [
   //OPERATOR ROUTES
   {
     path:'operator/create',
-    component: OperatorCreateComponent
+    component: OperatorCreateComponent,
+    canActivate: [AuthGuard]
   },
   { path: 'operator/delete/:id',
-    component: OperatorDeleteComponent
+    component: OperatorDeleteComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'operator/edit/:id',
-    component: OperatorEditComponent
+    component: OperatorEditComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'operator/:id',
